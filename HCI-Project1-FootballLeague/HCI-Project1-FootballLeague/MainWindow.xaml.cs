@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HCI_Project1_FootballLeague.Classes;
+using HCI_Project1_FootballLeague.DBFunctions;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +23,9 @@ namespace HCI_Project1_FootballLeague
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public static string ConnectionString = "Server=localhost;Database=fudbalskaliga-hci;UserId = root; Password = Root123!;";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,10 +47,10 @@ namespace HCI_Project1_FootballLeague
             reader.Close();
             conn.Close();*/
 
-            /*foreach(Stadium s in stadiums)
+            /*List<Administrator> admins = AdminDB.GetAdministrators(); 
+            foreach(Administrator s in admins)
             {
-                Console.WriteLine(s.Naziv);
-                DataGridXAML.Items.Add(s);
+                MessageBox.Show(s.UserName);
             }*/
 
             /*foreach (FootballClub s in stadiums)
@@ -85,14 +91,19 @@ namespace HCI_Project1_FootballLeague
             }
             catch (MySqlException e)
             {
-                Trace.WriteLine(e);
                 MessageBox.Show(e.Message);
             }
             finally
             {
                 conn2.Close();
-
+            
             }*/
+
+            //StadiumDB.AddStadium(new Stadium("Ime", 10, "Grad"));
+            //StadiumDB.DeleteStadium(21);
+
+            StadiumDB.UpdateStadium(new Stadium(1, "Etihad!", 22000, "Manchester"));
+
         }
 
         /*public class Employee

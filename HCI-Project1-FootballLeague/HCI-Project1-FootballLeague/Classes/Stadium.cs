@@ -16,6 +16,12 @@ namespace HCI_Project1_FootballLeague.Classes
 
         public Stadium() { }
 
+        public Stadium(string name, int capacity, String town)
+        {
+            Name = name;
+            Capacity = capacity;
+            Town = town;
+        }
         public Stadium(int stadiumId, string name, int capacity, String town)
         {
             StadiumId = stadiumId;
