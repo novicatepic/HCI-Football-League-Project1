@@ -1,0 +1,16 @@
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\HCI-Project1-FootballLeague.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\HCI-Project1-FootballLeague.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\MainWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\App.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\HCI-Project1-FootballLeague_MarkupCompile.cache
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\HCI-Project1-FootballLeague_MarkupCompile.lref
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\bin\Debug\HCI-Project1-FootballLeague.exe.config
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\bin\Debug\HCI-Project1-FootballLeague.exe
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\bin\Debug\HCI-Project1-FootballLeague.pdb
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\MainWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\HCI-Project1-FootballLeague.g.resources
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\HCI_Project1_FootballLeague.Properties.Resources.resources
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\HCI-Project1-FootballLeague.csproj.GenerateResource.cache
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\HCI-Project1-FootballLeague.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\HCI-Project1-FootballLeague.exe
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\HCI-Project1-FootballLeague.pdb

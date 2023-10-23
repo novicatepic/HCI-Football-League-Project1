@@ -1,4 +1,0 @@
-Provjeriti da li je konceptualni model u redu
-Vidjeti da li je izbaceno nesto sto nije trebalo
-Izbaciti glavnog sudiju dodatno?
-Uvezivanje glavnog administratora i administratora lige ili ostaviti bez veza (tj. sa cim uopste uvezati)?

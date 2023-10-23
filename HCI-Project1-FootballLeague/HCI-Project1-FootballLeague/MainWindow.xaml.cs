@@ -1,0 +1,120 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace HCI_Project1_FootballLeague
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            /*MySqlConnection conn = new MySqlConnection("Server=localhost;Database=fudbalskaliga;UserId = root; Password = Root123!;");
+            conn.Open();
+
+            List<SeasonStats> stadiums = new List<SeasonStats>();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT BrojOdigranihUtakmica, BrojPobjeda, BrojNerijesenih, BrojPoraza, BrojPostignutihGolova, " +
+                "BrojPrimljenihGolova, FUDBALSKI_KLUB_IdKluba, BrojBodova FROM statistika_u_sezoni";
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                
+                stadiums.Add(new SeasonStats(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), 
+                    reader.GetInt32(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), 2023));
+            }
+            reader.Close();
+            conn.Close();*/
+
+            /*foreach(Stadium s in stadiums)
+            {
+                Console.WriteLine(s.Naziv);
+                DataGridXAML.Items.Add(s);
+            }*/
+
+            /*foreach (FootballClub s in stadiums)
+                {
+                    MySqlCommand cmd2 = conn2.CreateCommand();
+                    cmd2 = conn2.CreateCommand();
+                    cmd2.CommandText = "INSERT INTO fudbalski_klub(Naziv, DatumOsnivanja, BrojOsvojenihTrofeja, StadionId) VALUES (@Naziv, @DatumOsnivanja, @BrojOsvojenihTrofeja, @StadionId)";
+                    cmd2.Parameters.AddWithValue("@Naziv", s.Name);
+                    cmd2.Parameters.AddWithValue("@DatumOsnivanja", s.Date);
+                    cmd2.Parameters.AddWithValue("@BrojOsvojenihTrofeja", s.NumTrophies);
+                    cmd2.Parameters.AddWithValue("@StadionId", s.StadionId);
+                    int brojRedova = cmd2.ExecuteNonQuery();
+                }*/
+
+
+            /*MySqlConnection conn2 = new MySqlConnection("Server=localhost;Database=fudbalskaliga-hci;UserId = root; Password = Root123!;");
+            try
+            {
+                conn2.Open();
+
+                foreach (SeasonStats p in stadiums)
+                {
+                    MySqlCommand cmd2 = conn2.CreateCommand();
+                    cmd2 = conn2.CreateCommand();
+                    cmd2.CommandText = "INSERT INTO statistika_u_sezoni(BrojOdigranihUtakmica, BrojPobjeda, BrojNerijesenih, BrojPoraza, BrojPostignutihGolova, BrojPrimljenihGolova, KlubId, BrojBodova, Sezona)" +
+                        " VALUES (@BrojOdigranihUtakmica, @BrojPobjeda, @BrojNerijesenih, @BrojPoraza, @BrojPostignutihGolova, @BrojPrimljenihGolova, @KlubId, @BrojBodova, @Sezona)";
+                    cmd2.Parameters.AddWithValue("@BrojOdigranihUtakmica", p.NumGamesPlayed);
+                    cmd2.Parameters.AddWithValue("@BrojPobjeda", p.NumWins);
+                    cmd2.Parameters.AddWithValue("@BrojNerijesenih", p.NumDraws);
+                    cmd2.Parameters.AddWithValue("@BrojPoraza", p.NumLoses);
+                    cmd2.Parameters.AddWithValue("@BrojPostignutihGolova", p.NumScored);
+                    cmd2.Parameters.AddWithValue("@BrojPrimljenihGolova", p.NumConceded);
+                    cmd2.Parameters.AddWithValue("@KlubId", p.ClubId);
+                    cmd2.Parameters.AddWithValue("@BrojBodova", p.NumPoints);
+                    cmd2.Parameters.AddWithValue("@Sezona", p.SeasonNum);
+                    int brojRedova = cmd2.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException e)
+            {
+                Trace.WriteLine(e);
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                conn2.Close();
+
+            }*/
+        }
+
+        /*public class Employee
+        {
+            public string employeeID { get; set; }
+            public string employeeName { get; set; }
+            public string employeeAddress { get; set; }
+            public string employeeCity { get; set; }
+            public string employeeState { get; set; }
+
+        }*/
+
+        //Add NE Button Clicked
+        public void AddNewEmployeeBN_Clicked(object sender, RoutedEventArgs e)
+        {
+            /*Employee temp = new Employee();
+            temp.employeeID = IdTB.Text;
+            temp.employeeName = NameTB.Text;
+            temp.employeeAddress = AddressTB.Text;
+            temp.employeeCity = CityTB.Text;
+            temp.employeeState = StateTB.Text;
+            DataGridXAML.Items.Add(temp);*/
+        }
+    }
+}
