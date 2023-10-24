@@ -13,17 +13,26 @@ namespace HCI_Project1_FootballLeague.Classes
         public string Name { get; set; }
         public DateTime Date { get; set; }
         public int NumTrophies { get; set; }
-        public int StadionId { get; set; }
+        public int StadiumId { get; set; }
 
         public FootballClub() { }
 
-        public FootballClub(int clubId, string name, DateTime date, int numTrophies, int stadionId)
+
+        public FootballClub(string name, DateTime date, int numTrophies, int stadiumId)
+        {
+            Name = name;
+            Date = date;
+            NumTrophies= numTrophies;
+            StadiumId = stadiumId;
+        }
+
+        public FootballClub(int clubId, string name, DateTime date, int numTrophies, int stadiumId)
         {
             ClubId = clubId;
             Name = name;
             Date = date;
             NumTrophies = numTrophies;
-            StadionId = stadionId;
+            StadiumId = stadiumId;
         }
     }
 }

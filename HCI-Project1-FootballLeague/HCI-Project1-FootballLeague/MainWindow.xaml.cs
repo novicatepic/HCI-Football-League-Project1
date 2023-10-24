@@ -102,7 +102,31 @@ namespace HCI_Project1_FootballLeague
             //StadiumDB.AddStadium(new Stadium("Ime", 10, "Grad"));
             //StadiumDB.DeleteStadium(21);
 
-            StadiumDB.UpdateStadium(new Stadium(1, "Etihad!", 22000, "Manchester"));
+            //StadiumDB.UpdateStadium(new Stadium(1, "Etihad!", 22000, "Manchester"));
+
+            //AdminDB.AddAdmin(new Administrator("Kor5", "Lozinka5", false));
+            //AdminDB.DeleteStadium(5);
+            //AdminDB.UpdateAdmin(new Administrator(4, "Korisnik4", "Lozinka4", false));
+
+            /*List<FootballClub> clubs = FootballClubDB.GetClubs();
+            foreach(var club in clubs)
+            {
+                MessageBox.Show(club.Name);
+            }*/
+
+            //FootballClubDB.AddClub(new FootballClub("Ime", new DateTime(1990, 05, 05), 0, 1));
+            //FootballClubDB.DeleteStadium(19);
+            //FootballClubDB.UpdateStadium(new FootballClub(17, "Brentford", new DateTime(1986, 11, 21), 1, 20));
+
+            //PlayerDB.DeletePlayer(14);
+
+            /*List<SeasonStats> clubs = SeasonStatsDB.GetStats();
+            foreach (var club in clubs)
+            {
+                MessageBox.Show($"{club.NumPoints}");
+            }*/
+
+            //SeasonStatsDB.UpdateStats(new SeasonStats(1, 1, 0, 0, 2, 1, 17, 3, 2023));
 
         }
 

@@ -15,6 +15,12 @@ namespace HCI_Project1_FootballLeague.Classes
 
         public Administrator() { }
 
+        public Administrator(string userName, string password, bool isMainAdmin)
+        {
+            UserName = userName;
+            Password = password;
+            IsMainAdmin = isMainAdmin;
+        }
         public Administrator(int adminId, string userName, string password, bool isMainAdmin)
         {
             AdminId = adminId;
