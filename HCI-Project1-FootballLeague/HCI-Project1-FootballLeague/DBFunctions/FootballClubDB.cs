@@ -32,6 +32,25 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return clubs;
         }
 
+        public static string GetStadiumName(string clubId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT s.Naziv FROM stadion s INNER JOIN fudbalski_klub f ON s.StadionId=f.StadionId WHERE KlubId=@KlubId";
+            cmd.Parameters.AddWithValue("@KlubId", clubId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            string stadiumName = "";
+            while (reader.Read())
+            {
+                stadiumName = reader.GetString(0);
+            }
+            reader.Close();
+            conn.Close();
+            return stadiumName;
+        }
+
         public static bool AddClub(FootballClub club)
         {
 
@@ -65,7 +84,7 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return false;
         }
 
-        public static bool DeleteStadium(int id)
+        public static bool DeleteClub(int id)
         {
             MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
             try
@@ -92,7 +111,7 @@ namespace HCI_Project1_FootballLeague.DBFunctions
 
         }
 
-        public static bool UpdateStadium(FootballClub club)
+        public static bool UpdateClub(FootballClub club)
         {
             MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
             try

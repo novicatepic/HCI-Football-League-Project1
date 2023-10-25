@@ -50,3 +50,13 @@ C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\H
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\AdminsStartWindows\MainAdminStartWindow.baml
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\LeagueAdminTableWindow\LeagueAdminWindow.g.cs
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\LeagueAdminTableWindow\LeagueAdminWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\AdminsStartWindows\LeagueAdminStartWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\AdminsStartWindows\LeagueAdminStartWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\StadiumWindows\StadiumWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\StadiumWindows\StadiumWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\TeamWindows\TeamWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\TeamWindows\TeamWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\StatsWindows\StatsWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\StatsWindows\StatsWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\ChooseSeasonWindow\SeasonChooserWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\ChooseSeasonWindow\SeasonChooserWindow.baml

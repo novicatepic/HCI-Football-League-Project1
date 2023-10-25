@@ -30,9 +30,7 @@ namespace HCI_Project1_FootballLeague
 
         public MainWindow()
         {
-            InitializeComponent();
-
-         
+            InitializeComponent();      
         }
 
 
@@ -49,8 +47,13 @@ namespace HCI_Project1_FootballLeague
                 }
                 else
                 {
-
+                    LeagueAdminStartWindow leagueAdminStartWindow = new LeagueAdminStartWindow();
+                    leagueAdminStartWindow.Show();
+                    
                 }
+            } else
+            {
+                MessageBox.Show("Incorrect credentials!");
             }
         }
 

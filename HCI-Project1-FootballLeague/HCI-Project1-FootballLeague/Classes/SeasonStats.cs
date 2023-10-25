@@ -18,6 +18,7 @@ namespace HCI_Project1_FootballLeague.Classes
         public int ClubId { get; set; }
         public int NumPoints { get; set; }
         public int SeasonNum { get; set; }
+        public string ClubName { get; set; }
 
         public SeasonStats() { }
 

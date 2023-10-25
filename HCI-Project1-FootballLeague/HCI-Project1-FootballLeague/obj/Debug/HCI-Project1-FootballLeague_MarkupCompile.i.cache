@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\App.xaml
-3-1620344064
+8-992349412
 
-2471575718
+292055139622
 3379122472
-AdminsStartWindows\MainAdminStartWindow.xaml;LeagueAdminTableWindow\LeagueAdminWindow.xaml;MainWindow.xaml;
+AdminsStartWindows\LeagueAdminStartWindow.xaml;AdminsStartWindows\MainAdminStartWindow.xaml;ChooseSeasonWindow\SeasonChooserWindow.xaml;LeagueAdminTableWindow\LeagueAdminWindow.xaml;MainWindow.xaml;StadiumWindows\StadiumWindow.xaml;StatsWindows\StatsWindow.xaml;TeamWindows\TeamWindow.xaml;
 
 True
 

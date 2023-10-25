@@ -12,14 +12,15 @@ namespace HCI_Project1_FootballLeague.DBFunctions
 {
     public class SeasonStatsDB
     {
-        public static List<SeasonStats> GetStats()
+        public static List<SeasonStats> GetStats(int season)
         {
             List<SeasonStats> stats = new List<SeasonStats>();
             MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
             conn.Open();
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM statistika_u_sezoni";
+            cmd.CommandText = "SELECT * FROM statistika_u_sezoni WHERE Sezona=@Sezona";
+            cmd.Parameters.AddWithValue("@Sezona", season);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -31,6 +32,44 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             conn.Close();
 
             return stats;
+        }
+
+        public static string GetClubName(string clubId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT f.Naziv FROM fudbalski_klub f INNER JOIN statistika_u_sezoni s ON s.KlubId=f.KlubId WHERE f.KlubId=@KlubId";
+            cmd.Parameters.AddWithValue("@KlubId", clubId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            string stadiumName = "";
+            while (reader.Read())
+            {
+                stadiumName = reader.GetString(0);
+            }
+            reader.Close();
+            conn.Close();
+            return stadiumName;
+        }
+
+        public static List<Int32> GetSeasons()
+        {
+            List<Int32> seasons = new List<Int32>();
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT DISTINCT Sezona FROM utakmica";
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                seasons.Add(reader.GetInt32(0));
+            }
+            reader.Close();
+            conn.Close();
+
+            return seasons;
         }
 
         //Not tested yet

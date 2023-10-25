@@ -14,6 +14,7 @@ namespace HCI_Project1_FootballLeague.Classes
         public DateTime Date { get; set; }
         public int NumTrophies { get; set; }
         public int StadiumId { get; set; }
+        public string StadiumName { get; set; }
 
         public FootballClub() { }
 

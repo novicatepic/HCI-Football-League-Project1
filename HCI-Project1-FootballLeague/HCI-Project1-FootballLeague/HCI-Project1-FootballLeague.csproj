@@ -107,13 +107,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminsStartWindows\LeagueAdminStartWindow.xaml.cs">
+      <DependentUpon>LeagueAdminStartWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminsStartWindows\MainAdminStartWindow.xaml.cs">
       <DependentUpon>MainAdminStartWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseSeasonWindow\SeasonChooserWindow.xaml.cs">
+      <DependentUpon>SeasonChooserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="LeagueAdminTableWindow\LeagueAdminWindow.xaml.cs">
       <DependentUpon>LeagueAdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StadiumWindows\StadiumWindow.xaml.cs">
+      <DependentUpon>StadiumWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatsWindows\StatsWindow.xaml.cs">
+      <DependentUpon>StatsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeamWindows\TeamWindow.xaml.cs">
+      <DependentUpon>TeamWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AdminsStartWindows\LeagueAdminStartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminsStartWindows\MainAdminStartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChooseSeasonWindow\SeasonChooserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,6 +172,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="StadiumWindows\StadiumWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatsWindows\StatsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeamWindows\TeamWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
