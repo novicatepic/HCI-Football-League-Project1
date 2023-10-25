@@ -46,3 +46,7 @@ C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\H
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\HCI-Project1-FootballLeague.csproj.CopyComplete
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\AdminsStartWindows\MainAdminStartWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\AdminsStartWindows\MainAdminStartWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\LeagueAdminTableWindow\LeagueAdminWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\LeagueAdminTableWindow\LeagueAdminWindow.baml

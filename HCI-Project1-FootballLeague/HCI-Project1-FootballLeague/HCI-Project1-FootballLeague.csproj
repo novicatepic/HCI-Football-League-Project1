@@ -107,6 +107,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminsStartWindows\MainAdminStartWindow.xaml.cs">
+      <DependentUpon>MainAdminStartWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LeagueAdminTableWindow\LeagueAdminWindow.xaml.cs">
+      <DependentUpon>LeagueAdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AdminsStartWindows\MainAdminStartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LeagueAdminTableWindow\LeagueAdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -5,35 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague"
         mc:Ignorable="d"
-        Title="Stadiums" Height="800" Width="902">
-    <Grid Margin="0,0,0,160">
-        <DataGrid x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,0,0,312">
-
-            <!-- Font Color / Style of Columns Headings -->
-            <DataGrid.Resources>
-                <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="Turquoise"></Setter>
-                    <Setter Property="FontWeight" Value="SemiBold"></Setter>
-                    <Setter Property="BorderThickness" Value="0,0,1,2"></Setter>
-                    <Setter Property="BorderBrush" Value="Black"></Setter>
-
-                </Style>
-            </DataGrid.Resources>
-
-            <!-- Column Header Text & Bindings -->
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Stadium ID" Width="1*" Binding="{Binding StadionId}"/>
-                <DataGridTextColumn Header="Stadium Name" Width="1*" Binding="{Binding Naziv}"/>
-                <DataGridTextColumn Header="Stadium Capacity" Width="1*" Binding="{Binding Kapacitet}"/>
-                <DataGridTextColumn Header="Stadium Town" Width="1*" Binding="{Binding Grad}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button Click="AddNewEmployeeBN_Clicked" x:Name="button" Background="White"  FontWeight="SemiBold" Content="Add New Employee" HorizontalAlignment="Center" Height="49" Margin="0,544,0,0" VerticalAlignment="Top" Width="342"/>
-        <TextBox x:Name="IdTB" HorizontalAlignment="Center" Margin="0,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="31"/>
-        <TextBox x:Name="NameTB" HorizontalAlignment="Center" Margin="0,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="31"/>
-        <TextBox x:Name="AddressTB" HorizontalAlignment="Center" Margin="0,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="31"/>
-        <TextBox x:Name="CityTB" HorizontalAlignment="Center" Margin="0,458,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="31"/>
-
+        Title="Welcome" Height="450" Width="800" MinHeight="450" MinWidth="800">
+    <Grid>
+        <Label FontSize="16" Content="Input username - " HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="177,97,478,0" VerticalAlignment="Top" Width="145" Height="49"/>
+        <Label FontSize="16" Content="Input password -" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="176,0,478,0" VerticalAlignment="Center" Width="146" Height="49"/>
+        <TextBox x:Name="userNameBox" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Margin="400,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" Height="49"/>
+        <TextBox x:Name="passwordBox" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Margin="400,0,0,0" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="173" Height="49"/>
+        <Button Click="Button_Click" Content="Proceed" FontSize="24" HorizontalAlignment="Stretch" Margin="0,298,0,0" VerticalAlignment="Stretch" Height="74" Width="248"/>
 
     </Grid>
 </Window>
