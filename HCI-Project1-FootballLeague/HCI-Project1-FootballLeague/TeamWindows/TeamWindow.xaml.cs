@@ -149,5 +149,23 @@ namespace HCI_Project1_FootballLeague.TeamWindows
                 NotSelectedMessage();
             }
         }
+
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if ("".Equals(SearchTB.Text))
+            {
+                DrawData();
+            }
+            else
+            {
+                DataGridXAML.Items.Clear();
+                List<FootballClub> clubs = FootballClubDB.SearchClubs(SearchTB.Text);
+                foreach (FootballClub c in clubs)
+                {
+                    c.StadiumName = FootballClubDB.GetStadiumName(c.ClubId.ToString());
+                    DataGridXAML.Items.Add(c);
+                }
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace HCI_Project1_FootballLeague.Classes
 {
@@ -18,6 +19,7 @@ namespace HCI_Project1_FootballLeague.Classes
         public String LastName { get; set; }
         public DateTime DateOfContract { get; set; }
         public int ClubId { get; set; }
+        public string ClubName { get; set; }
 
         public Player() { }
 
@@ -56,6 +58,11 @@ namespace HCI_Project1_FootballLeague.Classes
             LastName = lastName;
             DateOfContract = dateOfContract;
             ClubId = clubId;
+        }
+
+        public override string ToString()
+        {
+            return FirstName + " " + LastName;
         }
     }
 }

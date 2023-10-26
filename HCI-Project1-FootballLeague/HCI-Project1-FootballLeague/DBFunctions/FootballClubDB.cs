@@ -32,6 +32,27 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return clubs;
         }
 
+        public static List<FootballClub> SearchClubs(string searchString)
+        {
+            List<FootballClub> clubs = new List<FootballClub>();
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT KlubId, Naziv, DatumOsnivanja, BrojOsvojenihTrofeja, StadionId FROM fudbalski_klub WHERE Naziv LIKE CONCAT(@SearchString, '%')";
+            cmd.Parameters.AddWithValue("@SearchString", searchString);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+
+                clubs.Add(new FootballClub(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetInt32(3), reader.GetInt32(4)));
+            }
+            reader.Close();
+            conn.Close();
+
+            return clubs;
+        }
+
         public static string GetStadiumName(string clubId)
         {
             MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);

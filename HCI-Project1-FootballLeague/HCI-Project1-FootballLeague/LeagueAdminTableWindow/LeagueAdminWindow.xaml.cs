@@ -121,5 +121,22 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
                 NotSelectedMessage();
             }
         }
+
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if ("".Equals(SearchTB.Text))
+            {
+                DrawData();
+            }
+            else
+            {
+                DataGridXAML.Items.Clear();
+                List<Administrator> admins = AdminDB.SearchAdmins(SearchTB.Text);
+                foreach (Administrator a in admins)
+                {
+                    DataGridXAML.Items.Add(a);
+                }
+            }
+        }
     }
 }

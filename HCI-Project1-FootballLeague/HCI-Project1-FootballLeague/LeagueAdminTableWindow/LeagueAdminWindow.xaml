@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="League Admin Window" Height="820" Width="1100" MinWidth="1100" MinHeight="820">
     <Grid  Margin="0,0,0,-6">
-        <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,0,0,312">
+        <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,0,0,419">
 
             <!-- Font Color / Style of Columns Headings -->
             <DataGrid.Resources>
@@ -31,7 +31,9 @@
         <Button x:Name="AddButton" Click="AddButton_Click" Background="White"  FontWeight="SemiBold" Content="Add New Admin" HorizontalAlignment="Left" Height="49" Margin="54,0,0,24" VerticalAlignment="Bottom" Width="216"/>
         <TextBox x:Name="UserNameTB" HorizontalAlignment="Left" Margin="48,541,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="31"/>
         <TextBox x:Name="PasswordTB" HorizontalAlignment="Left" Margin="49,608,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="31"/>
-        <Label Content="User name" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="48,510,0,0" VerticalAlignment="Top" Width="227"/>
+        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="48,510,0,0" VerticalAlignment="Top" Width="227">
+            <Label Content="User name" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Width="227"/>
+        </Label>
         <Label Content="Password" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="48,577,0,0" VerticalAlignment="Top" Width="227"/>
         <Button x:Name="UpdateButton" HorizontalAlignment="Stretch" Click="UpdateButton_Click" Background="White"  FontWeight="SemiBold" Content="Show Update Options" Height="39" Margin="442,742,390,0" VerticalAlignment="Top" Width="128"/>
         <Button Click="DeleteButton_Click" x:Name="DeleteButton" Background="White"  FontWeight="SemiBold" Content="Delete Admin" Height="49" Margin="0,0,10,24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="216"/>
@@ -40,5 +42,7 @@
         <Label Visibility="Hidden" x:Name="UpdatePasswordLabel" Content="Password" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="412,585,361,0" VerticalAlignment="Top" Width="227"/>
         <TextBox Visibility="Hidden" x:Name="PasswordUpdate" Margin="412,616,362,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="33"/>
         <Button Visibility="Hidden" x:Name="ConfirmUpdateButton" HorizontalAlignment="Stretch" Click="ConfirmUpdateButton_Click" Background="White"  FontWeight="SemiBold" Content="Confirm Update" Height="49" Margin="414,0,366,83" VerticalAlignment="Bottom"/>
+        <Label Content="Search By Name" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="48,417,0,0" VerticalAlignment="Top" Width="227"/>
+        <TextBox TextChanged="SearchTB_TextChanged" x:Name="SearchTB" HorizontalAlignment="Left" Margin="49,448,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="31"/>
     </Grid>
 </Window>

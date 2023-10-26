@@ -33,6 +33,47 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return players;
         }
 
+        public static List<Player> SearchPlayers(string searchString)
+        {
+            List<Player> players = new List<Player>();
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM igrac WHERE Ime LIKE CONCAT(@SearchString, '%')";
+            cmd.Parameters.AddWithValue("@SearchString", searchString);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+
+                players.Add(new Player(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(5), reader.GetString(6),
+                    reader.GetString(7), reader.GetDateTime(8), reader.GetInt32(9)));
+            }
+            reader.Close();
+            conn.Close();
+
+            return players;
+        }
+
+        public static string GetClubName(string playerId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT f.Naziv FROM fudbalski_klub f INNER JOIN igrac i ON i.KlubId=f.KlubId WHERE IgracId=@IgracId";
+            cmd.Parameters.AddWithValue("@IgracId", playerId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            string clubName = "";
+            while (reader.Read())
+            {
+                clubName = reader.GetString(0);
+            }
+            reader.Close();
+            conn.Close();
+            return clubName;
+        }
+
         public static bool AddPlayer(Player player)
         {
 

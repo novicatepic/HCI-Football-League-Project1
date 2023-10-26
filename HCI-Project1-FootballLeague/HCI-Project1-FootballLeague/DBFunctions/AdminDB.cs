@@ -34,6 +34,27 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return administrators;
         }
 
+        public static List<Administrator> SearchAdmins(string searchString)
+        {
+            List<Administrator> admins = new List<Administrator>();
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT GlavniAdminId, KorisnickoIme, Lozinka, IsGlavniAdmin FROM administrator WHERE KorisnickoIme LIKE CONCAT(@SearchString, '%') AND IsGlavniAdmin=0";
+            cmd.Parameters.AddWithValue("@SearchString", searchString);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+
+                admins.Add(new Administrator(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3)));
+            }
+            reader.Close();
+            conn.Close();
+
+            return admins;
+        }
+
         public static List<Administrator> GetLeagueAdministrators()
         {
             List<Administrator> administrators = new List<Administrator>();

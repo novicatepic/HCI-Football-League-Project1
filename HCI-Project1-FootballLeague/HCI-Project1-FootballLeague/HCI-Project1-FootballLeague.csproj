@@ -119,6 +119,9 @@
     <Compile Include="LeagueAdminTableWindow\LeagueAdminWindow.xaml.cs">
       <DependentUpon>LeagueAdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlayerWindows\PlayerShowWindow.xaml.cs">
+      <DependentUpon>PlayerShowWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StadiumWindows\StadiumWindow.xaml.cs">
       <DependentUpon>StadiumWindow.xaml</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PlayerWindows\PlayerShowWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StadiumWindows\StadiumWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

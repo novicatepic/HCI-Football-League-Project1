@@ -1,4 +1,5 @@
 ﻿using HCI_Project1_FootballLeague.ChooseSeasonWindow;
+using HCI_Project1_FootballLeague.PlayerWindows;
 using HCI_Project1_FootballLeague.StadiumWindows;
 using HCI_Project1_FootballLeague.StatsWindows;
 using HCI_Project1_FootballLeague.TeamWindows;
@@ -42,10 +43,14 @@ namespace HCI_Project1_FootballLeague.AdminsStartWindows
 
         private void StatsButton_Click(object sender, RoutedEventArgs e)
         {
-            /*StatsWindow sw = new StatsWindow();
-            sw.ShowDialog();*/
             SeasonChooserWindow scw = new SeasonChooserWindow();
             scw.ShowDialog();
+        }
+
+        private void PlayersButton_Click(object sender, RoutedEventArgs e)
+        {
+            PlayerShowWindow psw = new PlayerShowWindow();
+            psw.ShowDialog();
         }
     }
 }

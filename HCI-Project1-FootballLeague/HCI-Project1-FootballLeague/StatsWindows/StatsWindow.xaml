@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Stats Window" Height="820" Width="1150" MinWidth="1150" MinHeight="820">
     <Grid  Margin="0,0,0,0">
-        <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}">
+        <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,0,0,247">
 
             <!-- Font Color / Style of Columns Headings -->
             <DataGrid.Resources>
@@ -32,6 +32,8 @@
                 <DataGridTextColumn Header="Num Points" Width="1*" Binding="{Binding NumPoints}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" Content="Search By Name" HorizontalAlignment="Left" Margin="102,610,0,0" VerticalAlignment="Top" Height="41" Width="150"/>
+        <TextBox FontSize="14" Name="SearchTB" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="102,656,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Height="41"/>
 
     </Grid>
 </Window>

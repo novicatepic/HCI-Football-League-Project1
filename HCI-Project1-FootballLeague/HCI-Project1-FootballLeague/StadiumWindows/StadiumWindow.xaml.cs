@@ -125,5 +125,21 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
                 NotSelectedMessage();
             }
         }
+
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if("".Equals(SearchTB.Text))
+            {
+                DrawData();
+            } else
+            {
+                DataGridXAML.Items.Clear();
+                List<Stadium> stadiums = StadiumDB.SearchStadiums(SearchTB.Text);
+                foreach (Stadium s in stadiums)
+                {
+                    DataGridXAML.Items.Add(s);
+                }
+            }
+        }
     }
 }

@@ -44,5 +44,7 @@
         <TextBox x:Name="NameTB" HorizontalAlignment="Left" Margin="48,472,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="31"/>
         <TextBox Visibility="Hidden" x:Name="UpdateNameTB" Margin="460,471,412,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="32"/>
         <Label Visibility="Hidden" x:Name="UpdateNameLabel" Content="Name" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="463,441,411,0" VerticalAlignment="Top" Width="226"/>
+        <TextBox TextChanged="SearchTB_TextChanged" x:Name="SearchTB" HorizontalAlignment="Left" FontSize="14" Margin="54,328,0,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="216" Height="36"/>
+        <Label Content="Search Based On Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="54,297,0,0" VerticalAlignment="Top" Width="216"/>
     </Grid>
 </Window>

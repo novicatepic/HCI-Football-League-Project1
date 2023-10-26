@@ -39,5 +39,22 @@ namespace HCI_Project1_FootballLeague.StatsWindows
                 DataGridXAML.Items.Add(s);
             }
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if ("".Equals(SearchTB.Text))
+            {
+                PopulateData();
+            }
+            else
+            {
+                DataGridXAML.Items.Clear();
+                List<SeasonStats> stats = SeasonStatsDB.SearchStats(season, SearchTB.Text);
+                foreach (SeasonStats s in stats)
+                {
+                    DataGridXAML.Items.Add(s);
+                }
+            }
+        }
     }
 }

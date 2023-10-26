@@ -35,5 +35,10 @@ namespace HCI_Project1_FootballLeague.Classes
             NumTrophies = numTrophies;
             StadiumId = stadiumId;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

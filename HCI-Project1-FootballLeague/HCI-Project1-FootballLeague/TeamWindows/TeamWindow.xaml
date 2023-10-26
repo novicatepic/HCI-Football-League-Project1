@@ -29,12 +29,12 @@
                 <DataGridTextColumn Header="Stadium Name" Width="1*" Binding="{Binding StadiumName}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="AddButton" Click="AddButton_Click" Background="White"  FontWeight="SemiBold" Content="Add New Club" HorizontalAlignment="Left" Height="49" Margin="54,0,0,24" VerticalAlignment="Bottom" Width="216"/>
+        <Button x:Name="AddButton" Click="AddButton_Click" Background="White"  FontWeight="SemiBold" Content="Add New Player" HorizontalAlignment="Left" Height="49" Margin="54,0,0,24" VerticalAlignment="Bottom" Width="216"/>
         <TextBox x:Name="TrophiesTB" HorizontalAlignment="Left" Margin="49,554,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="30"/>
         <Label Content="Foundation Date" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="48,449,0,0" VerticalAlignment="Top" Width="227"/>
         <Label Content="Trophies Won" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="48,523,0,0" VerticalAlignment="Top" Width="227"/>
         <Button x:Name="UpdateButton" HorizontalAlignment="Stretch" Click="UpdateButton_Click" Background="White"  FontWeight="SemiBold" Content="Show Update Options" Height="39" Margin="442,742,390,0" VerticalAlignment="Top" Width="128"/>
-        <Button Click="DeleteButton_Click" x:Name="DeleteButton" Background="White"  FontWeight="SemiBold" Content="Delete Club" Height="49" Margin="0,0,10,24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="216"/>
+        <Button Click="DeleteButton_Click" x:Name="DeleteButton" Background="White"  FontWeight="SemiBold" Content="Delete Player" Height="49" Margin="0,0,10,24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="216"/>
         <Label Visibility="Hidden"  x:Name="UpdateTrophiesWonLabel" Content="Trophies Won" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="499,516,445,0" VerticalAlignment="Top" Width="226"/>
         <TextBox Visibility="Hidden" x:Name="UpdateTrophiesWonTB" Margin="495,547,448,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="32"/>
         <Label Visibility="Hidden" x:Name="UpdateStadiumLabel" Content="Stadium" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="463,574,410,0" VerticalAlignment="Top" Width="227"/>
@@ -49,5 +49,7 @@
         <TextBox Visibility="Hidden" x:Name="UpdateNameTB" Margin="485,406,438,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="32"/>
         <DatePicker Visibility="Hidden" x:Name="UpdateDateBox" Margin="495,480,454,0" VerticalAlignment="Top" Width="221" Height="38"/>
         <ComboBox Visibility="Hidden" x:Name="UpdateStadiumComboBox" Margin="501,605,448,0" VerticalAlignment="Top" Width="221"/>
+        <Label Content="Search By Name" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="49,301,0,0" VerticalAlignment="Top" Width="227"/>
+        <TextBox TextChanged="SearchTB_TextChanged" x:Name="SearchTB" HorizontalAlignment="Left" Margin="49,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="31"/>
     </Grid>
 </Window>

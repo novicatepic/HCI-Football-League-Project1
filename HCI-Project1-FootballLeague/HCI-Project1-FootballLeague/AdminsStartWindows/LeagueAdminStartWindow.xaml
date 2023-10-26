@@ -16,7 +16,7 @@
         <Separator></Separator>
         <Button x:Name="GamesButton" Content="Manage games" Margin="10 10 10 10" Height="50" Width="350" FontSize="30"></Button>
         <Separator></Separator>
-        <Button x:Name="PlayersButton" Content="Manage players" Margin="10 10 10 10" Height="50" Width="350" FontSize="30"></Button>
+        <Button x:Name="PlayersButton" Click="PlayersButton_Click" Content="Manage players" Margin="10 10 10 10" Height="50" Width="350" FontSize="30"></Button>
         <Separator></Separator>
     </StackPanel>
 </Window>

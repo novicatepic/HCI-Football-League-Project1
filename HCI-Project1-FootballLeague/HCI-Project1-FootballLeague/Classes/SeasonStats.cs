@@ -22,6 +22,11 @@ namespace HCI_Project1_FootballLeague.Classes
 
         public SeasonStats() { }
 
+        public SeasonStats(int numGamesPlayed, int numWins, int numDraws, int numLoses, int numScored, int numConceded, int clubId, int numPoints, int seasonNum, string clubName) : this(numGamesPlayed, numWins, numDraws, numLoses, numScored, numConceded, clubId, numPoints, seasonNum)
+        {
+            ClubName = clubName;
+        }
+
         public SeasonStats(int numGamesPlayed, int numWins, int numDraws, int numLoses, int numScored, int numConceded, int clubId, int numPoints, int seasonNum)
         {
             NumGamesPlayed = numGamesPlayed;

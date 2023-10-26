@@ -53,6 +53,29 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return stadiumName;
         }
 
+        public static List<SeasonStats> SearchStats(int season, string searchString)
+        {
+            List<SeasonStats> stats = new List<SeasonStats>();
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT f.Naziv, s.* FROM fudbalski_klub f INNER JOIN statistika_u_sezoni s ON s.KlubId=f.KlubId WHERE f.Naziv LIKE CONCAT(@SearchString, '%') AND Sezona=@Sezona";
+            cmd.Parameters.AddWithValue("@SearchString", searchString);
+            cmd.Parameters.AddWithValue("@Sezona", season);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                //MessageBox.Show("FOUND");
+                stats.Add(new SeasonStats(reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4),
+                    reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetInt32(8), reader.GetInt32(9), reader.GetString(0)));
+            }
+            reader.Close();
+            conn.Close();
+            //MessageBox.Show(stats[0].ClubName);
+            return stats;
+        }
+
         public static List<Int32> GetSeasons()
         {
             List<Int32> seasons = new List<Int32>();
