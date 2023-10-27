@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Stats Window" Height="820" Width="1150" MinWidth="1150" MinHeight="820">
     <Grid  Margin="0,0,0,0">
-        <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,0,0,247">
+        <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,129,0,0">
 
             <!-- Font Color / Style of Columns Headings -->
             <DataGrid.Resources>
@@ -32,8 +32,11 @@
                 <DataGridTextColumn Header="Num Points" Width="1*" Binding="{Binding NumPoints}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" Content="Search By Name" HorizontalAlignment="Left" Margin="102,610,0,0" VerticalAlignment="Top" Height="41" Width="150"/>
-        <TextBox FontSize="14" Name="SearchTB" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="102,656,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Height="41"/>
+        <TextBox TextChanged="TextBox_TextChanged" x:Name="SearchTB" FontSize="14" Margin="270,88,0,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="880" Height="36" RenderTransformOrigin="0.494,0.157" HorizontalAlignment="Stretch"/>
+        <Label Content="Filter Based On Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
+        <ComboBox x:Name="ChooseSeasonBox"  VerticalAlignment="Top" Margin="270,31,260,0" HorizontalAlignment="Stretch"/>
+        <Button HorizontalAlignment="Right" x:Name="NextButton" Click="NextButton_Click" Content="Next" FontSize="14"  VerticalAlignment="Top" Margin="943,31,35,0" Height="22" Width="172"/>
+        <Label Content="Choose Season" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
 
     </Grid>
 </Window>

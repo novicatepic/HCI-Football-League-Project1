@@ -1,0 +1,24 @@
+﻿<Window x:Class="HCI_Project1_FootballLeague.PlayerWindows.AddPlayerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_Project1_FootballLeague.PlayerWindows"
+        mc:Ignorable="d"
+        Title="Add Player Window" Height="700" Width="900" MinHeight="700" MinWidth="900">
+    <Grid>
+        <Label Content="ADD NEW PLAYER" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
+        <Label Content="First Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="103,138,535,477"/>
+        <TextBox x:Name="FirstNameTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.47,-2.233" Margin="507,138,131,477"/>
+        <Label Content="Last Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="103,225,535,391"/>
+        <Label Content="Select Club" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="103,450,535,159"/>
+        <TextBox x:Name="LastNameTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="507,224,131,391" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
+        <Button Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label Content="Contract Date" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="103,308,535,307"/>
+        <ComboBox x:Name="ClubComboBox" Margin="507,457,131,158" Width="232" Height="39"/>
+        <DatePicker x:Name="DatePickerBox" Margin="507,308,131,307" Width="232" Height="39"/>
+        <Label Content="Shirt Number" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="103,382,535,234"/>
+        <TextBox x:Name="ShirtNumberTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="507,381,131,234" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
+
+    </Grid>
+</Window>

@@ -119,17 +119,38 @@
     <Compile Include="LeagueAdminTableWindow\LeagueAdminWindow.xaml.cs">
       <DependentUpon>LeagueAdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlayerWindows\AddPlayerWindow.xaml.cs">
+      <DependentUpon>AddPlayerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlayerWindows\PlayerShowWindow.xaml.cs">
       <DependentUpon>PlayerShowWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerWindows\UpdatePlayerWindow.xaml.cs">
+      <DependentUpon>UpdatePlayerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeamWindows\AddClubWindow.xaml.cs">
+      <DependentUpon>AddClubWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="StadiumWindows\StadiumWindow.xaml.cs">
       <DependentUpon>StadiumWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StadiumWindows\UpdateStadium.xaml.cs">
+      <DependentUpon>UpdateStadium.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StatsWindows\StatsWindow.xaml.cs">
       <DependentUpon>StatsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TeamInGameWindows\ChooseFixtureAndSeasonWindow.xaml.cs">
+      <DependentUpon>ChooseFixtureAndSeasonWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StadiumWindows\AddStadiumWindow.xaml.cs">
+      <DependentUpon>AddStadiumWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TeamWindows\TeamWindow.xaml.cs">
       <DependentUpon>TeamWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeamWindows\UpdateClubWindow.xaml.cs">
+      <DependentUpon>UpdateClubWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AdminsStartWindows\LeagueAdminStartWindow.xaml">
       <SubType>Designer</SubType>
@@ -175,7 +196,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PlayerWindows\AddPlayerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlayerWindows\PlayerShowWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayerWindows\UpdatePlayerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeamWindows\AddClubWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,11 +216,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="StadiumWindows\UpdateStadium.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StatsWindows\StatsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TeamInGameWindows\ChooseFixtureAndSeasonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StadiumWindows\AddStadiumWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TeamWindows\TeamWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeamWindows\UpdateClubWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

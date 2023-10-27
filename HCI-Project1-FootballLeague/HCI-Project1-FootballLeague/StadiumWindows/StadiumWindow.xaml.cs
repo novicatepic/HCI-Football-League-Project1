@@ -1,5 +1,6 @@
 ﻿using HCI_Project1_FootballLeague.Classes;
 using HCI_Project1_FootballLeague.DBFunctions;
+using HCI_Project1_FootballLeague.TeamWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
             }
         }
 
-        private void DrawData()
+        public void DrawData()
         {
             DataGridXAML.Items.Clear();
             PopulateData();
@@ -44,19 +45,8 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            var name = NameTB.Text;
-            var capacity = CapacityTB.Text;
-            var town = TownTB.Text;
-            if (!"".Equals(name) && !"".Equals(capacity) && !"".Equals(town))
-            {
-                Stadium stadium = new Stadium(name, Int32.Parse(capacity), town);
-                StadiumDB.AddStadium(stadium);
-                DrawData();
-            }
-            else
-            {
-                MessageBox.Show("Name, capacity or town not entered!");
-            }
+            AddNewStadiumWindow asw = new AddNewStadiumWindow(this);
+            asw.ShowDialog();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
@@ -78,47 +68,13 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
             MessageBox.Show("Item not selected!");
         }
 
-        private void ConfirmUpdateButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (DataGridXAML.SelectedItem != null)
-            {
-                var stadium = (Stadium)DataGridXAML.SelectedItem;
-                var id = stadium.StadiumId;
-                var name = UpdateNameTB.Text;
-                var capacity = CapacityUpdate.Text;
-                var town = UpdateTownTB.Text;
-                Stadium s = new Stadium(id, name, Int32.Parse(capacity), town);
-                StadiumDB.UpdateStadium(s);
-                UpdateNameLabel.Visibility = Visibility.Hidden;
-                UpdateNameTB.Visibility = Visibility.Hidden;
-                CapacityLabel.Visibility = Visibility.Hidden;
-                CapacityUpdate.Visibility = Visibility.Hidden;
-                UpdateTownLabel.Visibility = Visibility.Hidden;
-                UpdateTownTB.Visibility = Visibility.Hidden;
-                ConfirmUpdateButton.Visibility = Visibility.Hidden;
-                DrawData();
-            }
-            else
-            {
-                NotSelectedMessage();
-            }
-        }
-
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
+            
             if (DataGridXAML.SelectedItem != null)
             {
-                UpdateNameLabel.Visibility = Visibility.Visible;
-                UpdateNameTB.Visibility = Visibility.Visible;
-                CapacityLabel.Visibility = Visibility.Visible;
-                CapacityUpdate.Visibility = Visibility.Visible;
-                UpdateTownLabel.Visibility = Visibility.Visible;
-                UpdateTownTB.Visibility = Visibility.Visible;
-                ConfirmUpdateButton.Visibility = Visibility.Visible;
-                var stadium = (Stadium)DataGridXAML.SelectedItem;
-                UpdateTownTB.Text = stadium.Town;
-                CapacityUpdate.Text = stadium.Capacity.ToString();
-                UpdateNameTB.Text = stadium.Name;
+                UpdateStadium us = new UpdateStadium(this, (Stadium)DataGridXAML.SelectedItem);
+                us.ShowDialog();
             }
             else
             {

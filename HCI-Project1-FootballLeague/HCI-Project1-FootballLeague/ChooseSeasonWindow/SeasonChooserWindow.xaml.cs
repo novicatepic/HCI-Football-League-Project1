@@ -39,7 +39,7 @@ namespace HCI_Project1_FootballLeague.ChooseSeasonWindow
         {
             if(ChooseSeasonBox.SelectedItem != null)
             {
-                StatsWindow sw = new StatsWindow((int)ChooseSeasonBox.SelectedItem);
+                StatsWindow sw = new StatsWindow();
                 sw.ShowDialog();
             }
             

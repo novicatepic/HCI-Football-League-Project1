@@ -22,15 +22,19 @@ namespace HCI_Project1_FootballLeague.StatsWindows
     public partial class StatsWindow : Window
     {
         private int season;
-        public StatsWindow(int season)
+        public StatsWindow()
         {
             InitializeComponent();
-            this.season = season;
-            PopulateData();
+            foreach (var s in SeasonStatsDB.GetSeasons())
+            {
+                ChooseSeasonBox.Items.Add(s);
+            }
+            //PopulateData();
         }
 
-        private void PopulateData()
+        private void PopulateData(int season)
         {
+            
             //MessageBox.Show(season.ToString());
             List<SeasonStats> stats = SeasonStatsDB.GetStats(season);
             foreach (SeasonStats s in stats)
@@ -38,13 +42,14 @@ namespace HCI_Project1_FootballLeague.StatsWindows
                 s.ClubName = SeasonStatsDB.GetClubName(s.ClubId.ToString());
                 DataGridXAML.Items.Add(s);
             }
+            
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if ("".Equals(SearchTB.Text))
             {
-                PopulateData();
+                PopulateData(season);
             }
             else
             {
@@ -55,6 +60,12 @@ namespace HCI_Project1_FootballLeague.StatsWindows
                     DataGridXAML.Items.Add(s);
                 }
             }
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.season = (int)ChooseSeasonBox.SelectedItem;
+            PopulateData(season);
         }
     }
 }

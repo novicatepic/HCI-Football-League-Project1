@@ -1,8 +1,10 @@
 ﻿using HCI_Project1_FootballLeague.Classes;
 using HCI_Project1_FootballLeague.DBFunctions;
+using HCI_Project1_FootballLeague.StadiumWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -36,13 +38,9 @@ namespace HCI_Project1_FootballLeague.TeamWindows
                 f.StadiumName = FootballClubDB.GetStadiumName(f.ClubId.ToString());
                 DataGridXAML.Items.Add(f);
             }
-            foreach (Stadium s in stadiums)
-            {
-                StadiumComboBox.Items.Add(s);
-            }
         }
 
-        private void DrawData()
+        public void DrawData()
         {
             DataGridXAML.Items.Clear();
             PopulateData();
@@ -50,21 +48,8 @@ namespace HCI_Project1_FootballLeague.TeamWindows
     
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            var name = NameTB.Text;
-            var date = DatePickerBox.SelectedDate.Value;
-            var trophies = TrophiesTB.Text;
-            var stadium = (Stadium)StadiumComboBox.SelectedItem;
-            if (!"".Equals(name) && !"".Equals(trophies) && date != null)
-            {
-                FootballClub club = new FootballClub(name, date, Int32.Parse(trophies), stadium.StadiumId);
-                FootballClubDB.AddClub(club);
-                DrawData();
-            }
-            else
-            {
-                MessageBox.Show("Name, capacity or town not entered!");
-            }
+            AddNewClubWindow acw = new AddNewClubWindow(this);
+            acw.ShowDialog();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
@@ -90,24 +75,8 @@ namespace HCI_Project1_FootballLeague.TeamWindows
         {
             if (DataGridXAML.SelectedItem != null)
             {
-                var club = (FootballClub)DataGridXAML.SelectedItem;
-                var id = club.ClubId;
-                var name = UpdateNameTB.Text;
-                var date = UpdateDateBox.SelectedDate.Value;
-                var trophies = UpdateTrophiesWonTB.Text;
-                var stadium = (Stadium)UpdateStadiumComboBox.SelectedItem;
-                FootballClub fc = new FootballClub(id, name, date, Int32.Parse(trophies), stadium.StadiumId);
-                FootballClubDB.UpdateClub(fc);
-                UpdateNameLabel.Visibility = Visibility.Hidden;
-                UpdateNameTB.Visibility = Visibility.Hidden;
-                UpdateDateLabel.Visibility = Visibility.Hidden;
-                UpdateDateBox.Visibility = Visibility.Hidden;
-                UpdateTrophiesWonLabel.Visibility = Visibility.Hidden;
-                UpdateTrophiesWonTB.Visibility = Visibility.Hidden;
-                UpdateStadiumLabel.Visibility = Visibility.Hidden;
-                UpdateStadiumComboBox.Visibility = Visibility.Hidden;
-                ConfirmUpdateButton.Visibility = Visibility.Hidden;
-                DrawData();
+                UpdateClubWindow ucw = new UpdateClubWindow(this, (FootballClub)DataGridXAML.SelectedItem);
+                ucw.ShowDialog();
             }
             else
             {
@@ -117,32 +86,10 @@ namespace HCI_Project1_FootballLeague.TeamWindows
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Stadium s in stadiums)
-            {
-                UpdateStadiumComboBox.Items.Add(s);
-            }
             if (DataGridXAML.SelectedItem != null)
             {
-                UpdateNameLabel.Visibility = Visibility.Visible;
-                UpdateNameTB.Visibility = Visibility.Visible;
-                UpdateDateLabel.Visibility = Visibility.Visible;
-                UpdateDateBox.Visibility = Visibility.Visible;
-                UpdateTrophiesWonLabel.Visibility = Visibility.Visible;
-                UpdateTrophiesWonTB.Visibility = Visibility.Visible;
-                UpdateStadiumLabel.Visibility = Visibility.Visible;
-                UpdateStadiumComboBox.Visibility = Visibility.Visible;
-                ConfirmUpdateButton.Visibility = Visibility.Visible;
-                var club = (FootballClub)DataGridXAML.SelectedItem;
-                UpdateNameTB.Text = club.Name;
-                UpdateDateBox.SelectedDate=club.Date;
-                UpdateTrophiesWonTB.Text = club.NumTrophies.ToString();
-                foreach (Stadium s in stadiums)
-                {
-                    if(s.StadiumId == club.StadiumId)
-                    {
-                        UpdateStadiumComboBox.SelectedItem=s;
-                    }
-                }
+                UpdateClubWindow ucw = new UpdateClubWindow(this, (FootballClub)DataGridXAML.SelectedItem);
+                ucw.ShowDialog();
             }
             else
             {

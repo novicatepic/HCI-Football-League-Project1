@@ -62,3 +62,17 @@ C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\H
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\ChooseSeasonWindow\SeasonChooserWindow.baml
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerWindows\PlayerShowWindow.g.cs
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerWindows\PlayerShowWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\TeamInGameWindows\ChooseFixtureAndSeasonWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\TeamInGameWindows\ChooseFixtureAndSeasonWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\StadiumWindows\AddStadiumWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\StadiumWindows\AddStadiumWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\StadiumWindows\UpdateStadium.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\StadiumWindows\UpdateStadium.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\TeamWindows\AddClubWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\TeamWindows\AddClubWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\TeamWindows\UpdateClubWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\TeamWindows\UpdateClubWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerWindows\AddPlayerWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerWindows\AddPlayerWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerWindows\UpdatePlayerWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerWindows\UpdatePlayerWindow.baml
