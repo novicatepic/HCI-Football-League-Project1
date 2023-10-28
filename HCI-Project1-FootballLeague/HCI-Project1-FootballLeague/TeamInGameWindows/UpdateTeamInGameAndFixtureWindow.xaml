@@ -1,0 +1,21 @@
+﻿<Window x:Class="HCI_Project1_FootballLeague.TeamInGameWindows.UpdateTeamInGameAndFixtureWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_Project1_FootballLeague.TeamInGameWindows"
+        mc:Ignorable="d"
+        Title="Update Team In Game And Fixture Window"  Height="820" Width="960" MinHeight="820" MinWidth="960">
+    <Grid >
+        <Label Content="UPDATE GAME" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
+        <Label Content="Home Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="128,195,560,497">
+        </Label>
+        <TextBox x:Name="HomeGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="532,198,156,497" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
+        <Button Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label Content="Game Date" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="128,392,560,303"/>
+        <DatePicker x:Name="DatePickerBox" Margin="532,392,156,303" Width="232" Height="39"/>
+        <Label Content="Away Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="128,287,560,409"/>
+        <TextBox x:Name="AwayGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="532,287,156,408" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
+
+    </Grid>
+</Window>

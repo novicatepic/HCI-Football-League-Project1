@@ -116,8 +116,16 @@
     <Compile Include="ChooseSeasonWindow\SeasonChooserWindow.xaml.cs">
       <DependentUpon>SeasonChooserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\GameInfo.cs" />
+    <Compile Include="Classes\GameWithClub.cs" />
     <Compile Include="LeagueAdminTableWindow\LeagueAdminWindow.xaml.cs">
       <DependentUpon>LeagueAdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerInGameWindows\AddPlayerInGameWIndow.xaml.cs">
+      <DependentUpon>AddPlayerInGameWIndow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerInGameWindows\PlayerInGameStartWindow.xaml.cs">
+      <DependentUpon>PlayerInGameStartWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlayerWindows\AddPlayerWindow.xaml.cs">
       <DependentUpon>AddPlayerWindow.xaml</DependentUpon>
@@ -127,6 +135,12 @@
     </Compile>
     <Compile Include="PlayerWindows\UpdatePlayerWindow.xaml.cs">
       <DependentUpon>UpdatePlayerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeamInGameWindows\AddTeamInGameAndFixtureWindow.xaml.cs">
+      <DependentUpon>AddTeamInGameAndFixtureWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeamInGameWindows\UpdateTeamInGameAndFixtureWindow.xaml.cs">
+      <DependentUpon>UpdateTeamInGameAndFixtureWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="TeamWindows\AddClubWindow.xaml.cs">
       <DependentUpon>AddClubWindow.xaml</DependentUpon>
@@ -185,17 +199,23 @@
     <Compile Include="Classes\SeasonStats.cs" />
     <Compile Include="Classes\Stadium.cs" />
     <Compile Include="DBFunctions\AdminDB.cs" />
-    <Compile Include="DBFunctions\ClubInGameDB.cs" />
     <Compile Include="DBFunctions\FootballClubDB.cs" />
     <Compile Include="DBFunctions\GameDB.cs" />
     <Compile Include="DBFunctions\PlayerDB.cs" />
-    <Compile Include="DBFunctions\PlayerInGameDB.cs" />
     <Compile Include="DBFunctions\SeasonStatsDB.cs" />
     <Compile Include="DBFunctions\StadiumDB.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PlayerInGameWindows\AddPlayerInGameWIndow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayerInGameWindows\PlayerInGameStartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlayerWindows\AddPlayerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,6 +225,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PlayerWindows\UpdatePlayerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeamInGameWindows\AddTeamInGameAndFixtureWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeamInGameWindows\UpdateTeamInGameAndFixtureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -76,3 +76,11 @@ C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\H
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerWindows\AddPlayerWindow.baml
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerWindows\UpdatePlayerWindow.g.cs
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerWindows\UpdatePlayerWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\TeamInGameWindows\AddTeamInGameAndFixtureWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\TeamInGameWindows\AddTeamInGameAndFixtureWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\TeamInGameWindows\UpdateTeamInGameAndFixtureWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\TeamInGameWindows\UpdateTeamInGameAndFixtureWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerInGameWindows\PlayerInGameStartWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerInGameWindows\PlayerInGameStartWindow.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerInGameWindows\AddPlayerInGameWIndow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\PlayerInGameWindows\AddPlayerInGameWIndow.baml

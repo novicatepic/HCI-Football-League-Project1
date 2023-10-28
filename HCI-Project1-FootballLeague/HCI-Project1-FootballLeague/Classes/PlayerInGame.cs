@@ -18,6 +18,9 @@ namespace HCI_Project1_FootballLeague.Classes
         public int GameId { get; set; }
         public bool StartedGame { get; set; }
         public int MinutesPlayed { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public bool IsFromHomeTeam { get; set; }
 
         public PlayerInGame() { }
 

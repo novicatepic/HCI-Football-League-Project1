@@ -14,7 +14,12 @@ namespace HCI_Project1_FootballLeague.Classes
         public int FixtureNum { get; set; }
         public int SeasonNum { get; set; }
 
-        public Game() { }
+
+        public Game(DateTime gameDate, int fixtureNum, int seasonNum) {
+            GameDate = gameDate;
+            FixtureNum = fixtureNum;
+            SeasonNum = seasonNum;
+        }
 
         public Game(int gameId, DateTime gameDate, int fixtureNum, int seasonNum)
         {

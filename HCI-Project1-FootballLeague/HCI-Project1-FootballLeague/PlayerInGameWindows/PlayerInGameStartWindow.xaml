@@ -1,0 +1,47 @@
+﻿<Window x:Class="HCI_Project1_FootballLeague.PlayerInGameWindows.PlayerInGameStartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_Project1_FootballLeague.PlayerInGameWindows"
+        mc:Ignorable="d"
+        Title="Player In Game Start Window" Height="820" Width="1150" MinWidth="1150" MinHeight="820">
+    <Grid>
+        <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,267,0,148">
+
+            <!-- Font Color / Style of Columns Headings -->
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Turquoise"></Setter>
+                    <Setter Property="FontWeight" Value="SemiBold"></Setter>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"></Setter>
+                    <Setter Property="BorderBrush" Value="Black"></Setter>
+
+                </Style>
+            </DataGrid.Resources>
+
+            <!-- Column Header Text & Bindings -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Width="1*" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Last Name" Width="1*" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Num Goals" Width="1*" Binding="{Binding NumGoalsInGame}"/>
+                <DataGridTextColumn Header="Num Assists" Width="1*" Binding="{Binding NumAssistsInGame}"/>
+                <DataGridTextColumn Header="Got Yellow" Width="1*" Binding="{Binding HasYellow}"/>
+                <DataGridTextColumn Header="Got Red" Width="1*" Binding="{Binding HasRed}"/>
+                <DataGridTextColumn Header="Started Game" Width="1*" Binding="{Binding StartedGame}"/>
+                <DataGridTextColumn Header="Minutes played" Width="1*" Binding="{Binding MinutesPlayed}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Fixture Number" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
+        <Label Content="Fixture" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
+        <ComboBox SelectionChanged="ChooseSeasonBox_SelectionChanged" x:Name="ChooseSeasonBox"  VerticalAlignment="Top" Margin="270,31,260,0" HorizontalAlignment="Stretch"/>
+        <Label Content="Choose Season" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
+        <ComboBox SelectionChanged="ChooseFixtureBox_SelectionChanged" x:Name="ChooseFixtureNumBox"  VerticalAlignment="Top" Margin="270,96,260,0" HorizontalAlignment="Stretch"/>
+        <Button x:Name="AddButton" Click="AddButton_Click" Background="White"  FontWeight="SemiBold" Content="ADD" HorizontalAlignment="Left" FontSize="20" Height="49" Margin="49,0,0,60" VerticalAlignment="Bottom" Width="241"/>
+        <Button x:Name="UpdateButton" Click="UpdateButton_Click" Background="White"  FontWeight="SemiBold" Content="UPDATE" Height="49" Margin="0,695,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="242"></Button>
+        <Button FontSize="20" x:Name="DeleteButton" Background="White"  FontWeight="SemiBold" Content="DELETE" Height="49" Margin="0,0,49,60" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="241" Click="DeleteButton_Click"/>
+        <ComboBox x:Name="ChooseRealFixtureBox" SelectionChanged="ChooseRealFixtureBox_SelectionChanged"  VerticalAlignment="Top" Margin="270,160,260,0"/>
+        <Button x:Name="HomePlayersBTN" Click="HomePlayersBTN_Click" Content="Home players" FontSize="14"  VerticalAlignment="Top" Margin="270,215,708,0" Height="22" Width="172"/>
+        <Button Content="Away Players" x:Name="AwayPlayersBTN" Click="AwayPlayersBTN_Click" Margin="718,215,260,0" VerticalAlignment="Top" Width="172" Height="22"/>
+    </Grid>
+</Window>

@@ -61,5 +61,11 @@ namespace HCI_Project1_FootballLeague.AdminsStartWindows
             ChooseFixtureAndSeasonWindow scw = new ChooseFixtureAndSeasonWindow();
             scw.ShowDialog();
         }
+
+        private void PlayersInGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            PlayerInGameWindows.PlayerInGameStartWindow win = new PlayerInGameWindows.PlayerInGameStartWindow();
+            win.ShowDialog();
+        }
     }
 }

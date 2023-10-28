@@ -74,6 +74,46 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return clubName;
         }
 
+        public static List<Player> GetPlayersWhoPlayedBasedOnGameAndClub(int gameId, int clubId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+            List<Player> players = new List<Player>();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM igrac i INNER JOIN igrac_na_utakmici inu ON i.IgracId=inu.IgracId WHERE " +
+                "inu.KlubId=i.KlubId AND inu.UtakmicaId=@UtakmicaId AND i.KlubId=@KlubId";
+            cmd.Parameters.AddWithValue("@UtakmicaId", gameId);
+            cmd.Parameters.AddWithValue("@KlubId", clubId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                players.Add(new Player(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3),
+                    reader.GetInt32(4), reader.GetInt32(5), reader.GetString(6), reader.GetString(7), reader.GetDateTime(8), reader.GetInt32(9)));
+            }
+            reader.Close();
+            conn.Close();
+            return players;
+        }
+
+        public static List<Player> GetPlayersFromClub(int clubId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+            List<Player> players = new List<Player>();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM igrac i WHERE i.KlubId=@KlubId";
+            cmd.Parameters.AddWithValue("@KlubId", clubId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                players.Add(new Player(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3),
+                    reader.GetInt32(4), reader.GetInt32(5), reader.GetString(6), reader.GetString(7), reader.GetDateTime(8), reader.GetInt32(9)));
+            }
+            reader.Close();
+            conn.Close();
+            return players;
+        }
+
         public static bool AddPlayer(Player player)
         {
 
@@ -97,6 +137,45 @@ namespace HCI_Project1_FootballLeague.DBFunctions
                 cmd2.Parameters.AddWithValue("@DatumZaposlenja", player.DateOfContract);
                 cmd2.Parameters.AddWithValue("@KlubId", player.ClubId);
                 int brojRedova = cmd2.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                Trace.WriteLine(e);
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                conn2.Close();
+
+            }
+            return false;
+        }
+
+        public static bool AddPlayerInGame(PlayerInGame player)
+        {
+
+            MySqlConnection conn2 = new MySqlConnection(MainWindow.ConnectionString);
+            try
+            {
+                conn2.Open();
+
+
+                MySqlCommand cmd2 = conn2.CreateCommand();
+                cmd2 = conn2.CreateCommand();
+                cmd2.CommandText = "INSERT INTO igrac_na_utakmici(IgracId, BrojGolovaNaUtakmici, BrojAsistencijaNaUtakmici, DobioZuti, DobioCrveni, KlubId, UtakmicaId,PoceoUtakmicu, OdigraoMinuta) " +
+                    "VALUES (@IgracId, @BrojGolovaNaUtakmici, @BrojAsistencijaNaUtakmici, @DobioZuti, @DobioCrveni, @KlubId, @UtakmicaId, @PoceoUtakmicu, @OdigraoMinuta)";
+                cmd2.Parameters.AddWithValue("@IgracId", player.PlayerId);
+                cmd2.Parameters.AddWithValue("@BrojGolovaNaUtakmici", player.NumGoalsInGame);
+                cmd2.Parameters.AddWithValue("@BrojAsistencijaNaUtakmici", player.NumAssistsInGame);
+                cmd2.Parameters.AddWithValue("@DobioZuti", player.HasYellow);
+                cmd2.Parameters.AddWithValue("@DobioCrveni", player.HasRed);
+                cmd2.Parameters.AddWithValue("@KlubId", player.ClubId);
+                cmd2.Parameters.AddWithValue("@UtakmicaId", player.GameId);
+                cmd2.Parameters.AddWithValue("@PoceoUtakmicu", player.StartedGame);
+                cmd2.Parameters.AddWithValue("@OdigraoMinuta", player.MinutesPlayed);
+                int brojRedova = cmd2.ExecuteNonQuery();
+                //MessageBox.Show("!");
                 return true;
             }
             catch (MySqlException e)
@@ -177,6 +256,33 @@ namespace HCI_Project1_FootballLeague.DBFunctions
                 conn.Close();
             }
             return false;
+        }
+
+        public static List<PlayerInGame> GetPlayerFromGame(int gameId)
+        {
+            List<PlayerInGame> players = new List<PlayerInGame>();
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+            /*SELECT DISTINCT i.IgracId, i.Ime, i.Prezime, inu.BrojGolovaNaUtakmici, inu.BrojAsistencijaNaUtakmici, inu.DobioZuti, inu.DobioCrveni, inu.PoceoUtakmicu, inu.OdigraoMinuta, inu.KlubId, inu.UtakmicaId, knu.IsDomacin FROM igrac i  INNER JOIN igrac_na_utakmici inu ON i.IgracId=inu.IgracIdINNER JOIN klub_na_utakmici knu ON knu.KlubId=i.KlubId AND knu.UtakmicaId=inu.UtakmicaId WHERE inu.UtakmicaId*/
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT DISTINCT i.IgracId, i.Ime, i.Prezime, inu.BrojGolovaNaUtakmici, inu.BrojAsistencijaNaUtakmici, inu.DobioZuti, inu.DobioCrveni, inu.PoceoUtakmicu, inu.OdigraoMinuta, inu.KlubId, inu.UtakmicaId, knu.IsDomacin FROM igrac i  INNER JOIN igrac_na_utakmici inu ON i.IgracId=inu.IgracId INNER JOIN klub_na_utakmici knu ON knu.KlubId=i.KlubId AND knu.UtakmicaId=inu.UtakmicaId WHERE inu.UtakmicaId=@UtakmicaId";
+            cmd.Parameters.AddWithValue("@UtakmicaId", gameId);
+            
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                PlayerInGame pig = new PlayerInGame(reader.GetInt32(0), reader.GetInt32(3), reader.GetInt32(4), reader.GetBoolean(5),
+                    reader.GetBoolean(6), reader.GetInt32(9), reader.GetInt32(10), reader.GetBoolean(7), reader.GetInt32(8));
+                pig.FirstName = reader.GetString(1);
+                pig.LastName = reader.GetString(2);
+
+                pig.IsFromHomeTeam = reader.GetBoolean(11);
+                players.Add(pig);
+
+            }
+            reader.Close();
+            conn.Close();
+            return players;
         }
     }
 }
