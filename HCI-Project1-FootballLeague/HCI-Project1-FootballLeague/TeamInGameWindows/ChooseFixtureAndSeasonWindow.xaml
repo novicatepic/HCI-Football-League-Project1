@@ -28,10 +28,10 @@
                 <DataGridTextColumn Header="Date" Width="1*" Binding="{Binding GameDate}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Fixture" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
+        <Label x:Name="FixtureLabel" Content="Fixture" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
         <ComboBox x:Name="ChooseSeasonBox"  VerticalAlignment="Top" Margin="270,24,260,0" Height="35"/>
         <Button  HorizontalAlignment="Right" x:Name="NextButton" Click="NextButton_Click" Content="SHOW" FontSize="20"  VerticalAlignment="Top" Margin="0,89,35,0" Height="35" Width="191"/>
-        <Label Content="Choose Season" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
+        <Label x:Name="ChooseSeasonLabel" Content="Choose Season" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
         <ComboBox x:Name="ChooseFixtureBox"  VerticalAlignment="Top" Margin="270,89,260,0" Height="35"/>
         <Button x:Name="AddButton" Click="AddButton_Click"  FontWeight="SemiBold" Content="ADD" HorizontalAlignment="Left" FontSize="20" Height="49" Margin="49,0,0,60" VerticalAlignment="Bottom" Width="241"/>
         <Button x:Name="UpdateButton" Click="UpdateButton_Click"   FontWeight="SemiBold" Content="UPDATE" Height="49" Margin="0,695,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="242"></Button>

@@ -30,7 +30,10 @@ namespace HCI_Project1_FootballLeague
 
         public MainWindow()
         {
-            InitializeComponent();      
+            InitializeComponent();
+            //var name = ConfigurationManager.AppSettings["Title"];
+            //this.Title = name;
+            //MessageBox.Show(name);
         }
 
 

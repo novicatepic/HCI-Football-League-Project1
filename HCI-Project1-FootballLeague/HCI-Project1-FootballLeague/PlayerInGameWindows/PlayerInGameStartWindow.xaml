@@ -32,10 +32,10 @@
                 <DataGridTextColumn Header="Minutes played" Width="1*" Binding="{Binding MinutesPlayed}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Fixture Number" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
-        <Label Content="Fixture" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
+        <Label x:Name="FixtureNumLabel" Content="Fixture Number" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
+        <Label x:Name="FixtureLabel" Content="Fixture" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
         <ComboBox SelectionChanged="ChooseSeasonBox_SelectionChanged" x:Name="ChooseSeasonBox"  VerticalAlignment="Top" Margin="270,31,33,0" Height="28" HorizontalAlignment="Stretch"/>
-        <Label Content="Choose Season" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
+        <Label x:Name="ChooseSeasonLabel" Content="Choose Season" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
         <ComboBox HorizontalAlignment="Stretch" SelectionChanged="ChooseFixtureBox_SelectionChanged" x:Name="ChooseFixtureNumBox"  VerticalAlignment="Top" Margin="270,89,33,0" Height="29"/>
         <Button x:Name="AddButton" Click="AddButton_Click"   FontWeight="SemiBold" Content="ADD" HorizontalAlignment="Left" FontSize="20" Height="49" Margin="49,0,0,60" VerticalAlignment="Bottom" Width="241"/>
         <Button x:Name="UpdateButton" Click="UpdateButton_Click"  FontWeight="SemiBold" Content="UPDATE" Height="49" Margin="0,695,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="242"></Button>

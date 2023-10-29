@@ -7,17 +7,17 @@
         mc:Ignorable="d"
         Title="Update Player Window" Height="700" Width="900" MinHeight="700" MinWidth="900">
     <Grid>
-        <Label Content="UPDATE PLAYER" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
-        <Label Content="First Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="103,138,535,477"/>
+        <Label x:Name="HeaderLabel" Content="UPDATE PLAYER" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
+        <Label x:Name="FirstNameLabel" Content="First Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="103,138,535,477"/>
         <TextBox x:Name="FirstNameTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.47,-2.233" Margin="507,138,131,477"/>
-        <Label Content="Last Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="103,225,535,391"/>
-        <Label Content="Select Club" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="103,450,535,159"/>
+        <Label x:Name="LastNameLabel" Content="Last Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="103,225,535,391"/>
+        <Label x:Name="SelectClubLabel" Content="Select Club" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="103,450,535,159"/>
         <TextBox x:Name="LastNameTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="507,224,131,391" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
-        <Button Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
-        <Label Content="Contract Date" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="103,308,535,307"/>
+        <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label x:Name="ContractDateLabel" Content="Contract Date" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="103,308,535,307"/>
         <ComboBox x:Name="ClubComboBox" Margin="507,457,131,158" Width="232" Height="39"/>
         <DatePicker x:Name="DatePickerBox" Margin="507,308,131,307" Width="232" Height="39"/>
-        <Label Content="Shirt Number" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="103,382,535,234"/>
+        <Label x:Name="ShirtNumLabel" Content="Shirt Number" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="103,382,535,234"/>
         <TextBox x:Name="ShirtNumberTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="507,381,131,234" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
 
     </Grid>

@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Main Admin Start Window" Height="450" Width="473" WindowState="Maximized" ResizeMode="CanResize" MinHeight="600" MinWidth="600">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Show League Administrators" Margin="158,190,158,200" Height="60" Width="157" Click="Button_Click"/>
+        <Button x:Name="ShowLeagueAdminsButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Show League Administrators" Margin="158,190,158,200" Height="60" Width="157" Click="Button_Click"/>
     </Grid>
 </Window>

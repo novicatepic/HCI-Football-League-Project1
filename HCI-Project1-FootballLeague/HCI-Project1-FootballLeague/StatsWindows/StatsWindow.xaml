@@ -33,10 +33,10 @@
             </DataGrid.Columns>
         </DataGrid>
         <TextBox TextChanged="TextBox_TextChanged" x:Name="SearchTB" FontSize="14" Margin="270,88,230,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="36" RenderTransformOrigin="0.494,0.157"/>
-        <Label Content="Filter Based On Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
+        <Label x:Name="FilterLabel" Content="Filter Based On Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
         <ComboBox x:Name="ChooseSeasonBox"  VerticalAlignment="Top" Margin="270,31,230,0" Height="28" HorizontalAlignment="Stretch"/>
         <Button HorizontalAlignment="Right" x:Name="NextButton" Click="NextButton_Click" Content="SHOW" FontSize="20"  VerticalAlignment="Top"  Height="28" Width="191" Margin="0,31,10,0"/>
-        <Label Content="Choose Season" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
+        <Label x:Name="ChooseSeasonLabel" Content="Choose Season" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
 
     </Grid>
 </Window>

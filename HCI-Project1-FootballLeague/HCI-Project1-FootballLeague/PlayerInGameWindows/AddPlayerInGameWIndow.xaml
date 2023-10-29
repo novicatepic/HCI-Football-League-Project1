@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         Title="Add Player In Game WIndow" Height="750" Width="930" MinHeight="750" MinWidth="930">
     <Grid>
-        <Label Content="ADD NEW PLAYER" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
-        <Label Content="Num Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="118,153,550,492"/>
+        <Label x:Name="HeaderLabel" Content="ADD NEW PLAYER" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
+        <Label x:Name="NumGoalsLabel" Content="Num Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="118,153,550,492"/>
         <TextBox x:Name="NumGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.47,-2.233" Margin="507,138,131,477"/>
-        <Label Content="Num Assists" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="118,219,550,425"/>
-        <Label Content="Select Player" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="118,93,550,552"/>
+        <Label x:Name="NumAssistsLabel" Content="Num Assists" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="118,219,550,425"/>
+        <Label x:Name="SelectPlayerLabel" Content="Select Player" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="118,93,550,552"/>
         <TextBox x:Name="NumAssistsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="522,219,146,426" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
-        <Button Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+        <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
         <ComboBox x:Name="PlayerComboBox" Margin="522,93,146,552" Width="232" Height="39"/>
-        <Label Content="Minutes played" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="118,434,550,211"/>
+        <Label x:Name="MinsPlayedLabel" Content="Minutes played" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="118,434,550,211"/>
         <TextBox x:Name="MinutesPlayedTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="522,434,146,211" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
         <CheckBox x:Name="YellowCardCB" Content="Got Yellow" Margin="522,281,146,383" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <CheckBox x:Name="RedCardCB" Content="Got Red?" Margin="522,328,146,336" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
