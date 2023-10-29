@@ -42,7 +42,8 @@ namespace HCI_Project1_FootballLeague.PlayerWindows
             var date = DatePickerBox.SelectedDate.Value;
             var shirtNumber = ShirtNumberTB.Text;
             var club = (FootballClub)ClubComboBox.SelectedItem;
-            if (!"".Equals(firstName) && !"".Equals(lastName) && date != null && !"".Equals(shirtNumber) && club != null)
+            int intShirtNum = Int32.Parse(shirtNumber);
+            if (intShirtNum>0 && !"".Equals(firstName) && !"".Equals(lastName) && date != null && !"".Equals(shirtNumber) && club != null)
             {
                 Player player = new Player(Int32.Parse(shirtNumber), 0, 0, 0, 0, 0, firstName, lastName, date, club.ClubId);
                 PlayerDB.AddPlayer(player);
@@ -51,7 +52,7 @@ namespace HCI_Project1_FootballLeague.PlayerWindows
             }
             else
             {
-                MessageBox.Show("One of required inputs not entered!");
+                MessageBox.Show("One of required inputs not entered correctly!");
             }
         }
     }

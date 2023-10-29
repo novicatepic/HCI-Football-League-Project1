@@ -98,7 +98,7 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             }
             else
             {
-                MessageBox.Show("One of required inputs not entered!");
+                MessageBox.Show("One of required inputs not entered correctly!");
             }
         }
     }

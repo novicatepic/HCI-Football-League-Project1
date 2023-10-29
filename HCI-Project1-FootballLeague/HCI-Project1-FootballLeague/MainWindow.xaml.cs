@@ -5,6 +5,7 @@ using HCI_Project1_FootballLeague.LeagueAdminTableWindow;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,8 +26,7 @@ namespace HCI_Project1_FootballLeague
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        public static string ConnectionString = "Server=localhost;Database=fudbalskaliga-hci;UserId = root; Password = Root123!;";
+        public static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["MySqlHciFootballLeague"].ConnectionString;
 
         public MainWindow()
         {

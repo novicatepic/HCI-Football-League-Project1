@@ -113,19 +113,25 @@
     <Compile Include="AdminsStartWindows\MainAdminStartWindow.xaml.cs">
       <DependentUpon>MainAdminStartWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChooseSeasonWindow\SeasonChooserWindow.xaml.cs">
-      <DependentUpon>SeasonChooserWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Classes\GameInfo.cs" />
     <Compile Include="Classes\GameWithClub.cs" />
+    <Compile Include="LeagueAdminTableWindow\AddLeeagueAdminWindow.xaml.cs">
+      <DependentUpon>AddLeeagueAdminWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LeagueAdminTableWindow\LeagueAdminWindow.xaml.cs">
       <DependentUpon>LeagueAdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LeagueAdminTableWindow\UpdateLeagueAdminWindow.xaml.cs">
+      <DependentUpon>UpdateLeagueAdminWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlayerInGameWindows\AddPlayerInGameWIndow.xaml.cs">
       <DependentUpon>AddPlayerInGameWIndow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlayerInGameWindows\PlayerInGameStartWindow.xaml.cs">
       <DependentUpon>PlayerInGameStartWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerInGameWindows\UpdatePlayerInGameWindow.xaml.cs">
+      <DependentUpon>UpdatePlayerInGameWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlayerWindows\AddPlayerWindow.xaml.cs">
       <DependentUpon>AddPlayerWindow.xaml</DependentUpon>
@@ -174,11 +180,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ChooseSeasonWindow\SeasonChooserWindow.xaml">
+    <Page Include="LeagueAdminTableWindow\AddLeeagueAdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LeagueAdminTableWindow\LeagueAdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LeagueAdminTableWindow\UpdateLeagueAdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,6 +223,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PlayerInGameWindows\PlayerInGameStartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayerInGameWindows\UpdatePlayerInGameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

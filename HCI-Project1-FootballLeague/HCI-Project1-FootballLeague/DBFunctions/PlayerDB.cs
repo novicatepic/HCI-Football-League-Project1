@@ -204,7 +204,6 @@ namespace HCI_Project1_FootballLeague.DBFunctions
 
                 int rowsAffected = cmd.ExecuteNonQuery();
                 return true;
-                //MessageBox.Show($"{rowsAffected} row(s) deleted.");
             }
             catch (Exception e)
             {
@@ -215,7 +214,32 @@ namespace HCI_Project1_FootballLeague.DBFunctions
                 conn.Close();
             }
             return false;
+        }
 
+        public static bool DeletePlayerInGame(int playerId, int clubId, int gameId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            try
+            {
+                conn.Open();
+
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "DELETE FROM igrac_na_utakmici WHERE IgracId=@IgracId AND UtakmicaId=@UtakmicaId AND KlubId=@KlubId";
+                cmd.Parameters.AddWithValue("@IgracId", playerId);
+                cmd.Parameters.AddWithValue("@UtakmicaId", gameId);
+                cmd.Parameters.AddWithValue("@KlubId", clubId);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return false;
         }
 
         public static bool UpdatePlayer(Player player)
@@ -242,6 +266,44 @@ namespace HCI_Project1_FootballLeague.DBFunctions
                 cmd.Parameters.AddWithValue("@DatumZaposlenja", player.DateOfContract);
                 cmd.Parameters.AddWithValue("@KlubId", player.ClubId);
                 cmd.Parameters.AddWithValue("@IgracId", player.PlayerId);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return false;
+        }
+
+        public static bool UpdatePlayerInGame(PlayerInGame player)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            try
+            {
+
+                conn.Open();
+
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "UPDATE igrac_na_utakmici SET BrojGolovaNaUtakmici=@BrojGolovaNaUtakmici, BrojAsistencijaNaUtakmici=@BrojAsistencijaNaUtakmici, DobioZuti=@DobioZuti" +
+                    ", DobioCrveni=@DobioCrveni, PoceoUtakmicu=@PoceoUtakmicu, OdigraoMinuta=@OdigraoMinuta" +
+                    " WHERE IgracId=@IgracId AND KlubId=@KlubId AND UtakmicaId=@UtakmicaId";
+
+                cmd.Parameters.AddWithValue("@BrojGolovaNaUtakmici", player.NumGoalsInGame);
+                cmd.Parameters.AddWithValue("@BrojAsistencijaNaUtakmici", player.NumAssistsInGame);
+                cmd.Parameters.AddWithValue("@DobioZuti", player.HasYellow);
+                cmd.Parameters.AddWithValue("@DobioCrveni", player.HasRed);
+                cmd.Parameters.AddWithValue("@PoceoUtakmicu", player.StartedGame);
+                cmd.Parameters.AddWithValue("@OdigraoMinuta", player.MinutesPlayed);
+                cmd.Parameters.AddWithValue("@IgracId", player.PlayerId);
+                cmd.Parameters.AddWithValue("@KlubId", player.ClubId);
+                cmd.Parameters.AddWithValue("@UtakmicaId", player.GameId);
 
                 int rowsAffected = cmd.ExecuteNonQuery();
 

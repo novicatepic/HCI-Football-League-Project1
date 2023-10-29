@@ -53,10 +53,19 @@ namespace HCI_Project1_FootballLeague.TeamWindows
             var date = DatePicker.SelectedDate.Value;
             var trophies = TrophiesTB.Text;
             var stadium = (Stadium)StadiumComboBox.SelectedItem;
-            FootballClub fc = new FootballClub(id, name, date, Int32.Parse(trophies), stadium.StadiumId);
-            FootballClubDB.UpdateClub(fc);
-            tw.DrawData();
-            Close();
+            int intTrophies = Int32.Parse(trophies);
+            if (intTrophies > 0 && !"".Equals(name) && !"".Equals(trophies) && date != null)
+            {
+                FootballClub fc = new FootballClub(id, name, date, Int32.Parse(trophies), stadium.StadiumId);
+                FootballClubDB.UpdateClub(fc);
+                tw.DrawData();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Name, capacity or town not entered!");
+            }
+
         }
 
     }

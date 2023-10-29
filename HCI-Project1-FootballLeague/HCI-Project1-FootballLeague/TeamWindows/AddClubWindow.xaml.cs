@@ -40,7 +40,8 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
             var date = DatePickerBox.SelectedDate.Value;
             var trophies = TrophiesWonTB.Text;
             var stadium = (Stadium)StadiumComboBox.SelectedItem;
-            if (!"".Equals(name) && !"".Equals(trophies) && date != null)
+            int intTrophies = Int32.Parse(trophies);
+            if (intTrophies>0 && !"".Equals(name) && !"".Equals(trophies) && date != null)
             {
                 FootballClub club = new FootballClub(name, date, Int32.Parse(trophies), stadium.StadiumId);
                 FootballClubDB.AddClub(club);

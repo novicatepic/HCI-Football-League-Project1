@@ -43,8 +43,6 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
         public void Clear()
         {
             DataGridXAML.Items.Clear();
-            //MessageBox.Show("cleared");
-            //DrawGrid();
         }
 
         private static void ItemNotSelected()
@@ -57,9 +55,6 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             if (ChooseSeasonBox.SelectedItem != null && ChooseFixtureNumBox.SelectedItem != null && ChooseRealFixtureBox.SelectedItem != null)
             {
                 GameInfo gInfo = (GameInfo)ChooseRealFixtureBox.SelectedItem;
-                /*MessageBox.Show(isHome.ToString());
-                MessageBox.Show(gInfo.HomeClubId.ToString());
-                MessageBox.Show(gInfo.AwayClubId.ToString());*/
                 AddPlayerInGameWIndow win = new AddPlayerInGameWIndow(this, gInfo, isHome);
                 win.ShowDialog();
             } else
@@ -70,16 +65,11 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ChooseSeasonBox.SelectedItem != null && ChooseFixtureNumBox.SelectedItem != null && DataGridXAML.SelectedItem != null)
+            if (ChooseSeasonBox.SelectedItem != null && ChooseFixtureNumBox.SelectedItem != null && ChooseRealFixtureBox.SelectedItem != null && DataGridXAML.SelectedItem != null)
             {
-                /*int season = (int)ChooseSeasonBox.SelectedItem;
-                int fixture = (int)ChooseFixtureNumBox.SelectedItem;
-                GameInfo gameInfo = (GameInfo)DataGridXAML.SelectedItem;
-                List<PlayerInGame> playersInGame = PlayerDB.GetPlayerFromGame(gameInfo.GameId);
-                foreach(PlayerInGame player in playersInGame)
-                {
-                    DataGridXAML.Items.Add(player);
-                }*/
+                PlayerInGame pig = (PlayerInGame)DataGridXAML.SelectedItem;
+                UpdatePlayerInGameWindow win = new UpdatePlayerInGameWindow(this, pig);
+                win.ShowDialog();
             }
             else
             {
@@ -92,10 +82,9 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
         {
             if (ChooseSeasonBox.SelectedItem != null && ChooseFixtureNumBox.SelectedItem != null && DataGridXAML.SelectedItem != null)
             {
-                GameInfo gameInfo = (GameInfo)DataGridXAML.SelectedItem;
-                GameDB.DeleteClubInGame(gameInfo.HomeClubId, gameInfo.GameId);
-                GameDB.DeleteClubInGame(gameInfo.AwayClubId, gameInfo.GameId);
-                GameDB.DeleteGame(gameInfo.GameId);
+                PlayerInGame player = (PlayerInGame)DataGridXAML.SelectedItem;
+                PlayerDB.DeletePlayerInGame(player.PlayerId, player.ClubId, player.GameId);
+                DataGridXAML.Items.Remove(player);
             }
             else
             {
@@ -113,6 +102,7 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
 
         private void SelectGamesFromSeasonAndFixture()
         {
+            ChooseRealFixtureBox.Items.Clear();
             int season = (int)ChooseSeasonBox.SelectedItem;
             int fixtureNum = (int)ChooseFixtureNumBox.SelectedItem;
 

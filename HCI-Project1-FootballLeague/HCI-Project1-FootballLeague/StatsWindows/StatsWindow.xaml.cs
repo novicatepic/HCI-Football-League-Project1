@@ -34,8 +34,6 @@ namespace HCI_Project1_FootballLeague.StatsWindows
 
         private void PopulateData(int season)
         {
-            
-            //MessageBox.Show(season.ToString());
             List<SeasonStats> stats = SeasonStatsDB.GetStats(season);
             foreach (SeasonStats s in stats)
             {

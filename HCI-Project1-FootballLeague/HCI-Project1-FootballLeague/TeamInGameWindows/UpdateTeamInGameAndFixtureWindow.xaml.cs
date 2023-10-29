@@ -43,7 +43,9 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
             var homeGoals = HomeGoalsTB.Text;
             var awayGoals = AwayGoalsTB.Text;
             var date = DatePickerBox.SelectedDate.Value;
-            if (!"".Equals(homeGoals) && !"".Equals(awayGoals) && date != null)
+            int intHomeGoals = Int32.Parse(homeGoals);
+            int intAwayGoals = Int32.Parse(awayGoals);
+            if (intHomeGoals>0 && intAwayGoals>0 && !"".Equals(homeGoals) && !"".Equals(awayGoals) && date != null)
             {
                 GameDB.UpdateClubInGame(new ClubInGame(gameInfo.HomeClubId, gameInfo.GameId, Int32.Parse(homeGoals), true));
                 GameDB.UpdateClubInGame(new ClubInGame(gameInfo.AwayClubId, gameInfo.GameId, Int32.Parse(awayGoals), true));

@@ -38,7 +38,8 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
             var name = NameTB.Text;
             var capacity = CapacityTB.Text;
             var town = TownTB.Text;
-            if (!"".Equals(name) && !"".Equals(capacity) && !"".Equals(town))
+            int intCapacity = Int32.Parse(capacity);
+            if (intCapacity>0 && !"".Equals(name) && !"".Equals(capacity) && !"".Equals(town))
             {
                 Stadium st = new Stadium(s.StadiumId, name, Int32.Parse(capacity), town);
                 StadiumDB.UpdateStadium(st);

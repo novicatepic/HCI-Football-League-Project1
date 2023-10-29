@@ -8,9 +8,5 @@
         Title="Main Admin Start Window" Height="450" Width="473" WindowState="Maximized" ResizeMode="CanResize" MinHeight="600" MinWidth="600">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Show League Administrators" Margin="158,190,158,200" Height="60" Width="157" Click="Button_Click"/>
-        <!--Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Add New Admin" Margin="158,147,158,243" Height="44" Width="157"/>
-        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Update Admin" Margin="158,217,158,173" Height="44" Width="157"/>
-        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Show League Administrators" Margin="158,287,158,103" Height="44" Width="157"/-->
-
     </Grid>
 </Window>

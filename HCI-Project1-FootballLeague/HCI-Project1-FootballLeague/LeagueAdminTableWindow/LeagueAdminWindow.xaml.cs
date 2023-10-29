@@ -52,22 +52,11 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            var userName = UserNameTB.Text;
-            var password = PasswordTB.Text;
-            if(!"".Equals(userName) && !"".Equals(password))
-            {
-                Administrator admin = new Administrator(userName, password, false);
-                AdminDB.AddAdmin(admin);
-                DrawData();
-            }
-            else
-            {
-                MessageBox.Show("User name or password not entered!");
-            }
-            
+            AddLeeagueAdminWindow win = new AddLeeagueAdminWindow(this);
+            win.ShowDialog();           
         }
 
-        private void DrawData()
+        public void DrawData()
         {
             DataGridXAML.Items.Clear();
             PopulateData();
@@ -77,14 +66,9 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
         {
             if (DataGridXAML.SelectedItem != null)
             {
-                UpdateNameLabel.Visibility = Visibility.Visible;
-                UpdatePasswordLabel.Visibility = Visibility.Visible;
-                UserNameUpdate.Visibility = Visibility.Visible;
-                PasswordUpdate.Visibility = Visibility.Visible;
-                ConfirmUpdateButton.Visibility = Visibility.Visible;
-                var admin = (Administrator)DataGridXAML.SelectedItem;
-                UserNameUpdate.Text = admin.UserName;
-                PasswordUpdate.Text = admin.Password;
+                Administrator admin = (Administrator)DataGridXAML.SelectedItem;
+                UpdateLeagueAdminWindow win = new UpdateLeagueAdminWindow(this, admin);
+                win.ShowDialog();
             } 
             else
             {
@@ -96,30 +80,6 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
         private static void NotSelectedMessage()
         {
             MessageBox.Show("Item not selected!");
-        }
-
-        private void ConfirmUpdateButton_Click(object sender, RoutedEventArgs e)
-        {
-            if(DataGridXAML.SelectedItem != null)
-            {
-                var admin = (Administrator)DataGridXAML.SelectedItem;
-                var id = admin.AdminId;
-                var userName = UserNameUpdate.Text;
-                var password = PasswordUpdate.Text;
-                bool isMain = false;
-                Administrator updatedAdmin = new Administrator(id, userName, password, isMain);
-                AdminDB.UpdateAdmin(updatedAdmin);
-                UpdateNameLabel.Visibility = Visibility.Hidden;
-                UpdatePasswordLabel.Visibility = Visibility.Hidden;
-                UserNameUpdate.Visibility = Visibility.Hidden;
-                PasswordUpdate.Visibility = Visibility.Hidden;
-                ConfirmUpdateButton.Visibility = Visibility.Hidden;
-                DrawData();
-            }
-            else
-            {
-                NotSelectedMessage();
-            }
         }
 
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
