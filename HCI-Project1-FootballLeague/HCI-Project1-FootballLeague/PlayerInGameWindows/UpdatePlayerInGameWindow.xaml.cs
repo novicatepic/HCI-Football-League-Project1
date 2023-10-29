@@ -23,11 +23,15 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
     {
         private PlayerInGameStartWindow window;
         private PlayerInGame player;
-        public UpdatePlayerInGameWindow(PlayerInGameStartWindow win, PlayerInGame pig)
+        private bool isHomePlayer;
+        private GameInfo gameInfo;
+        public UpdatePlayerInGameWindow(PlayerInGameStartWindow win, PlayerInGame pig, bool isHomeTeam, GameInfo gameInfo)
         {
             InitializeComponent();
             window = win;
             this.player = pig;
+            this.isHomePlayer = isHomeTeam;
+            this.gameInfo = gameInfo;
             PopulateData();
         }
 
@@ -80,23 +84,69 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             {
                 startedGame = true;
             }
-            if (!"".Equals(goals) && !"".Equals(assists) && !"".Equals(minutesPlayed))
+
+            ClubInGame cig = null;
+            List<PlayerInGame> playersFromTeamAndGame = new List<PlayerInGame>();
+            int teamScored = 0;
+            if (isHomePlayer)
             {
-                PlayerInGame pig = new PlayerInGame(player.PlayerId, Int32.Parse(goals), Int32.Parse(assists), gotYellow, gotRed, player.ClubId, player.GameId, startedGame, Int32.Parse(minutesPlayed));
-                pig.FirstName = player.FirstName;
-                pig.LastName = player.LastName;
-                PlayerDB.UpdatePlayerInGame(pig);
-                foreach(var player in window.DataGridXAML.Items)
+                cig = FootballClubDB.GetClubInGame(gameInfo.HomeClubId, gameInfo.GameId);
+                foreach (PlayerInGame pig in PlayerDB.GetPlayersFromClubAndGame(gameInfo.HomeClubId, gameInfo.GameId))
                 {
-                    PlayerInGame p = (PlayerInGame)player;
-                    if(p.PlayerId == pig.PlayerId)
-                    {
-                        window.DataGridXAML.Items.Remove(player);
-                        break;
-                    }
+                    playersFromTeamAndGame.Add(pig);
                 }
-                window.DataGridXAML.Items.Add(pig);
-                Close();
+                teamScored = gameInfo.HomeTeamGoals;
+            }
+            else
+            {
+                cig = FootballClubDB.GetClubInGame(gameInfo.AwayClubId, gameInfo.GameId);
+                foreach (PlayerInGame pig in PlayerDB.GetPlayersFromClubAndGame(gameInfo.AwayClubId, gameInfo.GameId))
+                {
+                    playersFromTeamAndGame.Add(pig);
+                }
+                teamScored = gameInfo.AwayTeamGoals;
+            }
+            int currGoals = 0;
+            int currAssists = 0;
+            foreach (PlayerInGame pig in playersFromTeamAndGame)
+            {
+                if(pig.PlayerId != player.PlayerId)
+                {
+                    currGoals += pig.NumGoalsInGame;
+                    currAssists += pig.NumAssistsInGame;
+                }
+                
+            }
+            int intGoals = Int32.Parse(goals);
+            int intAssists = Int32.Parse(assists);
+            int intMinutesPlayer = Int32.Parse(minutesPlayed);
+            
+
+
+            if (intGoals>=0 && intAssists >=0 && intMinutesPlayer >=0 && intMinutesPlayer <=90 && !"".Equals(goals) && !"".Equals(assists) && !"".Equals(minutesPlayed))
+            {
+                if (intGoals + currGoals > teamScored || intAssists + currAssists > teamScored)
+                {
+                    MessageBox.Show("Too many goals and assists!");
+                } else
+                {
+                    PlayerInGame pig = new PlayerInGame(player.PlayerId, Int32.Parse(goals), Int32.Parse(assists), gotYellow, gotRed, player.ClubId, player.GameId, startedGame, Int32.Parse(minutesPlayed));
+                    pig.FirstName = player.FirstName;
+                    pig.LastName = player.LastName;
+                    PlayerDB.UpdatePlayerInGame(pig);
+                    foreach (var player in window.DataGridXAML.Items)
+                    {
+                        PlayerInGame p = (PlayerInGame)player;
+                        if (p.PlayerId == pig.PlayerId)
+                        {
+                            window.DataGridXAML.Items.Remove(player);
+                            break;
+                        }
+                    }
+                    window.DataGridXAML.Items.Add(pig);
+                    Close();
+                }
+                    
             }
             else
             {

@@ -1,5 +1,6 @@
 ﻿using HCI_Project1_FootballLeague.Classes;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -27,6 +28,27 @@ namespace HCI_Project1_FootballLeague.DBFunctions
 
                 stats.Add(new SeasonStats(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3),
                     reader.GetInt32(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetInt32(8)));
+            }
+            reader.Close();
+            conn.Close();
+
+            return stats;
+        }
+
+        public static SeasonStats GetStatsBasedOnClub(int clubId)
+        {
+            SeasonStats stats = null;
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM statistika_u_sezoni WHERE KlubId=@KlubId";
+            cmd.Parameters.AddWithValue("@KlubId", clubId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                stats = new SeasonStats(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3),
+                    reader.GetInt32(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetInt32(8));
             }
             reader.Close();
             conn.Close();
@@ -66,13 +88,11 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                //MessageBox.Show("FOUND");
                 stats.Add(new SeasonStats(reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4),
                     reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetInt32(8), reader.GetInt32(9), reader.GetString(0)));
             }
             reader.Close();
             conn.Close();
-            //MessageBox.Show(stats[0].ClubName);
             return stats;
         }
 

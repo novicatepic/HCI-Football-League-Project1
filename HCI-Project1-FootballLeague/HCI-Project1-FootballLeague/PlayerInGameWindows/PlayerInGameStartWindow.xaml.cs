@@ -68,7 +68,8 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             if (ChooseSeasonBox.SelectedItem != null && ChooseFixtureNumBox.SelectedItem != null && ChooseRealFixtureBox.SelectedItem != null && DataGridXAML.SelectedItem != null)
             {
                 PlayerInGame pig = (PlayerInGame)DataGridXAML.SelectedItem;
-                UpdatePlayerInGameWindow win = new UpdatePlayerInGameWindow(this, pig);
+                GameInfo gInfo = (GameInfo)ChooseRealFixtureBox.SelectedItem;
+                UpdatePlayerInGameWindow win = new UpdatePlayerInGameWindow(this, pig, isHome, gInfo);
                 win.ShowDialog();
             }
             else

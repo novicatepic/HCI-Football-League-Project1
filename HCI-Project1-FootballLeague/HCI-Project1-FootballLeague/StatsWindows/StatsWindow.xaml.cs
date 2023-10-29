@@ -29,7 +29,6 @@ namespace HCI_Project1_FootballLeague.StatsWindows
             {
                 ChooseSeasonBox.Items.Add(s);
             }
-            //PopulateData();
         }
 
         private void PopulateData(int season)

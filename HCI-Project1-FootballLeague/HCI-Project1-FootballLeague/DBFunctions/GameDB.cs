@@ -33,6 +33,46 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return games;
         }
 
+        public static Game GetGameBasedOnId(int gameId)
+        {
+            Game game = null;
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM utakmica WHERE UtakmicaId=@UtakmicaId";
+            cmd.Parameters.AddWithValue("@UtakmicaId", gameId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                game = new Game(reader.GetInt32(0), reader.GetDateTime(1), reader.GetInt32(2), reader.GetInt32(3));
+            }
+            reader.Close();
+            conn.Close();
+
+            return game;
+        }
+
+        public static List<ClubInGame> GetClubInGameBasedOnClubId(int clubId)
+        {
+            List<ClubInGame> game = new List<ClubInGame>();
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM klub_na_utakmici WHERE KlubId=@KlubId";
+            cmd.Parameters.AddWithValue("@KlubId", clubId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                game.Add(new ClubInGame(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetBoolean(3)));
+            }
+            reader.Close();
+            conn.Close();
+
+            return game;
+        }
+
         public static List<Int32> GetFixturesInSeason(int season)
         {
             List<Int32> fixtures = new List<Int32>();

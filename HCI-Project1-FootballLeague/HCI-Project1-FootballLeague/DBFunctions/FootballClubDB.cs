@@ -132,6 +132,25 @@ namespace HCI_Project1_FootballLeague.DBFunctions
 
         }
 
+        public static ClubInGame GetClubInGame(int clubId, int gameId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+            ClubInGame cig = null;
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM klub_na_utakmici WHERE KlubId=@KlubId AND UtakmicaId=@UtakmicaId";
+            cmd.Parameters.AddWithValue("@KlubId", clubId);
+            cmd.Parameters.AddWithValue("@UtakmicaId", gameId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                cig = new ClubInGame(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetBoolean(3));
+            }
+            reader.Close();
+            conn.Close();
+            return cig;
+        }
+
         public static bool UpdateClub(FootballClub club)
         {
             MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);

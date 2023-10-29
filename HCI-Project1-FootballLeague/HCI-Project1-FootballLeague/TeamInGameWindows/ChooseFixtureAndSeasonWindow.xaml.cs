@@ -132,7 +132,39 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
         {
             if (ChooseSeasonBox.SelectedItem != null && ChooseFixtureBox.SelectedItem != null && DataGridXAML.SelectedItem != null)
             {
+                GameInfo gInfo = (GameInfo)DataGridXAML.SelectedItem;
+                SeasonStats homeTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gInfo.HomeClubId);
+                SeasonStats awayTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gInfo.AwayClubId);
+                if (gInfo.HomeTeamGoals > gInfo.AwayTeamGoals)
+                {
+                    homeTeamStats.NumWins -= 1;
+                    awayTeamStats.NumLoses -= 1;
+                    homeTeamStats.NumPoints -= 3;
+                }
+                else if (gInfo.HomeTeamGoals < gInfo.AwayTeamGoals)
+                {
+                    awayTeamStats.NumWins -= 1;
+                    homeTeamStats.NumLoses -= 1;
+                    awayTeamStats.NumPoints -= 3;
+                }
+                else
+                {
+                    homeTeamStats.NumDraws -= 1;
+                    awayTeamStats.NumDraws -= 1;
+                    homeTeamStats.NumPoints -= 1;
+                    awayTeamStats.NumPoints -= 1;
+                }
+                homeTeamStats.NumScored -= gInfo.HomeTeamGoals;
+                homeTeamStats.NumConceded -= gInfo.AwayTeamGoals;
+                awayTeamStats.NumScored -= gInfo.AwayTeamGoals;
+                awayTeamStats.NumConceded -= gInfo.HomeTeamGoals;
+                homeTeamStats.NumGamesPlayed -= 1;
+                awayTeamStats.NumGamesPlayed -= 1;
+
+                SeasonStatsDB.UpdateStats(homeTeamStats);
+                SeasonStatsDB.UpdateStats(awayTeamStats);
                 GameInfo gameInfo = (GameInfo)DataGridXAML.SelectedItem;
+                PlayerDB.DeleteAllPlayersFromGame(gameInfo.GameId);
                 GameDB.DeleteClubInGame(gameInfo.HomeClubId, gameInfo.GameId);
                 GameDB.DeleteClubInGame(gameInfo.AwayClubId, gameInfo.GameId);
                 GameDB.DeleteGame(gameInfo.GameId);

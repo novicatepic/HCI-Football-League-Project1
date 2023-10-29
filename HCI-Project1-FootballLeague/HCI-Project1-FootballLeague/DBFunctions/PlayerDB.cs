@@ -74,6 +74,45 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return clubName;
         }
 
+        public static List<PlayerInGame> GetPlayersFromClubAndGame(int clubId, int gameId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+            List<PlayerInGame> playersInGame = new List<PlayerInGame>();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM igrac_na_utakmici WHERE KlubId=@KlubId AND UtakmicaId=@UtakmicaId";
+            cmd.Parameters.AddWithValue("@KlubId", clubId);
+            cmd.Parameters.AddWithValue("@UtakmicaId", gameId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                playersInGame.Add(new PlayerInGame(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetBoolean(3), reader.GetBoolean(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetBoolean(7), reader.GetInt32(8)));
+            }
+            reader.Close();
+            conn.Close();
+            return playersInGame;
+        }
+
+        public static PlayerInGame GetPlayerFromClubAndGame(int clubId, int gameId, int playerId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+            PlayerInGame playerInGame = null; ;
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM igrac_na_utakmici WHERE KlubId=@KlubId AND UtakmicaId=@UtakmicaId AND IgracId=@IgracId";
+            cmd.Parameters.AddWithValue("@KlubId", clubId);
+            cmd.Parameters.AddWithValue("@UtakmicaId", gameId);
+            cmd.Parameters.AddWithValue("@IgracId", playerId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                playerInGame = new PlayerInGame(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetBoolean(3), reader.GetBoolean(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetBoolean(7), reader.GetInt32(8));
+            }
+            reader.Close();
+            conn.Close();
+            return playerInGame;
+        }
+
         public static List<Player> GetPlayersWhoPlayedBasedOnGameAndClub(int gameId, int clubId)
         {
             MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
@@ -228,6 +267,30 @@ namespace HCI_Project1_FootballLeague.DBFunctions
                 cmd.Parameters.AddWithValue("@IgracId", playerId);
                 cmd.Parameters.AddWithValue("@UtakmicaId", gameId);
                 cmd.Parameters.AddWithValue("@KlubId", clubId);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return false;
+        }
+
+        public static bool DeleteAllPlayersFromGame(int gameId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            try
+            {
+                conn.Open();
+
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "DELETE FROM igrac_na_utakmici WHERE UtakmicaId=@UtakmicaId";
+                cmd.Parameters.AddWithValue("@UtakmicaId", gameId);
                 int rowsAffected = cmd.ExecuteNonQuery();
                 return true;
             }
