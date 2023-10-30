@@ -2,6 +2,7 @@
 using HCI_Project1_FootballLeague.DBFunctions;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,78 @@ namespace HCI_Project1_FootballLeague.PlayerWindows
         {
             InitializeComponent();
             PopulateData();
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var PlayerWTitle = "";
+            var PlayerWFilterLBL = "";
+            var PlayerWAddBTN = "";
+            var PlayerWUpdateBTN = "";
+            var PlayerWDeleteBTN = "";
+
+            var PlayerFirstNameCOL = "";
+            var PlayerLastNameCOL = "";
+            var PlayerDateOfContractCOL = "";
+            var PlayerShirtNumCOL = "";
+            var PlayerNumGoalsCOL = "";
+            var PlayerNumAssistsCOL = "";
+            var PlayerNumYellowCOL = "";
+            var PlayerNumRedCOL = "";
+            var PlayerClubNameCOL = "";
+
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                PlayerWTitle = ConfigurationManager.AppSettings["PlayerWTitle"];
+                PlayerWAddBTN = ConfigurationManager.AppSettings["PlayerWAddBTN"];
+                PlayerWFilterLBL = ConfigurationManager.AppSettings["PlayerWFilterLBL"];
+                PlayerWUpdateBTN = ConfigurationManager.AppSettings["PlayerWUpdateBTN"];
+                PlayerWDeleteBTN = ConfigurationManager.AppSettings["PlayerWDeleteBTN"];
+
+                PlayerFirstNameCOL = ConfigurationManager.AppSettings["PlayerFirstNameCOL"];
+                PlayerLastNameCOL = ConfigurationManager.AppSettings["PlayerLastNameCOL"];
+                PlayerDateOfContractCOL = ConfigurationManager.AppSettings["PlayerDateOfContractCOL"];
+                PlayerShirtNumCOL = ConfigurationManager.AppSettings["PlayerShirtNumCOL"];
+                PlayerNumGoalsCOL = ConfigurationManager.AppSettings["PlayerNumGoalsCOL"];
+                PlayerNumAssistsCOL = ConfigurationManager.AppSettings["PlayerNumAssistsCOL"];
+                PlayerNumYellowCOL = ConfigurationManager.AppSettings["PlayerNumYellowCOL"];
+                PlayerNumRedCOL = ConfigurationManager.AppSettings["PlayerNumRedCOL"];
+                PlayerClubNameCOL = ConfigurationManager.AppSettings["PlayerClubNameCOL"];
+            }
+            else
+            {
+                PlayerWTitle = ConfigurationManager.AppSettings["PlayerWTitleSE"];
+                PlayerWAddBTN = ConfigurationManager.AppSettings["PlayerWAddBTNSE"];
+                PlayerWFilterLBL = ConfigurationManager.AppSettings["PlayerWFilterLBLSE"];
+                PlayerWUpdateBTN = ConfigurationManager.AppSettings["PlayerWUpdateBTNSE"];
+                PlayerWDeleteBTN = ConfigurationManager.AppSettings["PlayerWDeleteBTNSE"];
+
+                PlayerFirstNameCOL = ConfigurationManager.AppSettings["PlayerFirstNameCOLSE"];
+                PlayerLastNameCOL = ConfigurationManager.AppSettings["PlayerLastNameCOLSE"];
+                PlayerDateOfContractCOL = ConfigurationManager.AppSettings["PlayerDateOfContractCOLSE"];
+                PlayerShirtNumCOL = ConfigurationManager.AppSettings["PlayerShirtNumCOLSE"];
+                PlayerNumGoalsCOL = ConfigurationManager.AppSettings["PlayerNumGoalsCOLSE"];
+                PlayerNumAssistsCOL = ConfigurationManager.AppSettings["PlayerNumAssistsCOLSE"];
+                PlayerNumYellowCOL = ConfigurationManager.AppSettings["PlayerNumYellowCOLSE"];
+                PlayerNumRedCOL = ConfigurationManager.AppSettings["PlayerNumRedCOLSE"];
+                PlayerClubNameCOL = ConfigurationManager.AppSettings["PlayerClubNameCOLSE"];
+            }
+            this.Title = PlayerWTitle;
+            AddButton.Content = PlayerWAddBTN;
+            UpdateButton.Content = PlayerWUpdateBTN;
+            DeleteButton.Content = PlayerWDeleteBTN;
+            FilterLabel.Content = PlayerWFilterLBL;
+
+            PlayerFirstNameC.Header = PlayerFirstNameCOL;
+            PlayerLastNameC.Header = PlayerLastNameCOL;
+            PlayerDateOfContractC.Header = PlayerDateOfContractCOL;
+            PlayerShirtNumC.Header = PlayerShirtNumCOL;
+            PlayerNumGoalsC.Header = PlayerNumGoalsCOL;
+            PlayerNumAssistsC.Header = PlayerNumAssistsCOL;
+            PlayerNumYellowC.Header = PlayerNumYellowCOL;
+            PlayerNumRedC.Header = PlayerNumRedCOL;
+            PlayerClubNameC.Header = PlayerClubNameCOL;
         }
 
         private List<FootballClub> clubs = FootballClubDB.GetClubs();

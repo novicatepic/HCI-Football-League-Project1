@@ -3,6 +3,7 @@ using HCI_Project1_FootballLeague.DBFunctions;
 using HCI_Project1_FootballLeague.TeamWindows;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,53 @@ namespace HCI_Project1_FootballLeague.PlayerWindows
                     ClubComboBox.SelectedItem = s;
                 }
             }
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var UpdatePlayerWTitle = "";
+            var UpdatePlayerWHeaderLBL = "";
+            var UpdatePlayerWFirstNameLBL = "";
+            var UpdatePlayerWLastNameLBL = "";
+            var UpdatePlayerWContractDateLBL = "";
+
+            var UpdatePlayerWShirtNumberLBL = "";
+            var UpdatePlayerWSelectClubLBL = "";
+            var UpdatePlayerWSubmitBTN = "";
+
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                UpdatePlayerWTitle = ConfigurationManager.AppSettings["UpdatePlayerWTitle"];
+                UpdatePlayerWHeaderLBL = ConfigurationManager.AppSettings["UpdatePlayerWHeaderLBL"];
+                UpdatePlayerWFirstNameLBL = ConfigurationManager.AppSettings["UpdatePlayerWFirstNameLBL"];
+                UpdatePlayerWLastNameLBL = ConfigurationManager.AppSettings["UpdatePlayerWLastNameLBL"];
+                UpdatePlayerWContractDateLBL = ConfigurationManager.AppSettings["UpdatePlayerWContractDateLBL"];
+
+                UpdatePlayerWShirtNumberLBL = ConfigurationManager.AppSettings["UpdatePlayerWShirtNumberLBL"];
+                UpdatePlayerWSelectClubLBL = ConfigurationManager.AppSettings["UpdatePlayerWSelectClubLBL"];
+                UpdatePlayerWSubmitBTN = ConfigurationManager.AppSettings["UpdatePlayerWSubmitBTN"];
+            }
+            else
+            {
+                UpdatePlayerWTitle = ConfigurationManager.AppSettings["UpdatePlayerWTitleSE"];
+                UpdatePlayerWHeaderLBL = ConfigurationManager.AppSettings["UpdatePlayerWHeaderLBLSE"];
+                UpdatePlayerWFirstNameLBL = ConfigurationManager.AppSettings["UpdatePlayerWFirstNameLBLSE"];
+                UpdatePlayerWLastNameLBL = ConfigurationManager.AppSettings["UpdatePlayerWLastNameLBLSE"];
+                UpdatePlayerWContractDateLBL = ConfigurationManager.AppSettings["UpdatePlayerWContractDateLBLSE"];
+
+                UpdatePlayerWShirtNumberLBL = ConfigurationManager.AppSettings["UpdatePlayerWShirtNumberLBLSE"];
+                UpdatePlayerWSelectClubLBL = ConfigurationManager.AppSettings["UpdatePlayerWSelectClubLBLSE"];
+                UpdatePlayerWSubmitBTN = ConfigurationManager.AppSettings["UpdatePlayerWSubmitBTNSE"];
+            }
+            this.Title = UpdatePlayerWTitle;
+            HeaderLabel.Content = UpdatePlayerWHeaderLBL;
+            FirstNameLabel.Content = UpdatePlayerWFirstNameLBL;
+            LastNameLabel.Content = UpdatePlayerWLastNameLBL;
+            ContractDateLabel.Content = UpdatePlayerWContractDateLBL;
+            ShirtNumLabel.Content = UpdatePlayerWShirtNumberLBL;
+            SelectClubLabel.Content = UpdatePlayerWSelectClubLBL;
+            SubmitBTN.Content = UpdatePlayerWSubmitBTN;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

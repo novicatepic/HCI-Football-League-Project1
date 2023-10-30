@@ -3,6 +3,7 @@ using HCI_Project1_FootballLeague.DBFunctions;
 using HCI_Project1_FootballLeague.StadiumWindows;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +45,46 @@ namespace HCI_Project1_FootballLeague.TeamWindows
                     StadiumComboBox.SelectedItem = s;
                 }
             }
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var UpdateTeamWTitle = "";
+            var UpdateTeamWHeaderLBL = "";
+            var UpdateTeamWNameLBL = "";
+            var UpdateTeamWFoundationDateBL = "";
+            var UpdateTeamWTrophiesWonLBL = "";
+            var UpdateTeamWStadiumLBL = "";
+            var UpdateTeamWSubmitBTN = "";
+
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                UpdateTeamWTitle = ConfigurationManager.AppSettings["UpdateTeamWTitle"];
+                UpdateTeamWHeaderLBL = ConfigurationManager.AppSettings["UpdateTeamWHeaderLBL"];
+                UpdateTeamWNameLBL = ConfigurationManager.AppSettings["UpdateTeamWNameLBL"];
+                UpdateTeamWFoundationDateBL = ConfigurationManager.AppSettings["UpdateTeamWFoundationDateBL"];
+                UpdateTeamWTrophiesWonLBL = ConfigurationManager.AppSettings["UpdateTeamWTrophiesWonLBL"];
+                UpdateTeamWStadiumLBL = ConfigurationManager.AppSettings["UpdateTeamWStadiumLBL"];
+                UpdateTeamWSubmitBTN = ConfigurationManager.AppSettings["UpdateTeamWSubmitBTN"];
+            }
+            else
+            {
+                UpdateTeamWTitle = ConfigurationManager.AppSettings["UpdateTeamWTitleSE"];
+                UpdateTeamWHeaderLBL = ConfigurationManager.AppSettings["UpdateTeamWHeaderLBLSE"];
+                UpdateTeamWNameLBL = ConfigurationManager.AppSettings["UpdateTeamWNameLBLSE"];
+                UpdateTeamWFoundationDateBL = ConfigurationManager.AppSettings["UpdateTeamWFoundationDateBLSE"];
+                UpdateTeamWTrophiesWonLBL = ConfigurationManager.AppSettings["UpdateTeamWTrophiesWonLBLSE"];
+                UpdateTeamWStadiumLBL = ConfigurationManager.AppSettings["UpdateTeamWStadiumLBLSE"];
+                UpdateTeamWSubmitBTN = ConfigurationManager.AppSettings["UpdateTeamWSubmitBTNSE"];
+            }
+            this.Title = UpdateTeamWTitle;
+            HeaderLabel.Content = UpdateTeamWHeaderLBL;
+            SubmitBTN.Content = UpdateTeamWSubmitBTN;
+            NameLabel.Content = UpdateTeamWNameLBL;
+            FoundationDateLabel.Content = UpdateTeamWFoundationDateBL;
+            TrophiesWonLabel.Content = UpdateTeamWTrophiesWonLBL;
+            StadiumLabel.Content = UpdateTeamWStadiumLBL;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

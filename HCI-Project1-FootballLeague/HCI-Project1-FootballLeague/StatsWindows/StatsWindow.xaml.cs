@@ -2,6 +2,7 @@
 using HCI_Project1_FootballLeague.DBFunctions;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace HCI_Project1_FootballLeague.StatsWindows
 {
@@ -29,6 +31,70 @@ namespace HCI_Project1_FootballLeague.StatsWindows
             {
                 ChooseSeasonBox.Items.Add(s);
             }
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var StatsWTitle = "";
+            var StatsWChooseSeasonLBL = "";
+            var StatsWFilterLBL = "";
+            var StatsWShowBTN = "";
+
+            var StatsTeamNameCOL = "";
+            var StatsNumPlayedCOL = "";
+            var StatsNumWinsCOL = "";
+            var StatsNumDrawsCOL = "";
+            var StatsNumLosesCOL = "";
+            var StatsNumScoredCOL = "";
+            var StatsNumConcededCOL = "";
+            var StatsNumPointsCOL = "";
+
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                StatsWTitle = ConfigurationManager.AppSettings["StatsWTitle"];
+                StatsWChooseSeasonLBL = ConfigurationManager.AppSettings["StatsWChooseSeasonLBL"];
+                StatsWFilterLBL = ConfigurationManager.AppSettings["StatsWFilterLBL"];
+                StatsWShowBTN = ConfigurationManager.AppSettings["StatsWShowBTN"];
+
+                StatsTeamNameCOL = ConfigurationManager.AppSettings["StatsTeamNameCOL"];
+                StatsNumPlayedCOL = ConfigurationManager.AppSettings["StatsNumPlayedCOL"];
+                StatsNumWinsCOL = ConfigurationManager.AppSettings["StatsNumWinsCOL"];
+                StatsNumDrawsCOL = ConfigurationManager.AppSettings["StatsNumDrawsCOL"];
+                StatsNumLosesCOL = ConfigurationManager.AppSettings["StatsNumLosesCOL"];
+                StatsNumScoredCOL = ConfigurationManager.AppSettings["StatsNumScoredCOL"];
+                StatsNumConcededCOL = ConfigurationManager.AppSettings["StatsNumConcededCOL"];
+                StatsNumPointsCOL = ConfigurationManager.AppSettings["StatsNumPointsCOL"];
+            }
+            else
+            {
+                StatsWTitle = ConfigurationManager.AppSettings["StatsWTitleSE"];
+                StatsWChooseSeasonLBL = ConfigurationManager.AppSettings["StatsWChooseSeasonLBLSE"];
+                StatsWFilterLBL = ConfigurationManager.AppSettings["StatsWFilterLBLSE"];
+                StatsWShowBTN = ConfigurationManager.AppSettings["StatsWShowBTNSE"];
+
+                StatsTeamNameCOL = ConfigurationManager.AppSettings["StatsTeamNameCOLSE"];
+                StatsNumPlayedCOL = ConfigurationManager.AppSettings["StatsNumPlayedCOLSE"];
+                StatsNumWinsCOL = ConfigurationManager.AppSettings["StatsNumWinsCOLSE"];
+                StatsNumDrawsCOL = ConfigurationManager.AppSettings["StatsNumDrawsCOLSE"];
+                StatsNumLosesCOL = ConfigurationManager.AppSettings["StatsNumLosesCOLSE"];
+                StatsNumScoredCOL = ConfigurationManager.AppSettings["StatsNumScoredCOLSE"];
+                StatsNumConcededCOL = ConfigurationManager.AppSettings["StatsNumConcededCOLSE"];
+                StatsNumPointsCOL = ConfigurationManager.AppSettings["StatsNumPointsCOLSE"];
+            }
+            this.Title = StatsWTitle;
+            ChooseSeasonLabel.Content = StatsWChooseSeasonLBL;
+            FilterLabel.Content = StatsWFilterLBL;
+            NextButton.Content = StatsWShowBTN;
+
+            StatsTeamNameC.Header = StatsTeamNameCOL;
+            StatsNumPlayedC.Header = StatsNumPlayedCOL;
+            StatsNumWinsC.Header = StatsNumWinsCOL;
+            StatsNumDrawsC.Header = StatsNumDrawsCOL;
+            StatsNumLosesC.Header = StatsNumLosesCOL;
+            StatsNumScoredC.Header = StatsNumScoredCOL;
+            StatsNumConcededC.Header = StatsNumConcededCOL;
+            StatsNumPointsC.Header = StatsNumPointsCOL;
         }
 
         private void PopulateData(int season)

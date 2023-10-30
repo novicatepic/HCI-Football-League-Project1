@@ -3,6 +3,7 @@ using HCI_Project1_FootballLeague.DBFunctions;
 using HCI_Project1_FootballLeague.TeamInGameWindows;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +27,95 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
         {
             InitializeComponent();
             PopulateData();
+            WriteLanguage();
         }
 
+        public void WriteLanguage()
+        {
+            var PlayerInGameWTitle = "";
+            var PlayerInGameWChooseSeasonLBL = "";
+            var PlayerInGameWFixtureNumLBL = "";
+            var PlayerInGameWFixtureLBL = "";
+            var PlayerInGameWHomePlayersBTN = "";
+
+            var PlayerInGameWAwayPlayersBTN = "";
+            var PlayerInGameWAddBTN = "";
+            var PlayerInGameWUpdateBTN = "";
+            var PlayerInGameWDeleteBTN = "";
+
+
+            var PIGFirstNameCOL = "";
+            var PIGLastNameCOL = "";
+            var PIGNumGoalsCOL = "";
+            var PIGNumAssistsCOL = "";
+            var PIGYellowCOL = "";
+            var PIGRedCOL = "";
+            var PIGStartedGameCOL = "";
+            var PIGMinsPlayedCOL = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                PlayerInGameWTitle = ConfigurationManager.AppSettings["PlayerInGameWTitle"];
+                PlayerInGameWChooseSeasonLBL = ConfigurationManager.AppSettings["PlayerInGameWChooseSeasonLBL"];
+                PlayerInGameWFixtureNumLBL = ConfigurationManager.AppSettings["PlayerInGameWFixtureNumLBL"];
+                PlayerInGameWFixtureLBL = ConfigurationManager.AppSettings["PlayerInGameWFixtureLBL"];
+                PlayerInGameWHomePlayersBTN = ConfigurationManager.AppSettings["PlayerInGameWHomePlayersBTN"];
+
+                PlayerInGameWAwayPlayersBTN = ConfigurationManager.AppSettings["PlayerInGameWAwayPlayersBTN"];
+                PlayerInGameWAddBTN = ConfigurationManager.AppSettings["PlayerInGameWAddBTN"];
+                PlayerInGameWUpdateBTN = ConfigurationManager.AppSettings["PlayerInGameWUpdateBTN"];
+                PlayerInGameWDeleteBTN = ConfigurationManager.AppSettings["PlayerInGameWDeleteBTN"];
+
+                PIGFirstNameCOL = ConfigurationManager.AppSettings["PIGFirstNameCOL"];
+                PIGLastNameCOL = ConfigurationManager.AppSettings["PIGLastNameCOL"];
+                PIGNumGoalsCOL = ConfigurationManager.AppSettings["PIGNumGoalsCOL"];
+                PIGNumAssistsCOL = ConfigurationManager.AppSettings["PIGNumAssistsCOL"];
+                PIGYellowCOL = ConfigurationManager.AppSettings["PIGYellowCOL"];
+                PIGRedCOL = ConfigurationManager.AppSettings["PIGRedCOL"];
+                PIGStartedGameCOL = ConfigurationManager.AppSettings["PIGStartedGameCOL"];
+                PIGMinsPlayedCOL = ConfigurationManager.AppSettings["PIGMinsPlayedCOL"];
+            }
+            else
+            {
+                PlayerInGameWTitle = ConfigurationManager.AppSettings["PlayerInGameWTitleSE"];
+                PlayerInGameWChooseSeasonLBL = ConfigurationManager.AppSettings["PlayerInGameWChooseSeasonLBLSE"];
+                PlayerInGameWFixtureNumLBL = ConfigurationManager.AppSettings["PlayerInGameWFixtureNumLBLSE"];
+                PlayerInGameWFixtureLBL = ConfigurationManager.AppSettings["PlayerInGameWFixtureLBLSE"];
+                PlayerInGameWHomePlayersBTN = ConfigurationManager.AppSettings["PlayerInGameWHomePlayersBTNSE"];
+
+                PlayerInGameWAwayPlayersBTN = ConfigurationManager.AppSettings["PlayerInGameWAwayPlayersBTNSE"];
+                PlayerInGameWAddBTN = ConfigurationManager.AppSettings["PlayerInGameWAddBTNSE"];
+                PlayerInGameWUpdateBTN = ConfigurationManager.AppSettings["PlayerInGameWUpdateBTNSE"];
+                PlayerInGameWDeleteBTN = ConfigurationManager.AppSettings["PlayerInGameWDeleteBTNSE"];
+
+                PIGFirstNameCOL = ConfigurationManager.AppSettings["PIGFirstNameCOLSE"];
+                PIGLastNameCOL = ConfigurationManager.AppSettings["PIGLastNameCOLSE"];
+                PIGNumGoalsCOL = ConfigurationManager.AppSettings["PIGNumGoalsCOLSE"];
+                PIGNumAssistsCOL = ConfigurationManager.AppSettings["PIGNumAssistsCOLSE"];
+                PIGYellowCOL = ConfigurationManager.AppSettings["PIGYellowCOLSE"];
+                PIGRedCOL = ConfigurationManager.AppSettings["PIGRedCOLSE"];
+                PIGStartedGameCOL = ConfigurationManager.AppSettings["PIGStartedGameCOLSE"];
+                PIGMinsPlayedCOL = ConfigurationManager.AppSettings["PIGMinsPlayedCOLSE"];
+            }
+            this.Title = PlayerInGameWTitle;
+            ChooseSeasonLabel.Content = PlayerInGameWChooseSeasonLBL;
+            FixtureNumLabel.Content = PlayerInGameWFixtureNumLBL;
+            FixtureLabel.Content = PlayerInGameWFixtureLBL;
+            HomePlayersBTN.Content = PlayerInGameWHomePlayersBTN;
+
+            AwayPlayersBTN.Content = PlayerInGameWAwayPlayersBTN;
+            AddButton.Content = PlayerInGameWAddBTN;
+            UpdateButton.Content = PlayerInGameWUpdateBTN;
+            DeleteButton.Content = PlayerInGameWDeleteBTN;
+
+            PIGFirstNameC.Header = PIGFirstNameCOL;
+            PIGLastNameC.Header = PIGLastNameCOL;
+            PIGNumGoalsC.Header = PIGNumGoalsCOL;
+            PIGNumAssistsC.Header = PIGNumAssistsCOL;
+            PIGYellowC.Header = PIGYellowCOL;
+            PIGRedC.Header = PIGRedCOL;
+            PIGStartedGameC.Header = PIGStartedGameCOL;
+            PIGMinsPlayedC.Header = PIGMinsPlayedCOL;
+        }
         private void PopulateData()
         {
             foreach (var season in SeasonStatsDB.GetSeasons())

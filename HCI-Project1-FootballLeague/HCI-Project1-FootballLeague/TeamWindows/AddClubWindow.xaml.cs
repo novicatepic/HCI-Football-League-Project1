@@ -3,6 +3,7 @@ using HCI_Project1_FootballLeague.DBFunctions;
 using HCI_Project1_FootballLeague.TeamWindows;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,46 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
             {
                 StadiumComboBox.Items.Add(s);
             }
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var AddTeamWTitle = "";
+            var AddTeamWHeaderLBL = "";
+            var AddTeamWNameLBL = "";
+            var AddTeamWFoundationDateBL = "";
+            var AddTeamWTrophiesWonLBL = "";
+            var AddTeamWStadiumLBL = "";
+            var AddTeamWSubmitBTN = "";
+
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                AddTeamWTitle = ConfigurationManager.AppSettings["AddTeamWTitle"];
+                AddTeamWHeaderLBL = ConfigurationManager.AppSettings["AddTeamWHeaderLBL"];
+                AddTeamWNameLBL = ConfigurationManager.AppSettings["AddTeamWNameLBL"];
+                AddTeamWFoundationDateBL = ConfigurationManager.AppSettings["AddTeamWFoundationDateBL"];
+                AddTeamWTrophiesWonLBL = ConfigurationManager.AppSettings["AddTeamWTrophiesWonLBL"];
+                AddTeamWStadiumLBL = ConfigurationManager.AppSettings["AddTeamWStadiumLBL"];
+                AddTeamWSubmitBTN = ConfigurationManager.AppSettings["AddTeamWSubmitBTN"];
+            }
+            else
+            {
+                AddTeamWTitle = ConfigurationManager.AppSettings["AddTeamWTitleSE"];
+                AddTeamWHeaderLBL = ConfigurationManager.AppSettings["AddTeamWHeaderLBLSE"];
+                AddTeamWNameLBL = ConfigurationManager.AppSettings["AddTeamWNameLBLSE"];
+                AddTeamWFoundationDateBL = ConfigurationManager.AppSettings["AddTeamWFoundationDateBLSE"];
+                AddTeamWTrophiesWonLBL = ConfigurationManager.AppSettings["AddTeamWTrophiesWonLBLSE"];
+                AddTeamWStadiumLBL = ConfigurationManager.AppSettings["AddTeamWStadiumLBLSE"];
+                AddTeamWSubmitBTN = ConfigurationManager.AppSettings["AddTeamWSubmitBTNSE"];
+            }
+            this.Title = AddTeamWTitle;
+            HeaderLabel.Content = AddTeamWHeaderLBL;
+            SubmitBTN.Content = AddTeamWSubmitBTN;
+            NameLabel.Content = AddTeamWNameLBL;
+            FoundationDateLabel.Content = AddTeamWFoundationDateBL;
+            TrophiesWonLabel.Content = AddTeamWTrophiesWonLBL;
+            StadiumLabel.Content = AddTeamWStadiumLBL;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -2,6 +2,7 @@
 using HCI_Project1_FootballLeague.DBFunctions;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +27,38 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
         {
             InitializeComponent();
             window = win;
+            WriteLanguage();
         }
 
+        public void WriteLanguage()
+        {
+            var LeagueAdminAddWTitle = "";
+            var LeagueAdminAddWHeaderLBL = "";
+            var LeagueAdminAddWUserNameLBL = "";
+            var LeagueAdminAddWPasswordLBL = "";
+            var LeagueAdminAddWSubmitBTN = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                LeagueAdminAddWTitle = ConfigurationManager.AppSettings["LeagueAdminAddWTitle"];
+                LeagueAdminAddWHeaderLBL = ConfigurationManager.AppSettings["LeagueAdminAddWHeaderLBL"];
+                LeagueAdminAddWUserNameLBL = ConfigurationManager.AppSettings["LeagueAdminAddWUserNameLBL"];
+                LeagueAdminAddWPasswordLBL = ConfigurationManager.AppSettings["LeagueAdminAddWPasswordLBL"];
+                LeagueAdminAddWSubmitBTN = ConfigurationManager.AppSettings["LeagueAdminAddWSubmitBTN"];
+            }
+            else
+            {
+                LeagueAdminAddWTitle = ConfigurationManager.AppSettings["LeagueAdminAddWTitleSE"];
+                LeagueAdminAddWHeaderLBL = ConfigurationManager.AppSettings["LeagueAdminAddWHeaderLBLSE"];
+                LeagueAdminAddWUserNameLBL = ConfigurationManager.AppSettings["LeagueAdminAddWUserNameLBLSE"];
+                LeagueAdminAddWPasswordLBL = ConfigurationManager.AppSettings["LeagueAdminAddWPasswordLBLSE"];
+                LeagueAdminAddWSubmitBTN = ConfigurationManager.AppSettings["LeagueAdminAddWSubmitBTNSE"];
+            }
+            this.Title = LeagueAdminAddWTitle;
+            UserNameLabel.Content = LeagueAdminAddWUserNameLBL;
+            PasswordLabel.Content = LeagueAdminAddWPasswordLBL;
+            SubmitBTN.Content = LeagueAdminAddWSubmitBTN;
+            HeaderLabel.Content = LeagueAdminAddWHeaderLBL;
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var userName = UserNameTB.Text;

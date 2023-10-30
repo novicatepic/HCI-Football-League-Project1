@@ -2,6 +2,7 @@
 using HCI_Project1_FootballLeague.DBFunctions;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,51 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
                     AwayClubComboBox.Items.Add(club);
                 }
             }
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var AddTeamInGameWTitle = "";
+            var AddTeamInGameWHeaderLBL = "";
+            var AddTeamInGameWHomeTeamLBL = "";
+            var AddTeamInGameWAwayTeamBL = "";
+
+            var AddTeamInGameWHomeGoalsLBL = "";
+            var AddTeamInGameWAwayGoalsLBL = "";
+            var AddTeamInGameWGameDateLBL = "";
+            var AddTeamInGameWSubmitBTN = "";
+
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                AddTeamInGameWTitle = ConfigurationManager.AppSettings["AddTeamInGameWTitle"];
+                AddTeamInGameWHeaderLBL = ConfigurationManager.AppSettings["AddTeamInGameWHeaderLBL"];
+                AddTeamInGameWHomeTeamLBL = ConfigurationManager.AppSettings["AddTeamInGameWHomeTeamLBL"];
+                AddTeamInGameWAwayTeamBL = ConfigurationManager.AppSettings["AddTeamInGameWAwayTeamBL"];
+                AddTeamInGameWHomeGoalsLBL = ConfigurationManager.AppSettings["AddTeamInGameWHomeGoalsLBL"];
+                AddTeamInGameWAwayGoalsLBL = ConfigurationManager.AppSettings["AddTeamInGameWAwayGoalsLBL"];
+                AddTeamInGameWGameDateLBL = ConfigurationManager.AppSettings["AddTeamInGameWGameDateLBL"];
+                AddTeamInGameWSubmitBTN = ConfigurationManager.AppSettings["AddTeamInGameWSubmitBTN"];
+            }
+            else
+            {
+                AddTeamInGameWTitle = ConfigurationManager.AppSettings["AddTeamInGameWTitleSE"];
+                AddTeamInGameWHeaderLBL = ConfigurationManager.AppSettings["AddTeamInGameWHeaderLBLSE"];
+                AddTeamInGameWHomeTeamLBL = ConfigurationManager.AppSettings["AddTeamInGameWHomeTeamLBLSE"];
+                AddTeamInGameWAwayTeamBL = ConfigurationManager.AppSettings["AddTeamInGameWAwayTeamBLSE"];
+                AddTeamInGameWHomeGoalsLBL = ConfigurationManager.AppSettings["AddTeamInGameWHomeGoalsLBLSE"];
+                AddTeamInGameWAwayGoalsLBL = ConfigurationManager.AppSettings["AddTeamInGameWAwayGoalsLBLSE"];
+                AddTeamInGameWGameDateLBL = ConfigurationManager.AppSettings["AddTeamInGameWGameDateLBLSE"];
+                AddTeamInGameWSubmitBTN = ConfigurationManager.AppSettings["AddTeamInGameWSubmitBTNSE"];
+            }
+            this.Title = AddTeamInGameWTitle;
+            HeaderLabel.Content = AddTeamInGameWHeaderLBL;
+            HomeTeamLabel.Content = AddTeamInGameWHomeTeamLBL;
+            AwayTeamLabel.Content = AddTeamInGameWAwayTeamBL;
+            HomeGoalsLabel.Content = AddTeamInGameWHomeGoalsLBL;
+            AwayGoalsLabel.Content = AddTeamInGameWAwayGoalsLBL;
+            GameDateLabel.Content = AddTeamInGameWGameDateLBL;
+            SubmitBTN.Content = AddTeamInGameWSubmitBTN;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

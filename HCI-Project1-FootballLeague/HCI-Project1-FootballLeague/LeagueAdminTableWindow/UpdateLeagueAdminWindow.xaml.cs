@@ -2,6 +2,7 @@
 using HCI_Project1_FootballLeague.DBFunctions;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,37 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
             this.admin = admin;
             UserNameTB.Text = admin.UserName;
             PasswordTB.Text = admin.Password;
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var LeagueAdminUWTitle = "";
+            var LeagueAdminUWHeaderLBL = "";
+            var LeagueAdminUWUserNameLBL = "";
+            var LeagueAdminUWPasswordLBL = "";
+            var LeagueAdminUWSubmitBTN = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                LeagueAdminUWTitle = ConfigurationManager.AppSettings["LeagueAdminUWTitle"];
+                LeagueAdminUWHeaderLBL = ConfigurationManager.AppSettings["LeagueAdminUWHeaderLBL"];
+                LeagueAdminUWUserNameLBL = ConfigurationManager.AppSettings["LeagueAdminUWUserNameLBL"];
+                LeagueAdminUWPasswordLBL = ConfigurationManager.AppSettings["LeagueAdminUWPasswordLBL"];
+                LeagueAdminUWSubmitBTN = ConfigurationManager.AppSettings["LeagueAdminUWSubmitBTN"];
+            }
+            else
+            {
+                LeagueAdminUWTitle = ConfigurationManager.AppSettings["LeagueAdminUWTitleSE"];
+                LeagueAdminUWHeaderLBL = ConfigurationManager.AppSettings["LeagueAdminUWHeaderLBLSE"];
+                LeagueAdminUWUserNameLBL = ConfigurationManager.AppSettings["LeagueAdminUWUserNameLBLSE"];
+                LeagueAdminUWPasswordLBL = ConfigurationManager.AppSettings["LeagueAdminUWPasswordLBLSE"];
+                LeagueAdminUWSubmitBTN = ConfigurationManager.AppSettings["LeagueAdminUWSubmitBTNSE"];
+            }
+            this.Title = LeagueAdminUWTitle;
+            UserNameLabel.Content = LeagueAdminUWUserNameLBL;
+            PasswordLabel.Content = LeagueAdminUWPasswordLBL;
+            SubmitBTN.Content = LeagueAdminUWSubmitBTN;
+            HeaderLabel.Content = LeagueAdminUWHeaderLBL;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,7 +72,7 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
             bool isMain = false;
             if(!"".Equals(userName) && !"".Equals(password))
             {
-                Administrator updatedAdmin = new Administrator(id, userName, password, isMain);
+                Administrator updatedAdmin = new Administrator(id, userName, password, isMain, admin.Language);
                 AdminDB.UpdateAdmin(updatedAdmin);
                 window.DrawData();
                 Close();

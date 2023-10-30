@@ -12,6 +12,7 @@ namespace HCI_Project1_FootballLeague.Classes
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsMainAdmin { get; set; }
+        public string Language { get; set; }
 
         public Administrator() { }
 
@@ -21,12 +22,13 @@ namespace HCI_Project1_FootballLeague.Classes
             Password = password;
             IsMainAdmin = isMainAdmin;
         }
-        public Administrator(int adminId, string userName, string password, bool isMainAdmin)
+        public Administrator(int adminId, string userName, string password, bool isMainAdmin, string language)
         {
             AdminId = adminId;
             UserName = userName;
             Password = password;
             IsMainAdmin = isMainAdmin;
+            Language = language;
         }
     }
 }

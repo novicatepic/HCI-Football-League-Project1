@@ -2,6 +2,7 @@
 using HCI_Project1_FootballLeague.DBFunctions;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,8 +34,57 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             this.isHomePlayer = isHomeTeam;
             this.gameInfo = gameInfo;
             PopulateData();
+            WriteLanguage();
         }
 
+        public void WriteLanguage()
+        {
+            var UpdatePlayerInGameWTitle = "";
+            var UpdatePlayerInGameWHeaderLBL = "";
+            var UpdatePlayerInGameWNumGoalsLBL = "";
+            var UpdatePlayerInGameWNumAssistsLBL = "";
+            var UpdatePlayerInGameWMinutesPlayedLBL = "";
+
+            var UpdatePlayerInGameWYellowCardCB = "";
+            var UpdatePlayerInGameWRedCardCB = "";
+            var UpdatePlayerInGameWStartedGameCB = "";
+            var UpdatePlayerInGameWSubmitBTN = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                UpdatePlayerInGameWTitle = ConfigurationManager.AppSettings["UpdatePlayerInGameWTitle"];
+                UpdatePlayerInGameWNumGoalsLBL = ConfigurationManager.AppSettings["UpdatePlayerInGameWNumGoalsLBL"];
+                UpdatePlayerInGameWHeaderLBL = ConfigurationManager.AppSettings["UpdatePlayerInGameWHeaderLBL"];
+                UpdatePlayerInGameWNumAssistsLBL = ConfigurationManager.AppSettings["UpdatePlayerInGameWNumAssistsLBL"];
+                UpdatePlayerInGameWMinutesPlayedLBL = ConfigurationManager.AppSettings["UpdatePlayerInGameWMinutesPlayedLBL"];
+
+                UpdatePlayerInGameWYellowCardCB = ConfigurationManager.AppSettings["UpdatePlayerInGameWYellowCardCB"];
+                UpdatePlayerInGameWRedCardCB = ConfigurationManager.AppSettings["UpdatePlayerInGameWRedCardCB"];
+                UpdatePlayerInGameWStartedGameCB = ConfigurationManager.AppSettings["UpdatePlayerInGameWStartedGameCB"];
+                UpdatePlayerInGameWSubmitBTN = ConfigurationManager.AppSettings["UpdatePlayerInGameWSubmitBTN"];
+            }
+            else
+            {
+                UpdatePlayerInGameWTitle = ConfigurationManager.AppSettings["UpdatePlayerInGameWTitleSE"];
+                UpdatePlayerInGameWNumGoalsLBL = ConfigurationManager.AppSettings["UpdatePlayerInGameWNumGoalsLBLSE"];
+                UpdatePlayerInGameWHeaderLBL = ConfigurationManager.AppSettings["UpdatePlayerInGameWHeaderLBLSE"];
+                UpdatePlayerInGameWNumAssistsLBL = ConfigurationManager.AppSettings["UpdatePlayerInGameWNumAssistsLBLSE"];
+                UpdatePlayerInGameWMinutesPlayedLBL = ConfigurationManager.AppSettings["UpdatePlayerInGameWMinutesPlayedLBLSE"];
+
+                UpdatePlayerInGameWYellowCardCB = ConfigurationManager.AppSettings["UpdatePlayerInGameWYellowCardCBSE"];
+                UpdatePlayerInGameWRedCardCB = ConfigurationManager.AppSettings["UpdatePlayerInGameWRedCardCBSE"];
+                UpdatePlayerInGameWStartedGameCB = ConfigurationManager.AppSettings["UpdatePlayerInGameWStartedGameCBSE"];
+                UpdatePlayerInGameWSubmitBTN = ConfigurationManager.AppSettings["UpdatePlayerInGameWSubmitBTNSE"];
+            }
+            this.Title = UpdatePlayerInGameWTitle;
+            MinsPlayedLabel.Content = UpdatePlayerInGameWMinutesPlayedLBL;
+            HeaderLabel.Content = UpdatePlayerInGameWHeaderLBL;
+            SubmitBTN.Content = UpdatePlayerInGameWSubmitBTN;
+            YellowCardCB.Content = UpdatePlayerInGameWYellowCardCB;
+            RedCardCB.Content = UpdatePlayerInGameWRedCardCB;
+            StartedGameCB.Content = UpdatePlayerInGameWStartedGameCB;
+            GoalsLabel.Content = UpdatePlayerInGameWNumGoalsLBL;
+            AssistsLabel.Content = UpdatePlayerInGameWNumAssistsLBL;
+        }
         private void PopulateData()
         {
             NumGoalsTB.Text = player.NumGoalsInGame.ToString();

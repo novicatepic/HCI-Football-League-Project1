@@ -22,15 +22,15 @@
 
             <!-- Column Header Text & Bindings -->
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="PlayerFirstNameCOL" Header="First Name" Width="1*" Binding="{Binding FirstName}"/>
-                <DataGridTextColumn x:Name="PlayerLastNameCOL" Header="Last Name" Width="1*" Binding="{Binding LastName}"/>
-                <DataGridTextColumn x:Name="PlayerDateOfContractCOL" Header="Contract Signed" Width="1*" Binding="{Binding DateOfContract}"/>
-                <DataGridTextColumn x:Name="PlayerShirtNumCOL" Header="Shirt number" Width="1*" Binding="{Binding ShirtNumber}"/>
-                <DataGridTextColumn x:Name="PlayerNumGoalsCOL" Header="Num Goals" Width="1*" Binding="{Binding NumGoals}"/>
-                <DataGridTextColumn x:Name="PlayerNumAssistsCOL" Header="Num Assists" Width="1*" Binding="{Binding NumAssists}"/>
-                <DataGridTextColumn x:Name="PlayerNumYellowCOL" Header="Number of YC" Width="1*" Binding="{Binding NumYellowCards}"/>
-                <DataGridTextColumn x:Name="PlayerNumRedCOL" Header="Number of RC" Width="1*" Binding="{Binding NumRedCards}"/>
-                <DataGridTextColumn x:Name="PlayerClubNameCOL" Header="Club Name" Width="1*" Binding="{Binding ClubName}"/>
+                <DataGridTextColumn x:Name="PlayerFirstNameC" Header="First Name" Width="1*" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn x:Name="PlayerLastNameC" Header="Last Name" Width="1*" Binding="{Binding LastName}"/>
+                <DataGridTextColumn x:Name="PlayerDateOfContractC" Header="Contract Signed" Width="1*" Binding="{Binding DateOfContract}"/>
+                <DataGridTextColumn x:Name="PlayerShirtNumC" Header="Shirt number" Width="1*" Binding="{Binding ShirtNumber}"/>
+                <DataGridTextColumn x:Name="PlayerNumGoalsC" Header="Num Goals" Width="1*" Binding="{Binding NumGoals}"/>
+                <DataGridTextColumn x:Name="PlayerNumAssistsC" Header="Num Assists" Width="1*" Binding="{Binding NumAssists}"/>
+                <DataGridTextColumn x:Name="PlayerNumYellowC" Header="Number of YC" Width="1*" Binding="{Binding NumYellowCards}"/>
+                <DataGridTextColumn x:Name="PlayerNumRedC" Header="Number of RC" Width="1*" Binding="{Binding NumRedCards}"/>
+                <DataGridTextColumn x:Name="PlayerClubNameC" Header="Club Name" Width="1*" Binding="{Binding ClubName}"/>
             </DataGrid.Columns>
         </DataGrid>
 

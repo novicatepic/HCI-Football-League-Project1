@@ -22,9 +22,9 @@
 
             <!-- Column Header Text & Bindings -->
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="AdminIdCOL" Header="Admin Id" Width="1*" Binding="{Binding AdminId}"/>
-                <DataGridTextColumn x:Name="AdminUserNameCOL" Header="User Name" Width="1*" Binding="{Binding UserName}"/>
-                <DataGridTextColumn x:Name="AdminPasswordCOL" Header="Password" Width="1*" Binding="{Binding Password}"/>
+                <DataGridTextColumn x:Name="AdminIdC" Header="Admin Id" Width="1*" Binding="{Binding AdminId}"/>
+                <DataGridTextColumn x:Name="AdminUserNameC" Header="User Name" Width="1*" Binding="{Binding UserName}"/>
+                <DataGridTextColumn x:Name="AdminPasswordC" Header="Password" Width="1*" Binding="{Binding Password}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="AddButton" Click="AddButton_Click"  FontWeight="SemiBold" Content="ADD" HorizontalAlignment="Left" FontSize="20" Height="49" Margin="49,0,0,60" VerticalAlignment="Bottom" Width="241"/>

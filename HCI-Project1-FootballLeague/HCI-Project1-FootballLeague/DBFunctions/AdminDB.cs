@@ -21,12 +21,16 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             conn.Open();
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT GlavniAdminId, KorisnickoIme, Lozinka, IsGlavniAdmin FROM administrator";
+            cmd.CommandText = "SELECT * FROM administrator";
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-
-                administrators.Add(new Administrator(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3)));
+                /*MessageBox.Show(reader.GetInt32(0).ToString());
+                MessageBox.Show(reader.GetString(1));
+                MessageBox.Show(reader.GetString(2));
+                MessageBox.Show(reader.GetBoolean(3).ToString());
+                MessageBox.Show(reader.GetString(4));*/
+                administrators.Add(new Administrator(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), reader.GetString(4)));
             }
             reader.Close();
             conn.Close();
@@ -47,7 +51,8 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             while (reader.Read())
             {
 
-                admins.Add(new Administrator(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3)));
+                admins.Add(new Administrator(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), 
+                    reader.GetString(4)));
             }
             reader.Close();
             conn.Close();
@@ -62,12 +67,13 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             conn.Open();
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT GlavniAdminId, KorisnickoIme, Lozinka, IsGlavniAdmin FROM administrator WHERE IsGlavniAdmin=0";
+            cmd.CommandText = "SELECT * FROM administrator WHERE IsGlavniAdmin=0";
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
 
-                administrators.Add(new Administrator(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3)));
+                administrators.Add(new Administrator(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), 
+                    reader.GetString(4)));
             }
             reader.Close();
             conn.Close();
@@ -154,6 +160,34 @@ namespace HCI_Project1_FootballLeague.DBFunctions
 
                 //MessageBox.Show($"{rowsAffected} row(s) updated.");
 
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return false;
+        }
+
+        public static bool UpdateAdminPreferences(Administrator admin)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            try
+            {
+
+                conn.Open();
+
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "UPDATE administrator SET Jezik=@Jezik WHERE GlavniAdminId=@GlavniAdminId";
+
+                cmd.Parameters.AddWithValue("@Jezik", admin.Language);
+                cmd.Parameters.AddWithValue("@GlavniAdminId", admin.AdminId);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception ex)

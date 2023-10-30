@@ -22,14 +22,14 @@
 
             <!-- Column Header Text & Bindings -->
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="StatsTeamNameCOL" Header="Team Name" Width="1*" Binding="{Binding ClubName}"/>
-                <DataGridTextColumn x:Name="StatsNumPlayedCOL" Header="Num Played" Width="1*" Binding="{Binding NumGamesPlayed}"/>
-                <DataGridTextColumn x:Name="StatsNumWinsCOL" Header="Num Wins" Width="1*" Binding="{Binding NumWins}"/>
-                <DataGridTextColumn x:Name="StatsNumDrawsCOL" Header="Num Draws" Width="1*" Binding="{Binding NumDraws}"/>
-                <DataGridTextColumn x:Name="StatsNumLosesCOL" Header="Num Loses" Width="1*" Binding="{Binding NumLoses}"/>
-                <DataGridTextColumn x:Name="StatsNumScoredCOL" Header="Num Scored" Width="1*" Binding="{Binding NumScored}"/>
-                <DataGridTextColumn x:Name="StatsNumConcededCOL" Header="Num Conceded" Width="1*" Binding="{Binding NumConceded}"/>
-                <DataGridTextColumn x:Name="StatsNumPointsCOL" Header="Num Points" Width="1*" Binding="{Binding NumPoints}"/>
+                <DataGridTextColumn x:Name="StatsTeamNameC" Header="Team Name" Width="1*" Binding="{Binding ClubName}"/>
+                <DataGridTextColumn x:Name="StatsNumPlayedC" Header="Num Played" Width="1*" Binding="{Binding NumGamesPlayed}"/>
+                <DataGridTextColumn x:Name="StatsNumWinsC" Header="Num Wins" Width="1*" Binding="{Binding NumWins}"/>
+                <DataGridTextColumn x:Name="StatsNumDrawsC" Header="Num Draws" Width="1*" Binding="{Binding NumDraws}"/>
+                <DataGridTextColumn x:Name="StatsNumLosesC" Header="Num Loses" Width="1*" Binding="{Binding NumLoses}"/>
+                <DataGridTextColumn x:Name="StatsNumScoredC" Header="Num Scored" Width="1*" Binding="{Binding NumScored}"/>
+                <DataGridTextColumn x:Name="StatsNumConcededC" Header="Num Conceded" Width="1*" Binding="{Binding NumConceded}"/>
+                <DataGridTextColumn x:Name="StatsNumPointsC" Header="Num Points" Width="1*" Binding="{Binding NumPoints}"/>
             </DataGrid.Columns>
         </DataGrid>
         <TextBox TextChanged="TextBox_TextChanged" x:Name="SearchTB" FontSize="14" Margin="270,88,230,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="36" RenderTransformOrigin="0.494,0.157"/>

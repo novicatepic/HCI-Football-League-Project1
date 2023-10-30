@@ -22,14 +22,14 @@
 
             <!-- Column Header Text & Bindings -->
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="PIGFirstNameCOL" Header="First Name" Width="1*" Binding="{Binding FirstName}"/>
-                <DataGridTextColumn x:Name="PIGLastNameCOL" Header="Last Name" Width="1*" Binding="{Binding LastName}"/>
-                <DataGridTextColumn x:Name="PIGNumGoalsCOL" Header="Num Goals" Width="1*" Binding="{Binding NumGoalsInGame}"/>
-                <DataGridTextColumn x:Name="PIGNumAssistsCOL" Header="Num Assists" Width="1*" Binding="{Binding NumAssistsInGame}"/>
-                <DataGridTextColumn x:Name="PIGYellowCOL" Header="Got Yellow" Width="1*" Binding="{Binding HasYellow}"/>
-                <DataGridTextColumn x:Name="PIGRedCOL" Header="Got Red" Width="1*" Binding="{Binding HasRed}"/>
-                <DataGridTextColumn x:Name="PIGStartedGameCOL" Header="Started Game" Width="1*" Binding="{Binding StartedGame}"/>
-                <DataGridTextColumn x:Name="PIGMinsPlayedCOL" Header="Minutes played" Width="1*" Binding="{Binding MinutesPlayed}"/>
+                <DataGridTextColumn x:Name="PIGFirstNameC" Header="First Name" Width="1*" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn x:Name="PIGLastNameC" Header="Last Name" Width="1*" Binding="{Binding LastName}"/>
+                <DataGridTextColumn x:Name="PIGNumGoalsC" Header="Num Goals" Width="1*" Binding="{Binding NumGoalsInGame}"/>
+                <DataGridTextColumn x:Name="PIGNumAssistsC" Header="Num Assists" Width="1*" Binding="{Binding NumAssistsInGame}"/>
+                <DataGridTextColumn x:Name="PIGYellowC" Header="Got Yellow" Width="1*" Binding="{Binding HasYellow}"/>
+                <DataGridTextColumn x:Name="PIGRedC" Header="Got Red" Width="1*" Binding="{Binding HasRed}"/>
+                <DataGridTextColumn x:Name="PIGStartedGameC" Header="Started Game" Width="1*" Binding="{Binding StartedGame}"/>
+                <DataGridTextColumn x:Name="PIGMinsPlayedC" Header="Minutes played" Width="1*" Binding="{Binding MinutesPlayed}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="FixtureNumLabel" Content="Fixture Number" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="216" Height="35"/>

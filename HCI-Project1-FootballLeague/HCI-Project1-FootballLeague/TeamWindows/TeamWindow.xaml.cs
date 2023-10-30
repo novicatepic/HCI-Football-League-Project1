@@ -3,6 +3,7 @@ using HCI_Project1_FootballLeague.DBFunctions;
 using HCI_Project1_FootballLeague.StadiumWindows;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -27,7 +28,60 @@ namespace HCI_Project1_FootballLeague.TeamWindows
         public TeamWindow()
         {
             InitializeComponent();
-            PopulateData();          
+            PopulateData();
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var TeamWTitle = "";
+            var TeamWFilterLBL = "";
+            var TeamWAddBTN = "";
+            var TeamWUpdateBTN = "";
+            var TeamWDeleteBTN = "";
+
+            var TeamNameCOL = "";
+            var TeamFoundationDateCOL = "";
+            var TeamTrophiesWonCOL = "";
+            var TeamStadiumNameCOL = "";
+
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                TeamWTitle = ConfigurationManager.AppSettings["TeamWTitle"];
+                TeamWFilterLBL = ConfigurationManager.AppSettings["TeamWFilterLBL"];
+                TeamWAddBTN = ConfigurationManager.AppSettings["TeamWAddBTN"];
+                TeamWUpdateBTN = ConfigurationManager.AppSettings["TeamWUpdateBTN"];
+                TeamWDeleteBTN = ConfigurationManager.AppSettings["TeamWDeleteBTN"];
+
+                TeamNameCOL = ConfigurationManager.AppSettings["TeamNameCOL"];
+                TeamFoundationDateCOL = ConfigurationManager.AppSettings["TeamFoundationDateCOL"];
+                TeamTrophiesWonCOL = ConfigurationManager.AppSettings["TeamTrophiesWonCOL"];
+                TeamStadiumNameCOL = ConfigurationManager.AppSettings["TeamStadiumNameCOL"];
+            }
+            else
+            {
+                TeamWTitle = ConfigurationManager.AppSettings["TeamWTitleSE"];
+                TeamWFilterLBL = ConfigurationManager.AppSettings["TeamWFilterLBLSE"];
+                TeamWAddBTN = ConfigurationManager.AppSettings["TeamWAddBTNSE"];
+                TeamWUpdateBTN = ConfigurationManager.AppSettings["TeamWUpdateBTNSE"];
+                TeamWDeleteBTN = ConfigurationManager.AppSettings["TeamWDeleteBTNSE"];
+
+                TeamNameCOL = ConfigurationManager.AppSettings["TeamNameCOLSE"];
+                TeamFoundationDateCOL = ConfigurationManager.AppSettings["TeamFoundationDateCOLSE"];
+                TeamTrophiesWonCOL = ConfigurationManager.AppSettings["TeamTrophiesWonCOLSE"];
+                TeamStadiumNameCOL = ConfigurationManager.AppSettings["TeamStadiumNameCOLSE"];
+            }
+            this.Title = TeamWTitle;
+            AddButton.Content = TeamWAddBTN;
+            UpdateButton.Content = TeamWUpdateBTN;
+            DeleteButton.Content = TeamWDeleteBTN;
+            FilterLabel.Content = TeamWFilterLBL;
+
+            TeamNameC.Header = TeamNameCOL;
+            TeamFoundationDateC.Header = TeamFoundationDateCOL;
+            TeamTrophiesWonC.Header = TeamTrophiesWonCOL;
+            TeamStadiumNameC.Header = TeamStadiumNameCOL;
+
         }
 
         private void PopulateData()

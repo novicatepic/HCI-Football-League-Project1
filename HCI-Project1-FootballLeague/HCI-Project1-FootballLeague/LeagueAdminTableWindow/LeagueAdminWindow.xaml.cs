@@ -2,6 +2,7 @@
 using HCI_Project1_FootballLeague.DBFunctions;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,9 +26,55 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
         {
             InitializeComponent();
             PopulateData();
+            WriteLanguage();
             //AdminIdCol.Header = "hedd";
         }
 
+        public void WriteLanguage()
+        {
+            var LeagueAdminWTitle = "";
+            var LeagueAdminWFilterLBL = "";
+            var LeagueAdminWAddBTN = "";
+            var LeagueAdminWUpdateBTN = "";
+            var LeagueAdminWDeleteBTN = "";
+
+            var AdminIdCOL = "";
+            var AdminUserNameCOL = "";
+            var AdminPasswordCOL = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                LeagueAdminWTitle = ConfigurationManager.AppSettings["LeagueAdminSWTitle"];
+                LeagueAdminWFilterLBL = ConfigurationManager.AppSettings["LeagueAdminWFilterLBL"];
+                LeagueAdminWAddBTN = ConfigurationManager.AppSettings["LeagueAdminWAddBTN"];
+                LeagueAdminWUpdateBTN = ConfigurationManager.AppSettings["LeagueAdminWUpdateBTN"];
+                LeagueAdminWDeleteBTN = ConfigurationManager.AppSettings["LeagueAdminWDeleteBTN"];
+
+                AdminIdCOL = ConfigurationManager.AppSettings["AdminIdCOL"];
+                AdminUserNameCOL = ConfigurationManager.AppSettings["AdminUserNameCOL"];
+                AdminPasswordCOL = ConfigurationManager.AppSettings["AdminPasswordCOL"];
+            }
+            else
+            {
+                LeagueAdminWTitle = ConfigurationManager.AppSettings["LeagueAdminSWTitleSE"];
+                LeagueAdminWFilterLBL = ConfigurationManager.AppSettings["LeagueAdminWFilterLBLSE"];
+                LeagueAdminWAddBTN = ConfigurationManager.AppSettings["LeagueAdminWAddBTNSE"];
+                LeagueAdminWUpdateBTN = ConfigurationManager.AppSettings["LeagueAdminWUpdateBTNSE"];
+                LeagueAdminWDeleteBTN = ConfigurationManager.AppSettings["LeagueAdminWDeleteBTNSE"];
+
+                AdminIdCOL = ConfigurationManager.AppSettings["AdminIdCOLSE"];
+                AdminUserNameCOL = ConfigurationManager.AppSettings["AdminUserNameCOLSE"];
+                AdminPasswordCOL = ConfigurationManager.AppSettings["AdminPasswordCOLSE"];
+            }
+            this.Title = LeagueAdminWTitle;
+            AddButton.Content = LeagueAdminWAddBTN;
+            UpdateButton.Content = LeagueAdminWUpdateBTN;
+            DeleteButton.Content = LeagueAdminWDeleteBTN;
+            FilterLabel.Content = LeagueAdminWFilterLBL;
+
+            AdminIdC.Header = AdminIdCOL;
+            AdminUserNameC.Header = AdminUserNameCOL;
+            AdminPasswordC.Header = AdminPasswordCOL;
+        }
         private void PopulateData()
         {
             List<Administrator> admins = AdminDB.GetLeagueAdministrators();

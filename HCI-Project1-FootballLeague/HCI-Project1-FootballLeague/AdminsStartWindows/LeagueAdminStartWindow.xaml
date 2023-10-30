@@ -5,20 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.AdminsStartWindows"
         mc:Ignorable="d"
-        Title="LeagueAdminStartWindow" Height="500" Width="800" MinHeight="500" MinWidth="800">
+        Title="LeagueAdminStartWindow" Height="620" Width="800" MinHeight="620" MinWidth="800">
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Separator></Separator>
-        <Button x:Name="StadiumButton" Click="StadiumButton_Click" Content="Manage stadiums" Margin="10 10 10 10" Height="50" Width="350" FontSize="30"></Button>
+        <Button x:Name="StadiumButton" Click="StadiumButton_Click" Content="Manage stadiums" Margin="10 10 10 10" Height="50" Width="500" FontSize="30"></Button>
         <Separator></Separator>
-        <Button x:Name="ClubsButton" Click="ClubsButton_Click" Content="Manage football clubs" Margin="10 10 10 10" Height="50" Width="350" FontSize="30"></Button>
+        <Button x:Name="ClubsButton" Click="ClubsButton_Click" Content="Manage football clubs" Margin="10 10 10 10" Height="50" Width="500" FontSize="30"></Button>
         <Separator></Separator>
-        <Button x:Name="StatsButton" Click="StatsButton_Click" Content="Check club statistics" Margin="10 10 10 10" Height="50" Width="350" FontSize="30"></Button>
+        <Button x:Name="StatsButton" Click="StatsButton_Click" Content="Check club statistics" Margin="10 10 10 10" Height="50" Width="500" FontSize="30"></Button>
         <Separator></Separator>
-        <Button x:Name="GamesButton" Click="GamesButton_Click" Content="Manage games" Margin="10 10 10 10" Height="50" Width="350" FontSize="30"></Button>
+        <Button x:Name="GamesButton" Click="GamesButton_Click" Content="Manage games" Margin="10 10 10 10" Height="50" Width="500" FontSize="30"></Button>
         <Separator></Separator>
-        <Button x:Name="PlayersButton" Click="PlayersButton_Click" Content="Manage players" Margin="10 10 10 10" Height="50" Width="350" FontSize="30"></Button>
+        <Button x:Name="PlayersButton" Click="PlayersButton_Click" Content="Manage players" Margin="10 10 10 10" Height="50" Width="500" FontSize="30"></Button>
         <Separator></Separator>
-        <Button x:Name="PlayersInGameButton" Click="PlayersInGameButton_Click" Content="Manage players in game" Margin="10 10 10 10" Height="50" Width="350" FontSize="30"></Button>
+        <Button x:Name="PlayersInGameButton" Click="PlayersInGameButton_Click" Content="Manage players in game" Margin="10 10 10 10" Height="50" Width="500" FontSize="30"></Button>
+        <Separator></Separator>
+        <Button x:Name="OptionsButton" Click="OptionsButton_Click" Content="Show options" Margin="10 10 10 10" Height="50" Width="500" FontSize="30"></Button>
         <Separator></Separator>
     </StackPanel>
 </Window>

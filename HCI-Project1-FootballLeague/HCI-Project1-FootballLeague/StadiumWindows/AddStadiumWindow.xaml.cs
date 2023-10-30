@@ -3,6 +3,7 @@ using HCI_Project1_FootballLeague.DBFunctions;
 using HCI_Project1_FootballLeague.StadiumWindows;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,42 @@ namespace HCI_Project1_FootballLeague.TeamWindows
         {
             InitializeComponent();
             sw = mainStadiumWindow;
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var AddStadiumWTitle = "";
+            var AddStadiumWHeaderLBL = "";
+            var AddStadiumWNameLBL = "";
+            var AddStadiumWCapacityBL = "";
+            var AddStadiumWTownLBL = "";
+            var AddStadiumWSubmitBTN = "";
+
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                AddStadiumWTitle = ConfigurationManager.AppSettings["AddStadiumWTitle"];
+                AddStadiumWHeaderLBL = ConfigurationManager.AppSettings["AddStadiumWHeaderLBL"];
+                AddStadiumWCapacityBL = ConfigurationManager.AppSettings["AddStadiumWCapacityBL"];
+                AddStadiumWNameLBL = ConfigurationManager.AppSettings["AddStadiumWNameLBL"];
+                AddStadiumWTownLBL = ConfigurationManager.AppSettings["AddStadiumWTownLBL"];
+                AddStadiumWSubmitBTN = ConfigurationManager.AppSettings["AddStadiumWSubmitBTN"];
+            }
+            else
+            {
+                AddStadiumWTitle = ConfigurationManager.AppSettings["AddStadiumWTitleSE"];
+                AddStadiumWHeaderLBL = ConfigurationManager.AppSettings["AddStadiumWHeaderLBLSE"];
+                AddStadiumWCapacityBL = ConfigurationManager.AppSettings["AddStadiumWCapacityBLSE"];
+                AddStadiumWNameLBL = ConfigurationManager.AppSettings["AddStadiumWNameLBLSE"];
+                AddStadiumWTownLBL = ConfigurationManager.AppSettings["AddStadiumWTownLBLSE"];
+                AddStadiumWSubmitBTN = ConfigurationManager.AppSettings["AddStadiumWSubmitBTNSE"];
+            }
+            this.Title = AddStadiumWTitle;
+            NameLabel.Content = AddStadiumWNameLBL;
+            HeaderLabel.Content = AddStadiumWHeaderLBL;
+            CapacityLabel.Content = AddStadiumWCapacityBL;
+            TownLabel.Content = AddStadiumWTownLBL;
+            SubmitBTN.Content = AddStadiumWSubmitBTN;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -27,30 +27,56 @@ namespace HCI_Project1_FootballLeague
     public partial class MainWindow : Window
     {
         public static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["MySqlHciFootballLeague"].ConnectionString;
-
+        public static Administrator LoggedInAdmin = null;
         public MainWindow()
         {
             InitializeComponent();
-            //var name = ConfigurationManager.AppSettings["Title"];
-            //this.Title = "добродошли";
-            //MessageBox.Show(name);
         }
 
-
+        public void WriteLanguage()
+        {
+            var MWTitle = "";
+            var MWHeaderLBL = "";
+            var MWUNLabel = "";
+            var MWPWLabel = "";
+            var MWProceedBTN = "";
+            if ("en".Equals(LoggedInAdmin.Language))
+            {
+                MWTitle = ConfigurationManager.AppSettings["MWTitle"];
+                MWHeaderLBL = ConfigurationManager.AppSettings["MWHeaderLBL"];
+                MWUNLabel = ConfigurationManager.AppSettings["MWUNLabel"];
+                MWPWLabel = ConfigurationManager.AppSettings["MWPWLabel"];
+                MWProceedBTN = ConfigurationManager.AppSettings["MWProceedBTN"];
+            } else
+            {
+                MWTitle = ConfigurationManager.AppSettings["MWTitleSE"];
+                MWHeaderLBL = ConfigurationManager.AppSettings["MWHeaderLBLSE"];
+                MWUNLabel = ConfigurationManager.AppSettings["MWUNLabelSE"];
+                MWPWLabel = ConfigurationManager.AppSettings["MWPWLabelSE"];
+                MWProceedBTN = ConfigurationManager.AppSettings["MWProceedBTNSE"];
+            }
+            this.Title = MWTitle;
+            HeaderLabel.Content = MWHeaderLBL;
+            UserNameLabel.Content = MWUNLabel;
+            PasswordLabel.Content = MWPWLabel;
+            ProceedBTN.Content = MWProceedBTN;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Administrator admin = CheckCredentials();
             if (admin != null)
             {
+                LoggedInAdmin = admin;
+                WriteLanguage();
                 if (admin.IsMainAdmin)
                 {
-                    MainAdminStartWindow mainAdminStartWindow = new MainAdminStartWindow();
+                    MainAdminStartWindow mainAdminStartWindow = new MainAdminStartWindow(this);
                     mainAdminStartWindow.ShowDialog();
                 }
                 else
                 {
-                    LeagueAdminStartWindow leagueAdminStartWindow = new LeagueAdminStartWindow();
+                    LeagueAdminStartWindow leagueAdminStartWindow = new LeagueAdminStartWindow(this);
                     leagueAdminStartWindow.Show();
                     
                 }

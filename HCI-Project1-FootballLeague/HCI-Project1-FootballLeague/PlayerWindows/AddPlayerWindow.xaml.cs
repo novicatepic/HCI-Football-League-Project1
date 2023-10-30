@@ -3,6 +3,7 @@ using HCI_Project1_FootballLeague.DBFunctions;
 using HCI_Project1_FootballLeague.TeamWindows;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,6 @@ namespace HCI_Project1_FootballLeague.PlayerWindows
     /// </summary>
     public partial class AddPlayerWindow : Window
     {
-        private Player player = null;
         private PlayerShowWindow pw = null;
         private List<FootballClub> clubs = FootballClubDB.GetClubs();
         public AddPlayerWindow(PlayerShowWindow mainPlayerWindow)
@@ -33,6 +33,53 @@ namespace HCI_Project1_FootballLeague.PlayerWindows
             {
                 ClubComboBox.Items.Add(fc);
             }
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var AddPlayerWTitle = "";
+            var AddPlayerWHeaderLBL = "";
+            var AddPlayerWFirstNameLBL = "";
+            var AddPlayerWLastNameLBL = "";
+            var AddPlayerWContractDateLBL = "";
+
+            var AddPlayerWShirtNumberLBL = "";
+            var AddPlayerWSelectClubLBL = "";
+            var AddPlayerWSubmitBTN = "";
+
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                AddPlayerWTitle = ConfigurationManager.AppSettings["AddPlayerWTitle"];
+                AddPlayerWHeaderLBL = ConfigurationManager.AppSettings["AddPlayerWHeaderLBL"];
+                AddPlayerWFirstNameLBL = ConfigurationManager.AppSettings["AddPlayerWFirstNameLBL"];
+                AddPlayerWLastNameLBL = ConfigurationManager.AppSettings["AddPlayerWLastNameLBL"];
+                AddPlayerWContractDateLBL = ConfigurationManager.AppSettings["AddPlayerWContractDateLBL"];
+
+                AddPlayerWShirtNumberLBL = ConfigurationManager.AppSettings["AddPlayerWShirtNumberLBL"];
+                AddPlayerWSelectClubLBL = ConfigurationManager.AppSettings["AddPlayerWSelectClubLBL"];
+                AddPlayerWSubmitBTN = ConfigurationManager.AppSettings["AddPlayerWSubmitBTN"];
+            }
+            else
+            {
+                AddPlayerWTitle = ConfigurationManager.AppSettings["AddPlayerWTitleSE"];
+                AddPlayerWHeaderLBL = ConfigurationManager.AppSettings["AddPlayerWHeaderLBLSE"];
+                AddPlayerWFirstNameLBL = ConfigurationManager.AppSettings["AddPlayerWFirstNameLBLSE"];
+                AddPlayerWLastNameLBL = ConfigurationManager.AppSettings["AddPlayerWLastNameLBLSE"];
+                AddPlayerWContractDateLBL = ConfigurationManager.AppSettings["AddPlayerWContractDateLBLSE"];
+
+                AddPlayerWShirtNumberLBL = ConfigurationManager.AppSettings["AddPlayerWShirtNumberLBLSE"];
+                AddPlayerWSelectClubLBL = ConfigurationManager.AppSettings["AddPlayerWSelectClubLBLSE"];
+                AddPlayerWSubmitBTN = ConfigurationManager.AppSettings["AddPlayerWSubmitBTNSE"];
+            }
+            this.Title = AddPlayerWTitle;
+            HeaderLabel.Content = AddPlayerWHeaderLBL;
+            FirstNameLabel.Content = AddPlayerWFirstNameLBL;
+            LastNameLabel.Content = AddPlayerWLastNameLBL;
+            ContractDateLabel.Content = AddPlayerWContractDateLBL;
+            ShirtNumLabel.Content = AddPlayerWShirtNumberLBL;
+            SelectClubLabel.Content = AddPlayerWSelectClubLBL;
+            SubmitBTN.Content = AddPlayerWSubmitBTN;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

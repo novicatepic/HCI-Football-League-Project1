@@ -6,6 +6,7 @@ using HCI_Project1_FootballLeague.TeamInGameWindows;
 using HCI_Project1_FootballLeague.TeamWindows;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,9 +26,56 @@ namespace HCI_Project1_FootballLeague.AdminsStartWindows
     /// </summary>
     public partial class LeagueAdminStartWindow : Window
     {
-        public LeagueAdminStartWindow()
+        private MainWindow window;
+        public LeagueAdminStartWindow(MainWindow win)
         {
             InitializeComponent();
+            window = win;
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var LeagueAdminSWTitle = "";
+            var LeagueAdminSWStadiumsBTN = "";
+            var LeagueAdminSWClubBTN = "";
+            var LeagueAdminSWStatsBTN = "";
+            var LeagueAdminSWGamesBTN = "";
+            var LeagueAdminSWPlayersBTN = "";
+            var LeagueAdminSWPlayersInGameBTN = "";
+            var LeagueAdminSWOptionsBTN = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                LeagueAdminSWTitle = ConfigurationManager.AppSettings["LeagueAdminSWTitle"];
+                LeagueAdminSWStadiumsBTN = ConfigurationManager.AppSettings["LeagueAdminSWStadiumsBTN"];
+                LeagueAdminSWClubBTN = ConfigurationManager.AppSettings["LeagueAdminSWClubBTN"];
+                LeagueAdminSWStatsBTN = ConfigurationManager.AppSettings["LeagueAdminSWStatsBTN"];
+                LeagueAdminSWGamesBTN = ConfigurationManager.AppSettings["LeagueAdminSWGamesBTN"];
+                LeagueAdminSWPlayersBTN = ConfigurationManager.AppSettings["LeagueAdminSWPlayersBTN"];
+                LeagueAdminSWPlayersInGameBTN = ConfigurationManager.AppSettings["LeagueAdminSWPlayersInGameBTN"];
+                LeagueAdminSWOptionsBTN = ConfigurationManager.AppSettings["LeagueAdminSWOptionsBTN"];
+            }
+            else
+            {
+                LeagueAdminSWTitle = ConfigurationManager.AppSettings["LeagueAdminSWTitleSE"];
+                LeagueAdminSWStadiumsBTN = ConfigurationManager.AppSettings["LeagueAdminSWStadiumsBTNSE"];
+                LeagueAdminSWClubBTN = ConfigurationManager.AppSettings["LeagueAdminSWClubBTNSE"];
+                LeagueAdminSWStatsBTN = ConfigurationManager.AppSettings["LeagueAdminSWStatsBTNSE"];
+                LeagueAdminSWGamesBTN = ConfigurationManager.AppSettings["LeagueAdminSWGamesBTNSE"];
+                LeagueAdminSWPlayersBTN = ConfigurationManager.AppSettings["LeagueAdminSWPlayersBTNSE"];
+                LeagueAdminSWPlayersInGameBTN = ConfigurationManager.AppSettings["LeagueAdminSWPlayersInGameBTNSE"];
+                LeagueAdminSWOptionsBTN = ConfigurationManager.AppSettings["LeagueAdminSWOptionsBTNSE"];
+            }
+            this.Title = LeagueAdminSWTitle;
+            StadiumButton.Content = LeagueAdminSWStadiumsBTN;
+            ClubsButton.Content = LeagueAdminSWClubBTN;
+            StatsButton.Content = LeagueAdminSWStatsBTN;
+            GamesButton.Content = LeagueAdminSWGamesBTN;
+            PlayersButton.Content = LeagueAdminSWPlayersBTN;
+            PlayersInGameButton.Content = LeagueAdminSWPlayersInGameBTN;
+            OptionsButton.Content = LeagueAdminSWOptionsBTN;
+
+            window.WriteLanguage();
         }
 
         private void StadiumButton_Click(object sender, RoutedEventArgs e)
@@ -63,6 +111,12 @@ namespace HCI_Project1_FootballLeague.AdminsStartWindows
         private void PlayersInGameButton_Click(object sender, RoutedEventArgs e)
         {
             PlayerInGameWindows.PlayerInGameStartWindow win = new PlayerInGameWindows.PlayerInGameStartWindow();
+            win.ShowDialog();
+        }
+
+        private void OptionsButton_Click(object sender, RoutedEventArgs e)
+        {
+            OptionsWindow.OptionsWindow win = new OptionsWindow.OptionsWindow(null, this);
             win.ShowDialog();
         }
     }

@@ -3,6 +3,7 @@ using HCI_Project1_FootballLeague.DBFunctions;
 using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,8 +41,45 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
             DatePickerBox.SelectedDate = gameInfo.GameDate;
             this.season = season;
             this.fixture = fixture;
+            WriteLanguage();
         }
 
+
+        public void WriteLanguage()
+        {
+            var UpdateTeamInGameWTitle = "";
+            var UpdateTeamInGameWHeaderLBL = "";
+            var UpdateTeamInGameWHomeGoalsLBL = "";
+            var UpdateTeamInGameWAwayGoalsLBL = "";
+
+            var UpdateTeamInGameWGameDateLBL = "";
+            var UpdateTeamInGameWSubmitBTN = "";
+
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                UpdateTeamInGameWTitle = ConfigurationManager.AppSettings["UpdateTeamInGameWTitle"];
+                UpdateTeamInGameWHeaderLBL = ConfigurationManager.AppSettings["UpdateTeamInGameWHeaderLBL"];
+                UpdateTeamInGameWHomeGoalsLBL = ConfigurationManager.AppSettings["UpdateTeamInGameWHomeGoalsLBL"];
+                UpdateTeamInGameWAwayGoalsLBL = ConfigurationManager.AppSettings["UpdateTeamInGameWAwayGoalsLBL"];
+                UpdateTeamInGameWGameDateLBL = ConfigurationManager.AppSettings["UpdateTeamInGameWGameDateLBL"];
+                UpdateTeamInGameWSubmitBTN = ConfigurationManager.AppSettings["UpdateTeamInGameWSubmitBTN"];
+            }
+            else
+            {
+                UpdateTeamInGameWTitle = ConfigurationManager.AppSettings["UpdateTeamInGameWTitleSE"];
+                UpdateTeamInGameWHeaderLBL = ConfigurationManager.AppSettings["UpdateTeamInGameWHeaderLBLSE"];
+                UpdateTeamInGameWHomeGoalsLBL = ConfigurationManager.AppSettings["UpdateTeamInGameWHomeGoalsLBLSE"];
+                UpdateTeamInGameWAwayGoalsLBL = ConfigurationManager.AppSettings["UpdateTeamInGameWAwayGoalsLBLSE"];
+                UpdateTeamInGameWGameDateLBL = ConfigurationManager.AppSettings["UpdateTeamInGameWGameDateLBLSE"];
+                UpdateTeamInGameWSubmitBTN = ConfigurationManager.AppSettings["UpdateTeamInGameWSubmitBTNSE"];
+            }
+            this.Title = UpdateTeamInGameWTitle;
+            HeaderLabel.Content = UpdateTeamInGameWHeaderLBL;
+            HomeGoalsLabel.Content = UpdateTeamInGameWHomeGoalsLBL;
+            AwayGoalsLabel.Content = UpdateTeamInGameWAwayGoalsLBL;
+            GameDateLabel.Content = UpdateTeamInGameWGameDateLBL;
+            SubmitBTN.Content = UpdateTeamInGameWSubmitBTN;
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var homeGoals = HomeGoalsTB.Text;

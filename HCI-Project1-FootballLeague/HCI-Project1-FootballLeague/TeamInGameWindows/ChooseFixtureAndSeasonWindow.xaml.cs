@@ -3,6 +3,7 @@ using HCI_Project1_FootballLeague.DBFunctions;
 using HCI_Project1_FootballLeague.StatsWindows;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,68 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
         {
             InitializeComponent();
             PopulateData();
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var TeamInGameWTitle = "";
+            var TeamInGameWChooseSeasonLBL = "";
+            var TeamInGameWFixtureLBL = "";
+            var TeamInGameWShowBTN = "";
+
+            var TeamInGameWAddBTN = "";
+            var TeamInGameWUpdateBTN = "";
+            var TeamInGameWDeleteBTN = "";
+
+            var GameHomeTeamCOL = "";
+            var GameAwayTeamCOL = "";
+            var GameResultCOL = "";
+            var GameDateCOL = "";
+
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                TeamInGameWTitle = ConfigurationManager.AppSettings["TeamInGameWTitle"];
+                TeamInGameWChooseSeasonLBL = ConfigurationManager.AppSettings["TeamInGameWChooseSeasonLBL"];
+                TeamInGameWFixtureLBL = ConfigurationManager.AppSettings["TeamInGameWFixtureLBL"];
+                TeamInGameWShowBTN = ConfigurationManager.AppSettings["TeamInGameWShowBTN"];
+                TeamInGameWAddBTN = ConfigurationManager.AppSettings["TeamInGameWAddBTN"];
+                TeamInGameWUpdateBTN = ConfigurationManager.AppSettings["TeamInGameWUpdateBTN"];
+                TeamInGameWDeleteBTN = ConfigurationManager.AppSettings["TeamInGameWDeleteBTN"];
+
+                GameHomeTeamCOL = ConfigurationManager.AppSettings["GameHomeTeamCOL"];
+                GameAwayTeamCOL = ConfigurationManager.AppSettings["GameAwayTeamCOL"];
+                GameResultCOL = ConfigurationManager.AppSettings["GameResultCOL"];
+                GameDateCOL = ConfigurationManager.AppSettings["GameDateCOL"];
+            }
+            else
+            {
+                TeamInGameWTitle = ConfigurationManager.AppSettings["TeamInGameWTitleSE"];
+                TeamInGameWChooseSeasonLBL = ConfigurationManager.AppSettings["TeamInGameWChooseSeasonLBLSE"];
+                TeamInGameWFixtureLBL = ConfigurationManager.AppSettings["TeamInGameWFixtureLBLSE"];
+                TeamInGameWShowBTN = ConfigurationManager.AppSettings["TeamInGameWShowBTNSE"];
+                TeamInGameWAddBTN = ConfigurationManager.AppSettings["TeamInGameWAddBTNSE"];
+                TeamInGameWUpdateBTN = ConfigurationManager.AppSettings["TeamInGameWUpdateBTNSE"];
+                TeamInGameWDeleteBTN = ConfigurationManager.AppSettings["TeamInGameWDeleteBTNSE"];
+
+                GameHomeTeamCOL = ConfigurationManager.AppSettings["GameHomeTeamCOLSE"];
+                GameAwayTeamCOL = ConfigurationManager.AppSettings["GameAwayTeamCOLSE"];
+                GameResultCOL = ConfigurationManager.AppSettings["GameResultCOLSE"];
+                GameDateCOL = ConfigurationManager.AppSettings["GameDateCOLSE"];
+            }
+            this.Title = TeamInGameWTitle;
+            ChooseSeasonLabel.Content = TeamInGameWChooseSeasonLBL;
+            NextButton.Content = TeamInGameWShowBTN;
+            AddButton.Content = TeamInGameWAddBTN;
+            UpdateButton.Content = TeamInGameWUpdateBTN;
+            DeleteButton.Content = TeamInGameWDeleteBTN;
+            FixtureLabel.Content = TeamInGameWFixtureLBL;
+
+            GameHomeTeamC.Header = GameHomeTeamCOL;
+            GameAwayTeamC.Header = GameAwayTeamCOL;
+            GameResultC.Header = GameResultCOL;
+            GameDateC.Header = GameDateCOL;
+
         }
 
         private void PopulateData()

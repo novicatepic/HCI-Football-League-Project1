@@ -22,10 +22,10 @@
 
             <!-- Column Header Text & Bindings -->
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="TeamNameCOL" Header="Name" Width="1*" Binding="{Binding Name}"/>
-                <DataGridTextColumn x:Name="TeamFoundationDateCOL" Header="Foundation Date" Width="1*" Binding="{Binding Date}"/>
-                <DataGridTextColumn x:Name="TeamTrophiesWonCOL" Header="Number of Trophies Won" Width="1*" Binding="{Binding NumTrophies}"/>
-                <DataGridTextColumn x:Name="TeamStadiumNameCOL" Header="Stadium Name" Width="1*" Binding="{Binding StadiumName}"/>
+                <DataGridTextColumn x:Name="TeamNameC" Header="Name" Width="1*" Binding="{Binding Name}"/>
+                <DataGridTextColumn x:Name="TeamFoundationDateC" Header="Foundation Date" Width="1*" Binding="{Binding Date}"/>
+                <DataGridTextColumn x:Name="TeamTrophiesWonC" Header="Number of Trophies Won" Width="1*" Binding="{Binding NumTrophies}"/>
+                <DataGridTextColumn x:Name="TeamStadiumNameC" Header="Stadium Name" Width="1*" Binding="{Binding StadiumName}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="AddButton" Click="AddButton_Click" FontWeight="SemiBold" Content="ADD" HorizontalAlignment="Left" FontSize="20" Height="49" Margin="49,0,0,60" VerticalAlignment="Bottom" Width="241"/>

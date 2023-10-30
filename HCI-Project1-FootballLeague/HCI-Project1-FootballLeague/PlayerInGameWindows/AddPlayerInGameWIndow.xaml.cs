@@ -2,6 +2,7 @@
 using HCI_Project1_FootballLeague.DBFunctions;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,8 +32,61 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             this.gameInfo = gameInfo;
             this.isHomePlayer = isHomePlayer;
             PopulateData();
+            WriteLanguage();
         }
 
+        public void WriteLanguage()
+        {
+            var AddPlayerInGameWTitle = "";
+            var AddPlayerInGameWHeaderLBL = "";
+            var AddPlayerInGameWSelectPlayerLBL = "";
+            var AddPlayerInGameWNumGoalsLBL = "";
+            var AddPlayerInGameWNumAssistsLBL = "";
+
+            var AddPlayerInGameWMinutesPlayedLBL = "";
+            var AddPlayerInGameWYellowCardCB = "";
+            var AddPlayerInGameWRedCardCB = "";
+            var AddPlayerInGameWStartedGameCB = "";
+            var AddPlayerInGameWSubmitBTN = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                AddPlayerInGameWTitle = ConfigurationManager.AppSettings["AddPlayerInGameWTitle"];
+                AddPlayerInGameWHeaderLBL = ConfigurationManager.AppSettings["AddPlayerInGameWHeaderLBL"];
+                AddPlayerInGameWSelectPlayerLBL = ConfigurationManager.AppSettings["AddPlayerInGameWSelectPlayerLBL"];
+                AddPlayerInGameWNumGoalsLBL = ConfigurationManager.AppSettings["AddPlayerInGameWNumGoalsLBL"];
+                AddPlayerInGameWNumAssistsLBL = ConfigurationManager.AppSettings["AddPlayerInGameWNumAssistsLBL"];
+
+                AddPlayerInGameWMinutesPlayedLBL = ConfigurationManager.AppSettings["AddPlayerInGameWMinutesPlayedLBL"];
+                AddPlayerInGameWYellowCardCB = ConfigurationManager.AppSettings["AddPlayerInGameWYellowCardCB"];
+                AddPlayerInGameWRedCardCB = ConfigurationManager.AppSettings["AddPlayerInGameWRedCardCB"];
+                AddPlayerInGameWStartedGameCB = ConfigurationManager.AppSettings["AddPlayerInGameWStartedGameCB"];
+                AddPlayerInGameWSubmitBTN = ConfigurationManager.AppSettings["AddPlayerInGameWSubmitBTN"];
+            }
+            else
+            {
+                AddPlayerInGameWTitle = ConfigurationManager.AppSettings["AddPlayerInGameWTitleSE"];
+                AddPlayerInGameWHeaderLBL = ConfigurationManager.AppSettings["AddPlayerInGameWHeaderLBLSE"];
+                AddPlayerInGameWSelectPlayerLBL = ConfigurationManager.AppSettings["AddPlayerInGameWSelectPlayerLBLSE"];
+                AddPlayerInGameWNumGoalsLBL = ConfigurationManager.AppSettings["AddPlayerInGameWNumGoalsLBLSE"];
+                AddPlayerInGameWNumAssistsLBL = ConfigurationManager.AppSettings["AddPlayerInGameWNumAssistsLBLSE"];
+
+                AddPlayerInGameWMinutesPlayedLBL = ConfigurationManager.AppSettings["AddPlayerInGameWMinutesPlayedLBLSE"];
+                AddPlayerInGameWYellowCardCB = ConfigurationManager.AppSettings["AddPlayerInGameWYellowCardCBSE"];
+                AddPlayerInGameWRedCardCB = ConfigurationManager.AppSettings["AddPlayerInGameWRedCardCBSE"];
+                AddPlayerInGameWStartedGameCB = ConfigurationManager.AppSettings["AddPlayerInGameWStartedGameCBSE"];
+                AddPlayerInGameWSubmitBTN = ConfigurationManager.AppSettings["AddPlayerInGameWSubmitBTNSE"];
+            }
+            this.Title = AddPlayerInGameWTitle;
+            NumGoalsLabel.Content = AddPlayerInGameWNumGoalsLBL;
+            NumAssistsLabel.Content = AddPlayerInGameWNumAssistsLBL;
+            MinsPlayedLabel.Content = AddPlayerInGameWMinutesPlayedLBL;
+            HeaderLabel.Content = AddPlayerInGameWHeaderLBL;
+            SubmitBTN.Content = AddPlayerInGameWSubmitBTN;
+            YellowCardCB.Content = AddPlayerInGameWYellowCardCB;
+            RedCardCB.Content = AddPlayerInGameWRedCardCB;
+            StartedGameCB.Content = AddPlayerInGameWStartedGameCB;
+            SelectPlayerLabel.Content = AddPlayerInGameWSelectPlayerLBL;
+        }
         private void PopulateData()
         {
             if(isHomePlayer)

@@ -12,7 +12,7 @@
         </Label>
         <Label x:Name="HomeTeamLabel" Content="Home Team" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="118,119,550,526"/>
         <TextBox x:Name="HomeGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="522,259,146,386" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
-        <Button Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+        <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
         <Label x:Name="GameDateLabel" Content="Game Date" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="118,391,550,253"/>
         <ComboBox x:Name="HomeClubComboBox" Margin="522,119,146,526" Width="232" Height="39"/>
         <DatePicker x:Name="DatePickerBox" Margin="522,392,146,253" Width="232" Height="39"/>

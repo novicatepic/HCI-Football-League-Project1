@@ -2,6 +2,7 @@
 using HCI_Project1_FootballLeague.DBFunctions;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,42 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
             NameTB.Text = s.Name;
             CapacityTB.Text = s.Capacity.ToString();
             TownTB.Text = s.Town;
+            WriteLanguage();
+        }
+
+        public void WriteLanguage()
+        {
+            var UpdateStadiumWTitle = "";
+            var UpdateStadiumWHeaderLBL = "";
+            var UpdateStadiumWNameLBL = "";
+            var UpdateStadiumWCapacityBL = "";
+            var UpdateStadiumWTownLBL = "";
+            var UpdateStadiumWSubmitBTN = "";
+
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                UpdateStadiumWTitle = ConfigurationManager.AppSettings["UpdateStadiumWTitle"];
+                UpdateStadiumWHeaderLBL = ConfigurationManager.AppSettings["UpdateStadiumWHeaderLBL"];
+                UpdateStadiumWNameLBL = ConfigurationManager.AppSettings["UpdateStadiumWNameLBL"];
+                UpdateStadiumWCapacityBL = ConfigurationManager.AppSettings["UpdateStadiumWCapacityBL"];
+                UpdateStadiumWTownLBL = ConfigurationManager.AppSettings["UpdateStadiumWTownLBL"];
+                UpdateStadiumWSubmitBTN = ConfigurationManager.AppSettings["UpdateStadiumWSubmitBTN"];
+            }
+            else
+            {
+                UpdateStadiumWTitle = ConfigurationManager.AppSettings["UpdateStadiumWTitleSE"];
+                UpdateStadiumWHeaderLBL = ConfigurationManager.AppSettings["UpdateStadiumWHeaderLBLSE"];
+                UpdateStadiumWNameLBL = ConfigurationManager.AppSettings["UpdateStadiumWNameLBLSE"];
+                UpdateStadiumWCapacityBL = ConfigurationManager.AppSettings["UpdateStadiumWCapacityBLSE"];
+                UpdateStadiumWTownLBL = ConfigurationManager.AppSettings["UpdateStadiumWTownLBLSE"];
+                UpdateStadiumWSubmitBTN = ConfigurationManager.AppSettings["UpdateStadiumWSubmitBTNSE"];
+            }
+            this.Title = UpdateStadiumWTitle;
+            NameLabel.Content = UpdateStadiumWNameLBL;
+            HeaderLabel.Content = UpdateStadiumWHeaderLBL;
+            CapacityLabel.Content = UpdateStadiumWCapacityBL;
+            TownLabel.Content = UpdateStadiumWTownLBL;
+            SubmitBTN.Content = UpdateStadiumWSubmitBTN;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
