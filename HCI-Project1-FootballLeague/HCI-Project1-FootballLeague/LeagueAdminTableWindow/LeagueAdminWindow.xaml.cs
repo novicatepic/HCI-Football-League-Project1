@@ -25,6 +25,7 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
         {
             InitializeComponent();
             PopulateData();
+            //AdminIdCol.Header = "hedd";
         }
 
         private void PopulateData()

@@ -22,10 +22,10 @@
 
             <!-- Column Header Text & Bindings -->
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Home Team" Width="1*" Binding="{Binding HomeTeamName}"/>
-                <DataGridTextColumn Header="Away team" Width="1*" Binding="{Binding AwayTeamName}"/>
-                <DataGridTextColumn Header="Result" Width="1*" Binding="{Binding Result}"/>
-                <DataGridTextColumn Header="Date" Width="1*" Binding="{Binding GameDate}"/>
+                <DataGridTextColumn x:Name="GameHomeTeamCOL" Header="Home Team" Width="1*" Binding="{Binding HomeTeamName}"/>
+                <DataGridTextColumn x:Name="GameAwayTeamCOL" Header="Away team" Width="1*" Binding="{Binding AwayTeamName}"/>
+                <DataGridTextColumn x:Name="GameResultCOL" Header="Result" Width="1*" Binding="{Binding Result}"/>
+                <DataGridTextColumn x:Name="GameDateCOL" Header="Date" Width="1*" Binding="{Binding GameDate}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="FixtureLabel" Content="Fixture" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="216" Height="35"/>

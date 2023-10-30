@@ -32,7 +32,7 @@ namespace HCI_Project1_FootballLeague
         {
             InitializeComponent();
             //var name = ConfigurationManager.AppSettings["Title"];
-            //this.Title = name;
+            //this.Title = "добродошли";
             //MessageBox.Show(name);
         }
 
