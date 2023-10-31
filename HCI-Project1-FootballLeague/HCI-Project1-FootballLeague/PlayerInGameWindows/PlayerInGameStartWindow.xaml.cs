@@ -28,8 +28,43 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             InitializeComponent();
             PopulateData();
             WriteLanguage();
+            DrawStyle();
         }
 
+        public void DrawStyle()
+        {
+            HomePlayersBTN.ClearValue(Button.FontSizeProperty);
+            AwayPlayersBTN.ClearValue(Button.FontSizeProperty);
+            AddButton.ClearValue(Button.FontSizeProperty);
+            UpdateButton.ClearValue(Button.FontSizeProperty);
+            DeleteButton.ClearValue(Button.FontSizeProperty);
+            Style backgroundStyle = null;
+            Style buttonStyle = null;
+            if ("Large Buttons - Alice Background".Equals(MainWindow.LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundAlice");
+                buttonStyle = (Style)FindResource("FontLargeBtn");
+            }
+            else if ("Medium Buttons - Beige Background".Equals(MainWindow.LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundBeige");
+                buttonStyle = (Style)FindResource("FontMediumBtn");
+            }
+            else
+            {
+                backgroundStyle = (Style)FindResource("BackgroundTan");
+                buttonStyle = (Style)FindResource("FontSmallBtn");
+            }
+            Grid.Style = backgroundStyle;
+            foreach (UIElement element in Grid.Children)
+            {
+                if (element is Button)
+                {
+                    Button button = (Button)element;
+                    button.Style = buttonStyle;
+                }
+            }
+        }
         public void WriteLanguage()
         {
             var PlayerInGameWTitle = "";
@@ -135,7 +170,16 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
 
         private static void ItemNotSelected()
         {
-            MessageBox.Show("Item not selected!");
+            var NoInputMssg = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                NoInputMssg = ConfigurationManager.AppSettings["NoSelectionMssg"];
+            }
+            else
+            {
+                NoInputMssg = ConfigurationManager.AppSettings["NoSelectionMssgSE"];
+            }
+            MessageBox.Show(NoInputMssg);
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)

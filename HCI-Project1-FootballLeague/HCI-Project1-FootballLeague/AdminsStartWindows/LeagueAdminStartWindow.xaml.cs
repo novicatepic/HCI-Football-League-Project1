@@ -32,8 +32,46 @@ namespace HCI_Project1_FootballLeague.AdminsStartWindows
             InitializeComponent();
             window = win;
             WriteLanguage();
+            DrawStyle();
         }
 
+        public void DrawStyle()
+        {
+            StadiumButton.ClearValue(Button.FontSizeProperty);
+            ClubsButton.ClearValue(Button.FontSizeProperty);
+            StatsButton.ClearValue(Button.FontSizeProperty);
+            GamesButton.ClearValue(Button.FontSizeProperty);
+            PlayersButton.ClearValue(Button.FontSizeProperty);
+            PlayersInGameButton.ClearValue(Button.FontSizeProperty);
+            OptionsButton.ClearValue(Button.FontSizeProperty);
+            Style backgroundStyle = null;
+            Style buttonStyle = null;
+            if ("Large Buttons - Alice Background".Equals(MainWindow.LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundAliceSP");
+                buttonStyle = (Style)FindResource("FontLargeBtn");
+            }
+            else if ("Medium Buttons - Beige Background".Equals(MainWindow.LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundBeigeSP");
+                buttonStyle = (Style)FindResource("FontMediumBtn");
+            }
+            else
+            {
+                backgroundStyle = (Style)FindResource("BackgroundTanSP");
+                buttonStyle = (Style)FindResource("FontSmallBtn");
+            }
+            Panel.Style = backgroundStyle;
+            foreach (UIElement element in Panel.Children)
+            {
+                if (element is Button)
+                {
+                    Button button = (Button)element;
+                    button.Style = buttonStyle;
+                }
+            }
+            window.DrawStyle();
+        }
         public void WriteLanguage()
         {
             var LeagueAdminSWTitle = "";

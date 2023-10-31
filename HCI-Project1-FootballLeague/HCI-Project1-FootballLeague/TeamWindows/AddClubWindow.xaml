@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.StadiumWindows"
         mc:Ignorable="d"
         Title="Add Club Window" Height="670" Width="870" MinHeight="670" MinWidth="870">
-    <Grid>
+    <Grid x:Name="Grid">
         <Label x:Name="HeaderLabel" Content="ADD NEW FOOTBALL CLUB" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
         <Label x:Name="NameLabel" Content="Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="88,164,520,401"/>
         <TextBox x:Name="NameTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.47,-2.233" Margin="472,129,96,366"/>

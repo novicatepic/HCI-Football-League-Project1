@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.PlayerWindows"
         mc:Ignorable="d"
         Title="Update Player Window" Height="700" Width="900" MinHeight="700" MinWidth="900">
-    <Grid>
+    <Grid x:Name="Grid">
         <Label x:Name="HeaderLabel" Content="UPDATE PLAYER" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
         <Label x:Name="FirstNameLabel" Content="First Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="103,138,535,477"/>
         <TextBox x:Name="FirstNameTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.47,-2.233" Margin="507,138,131,477"/>

@@ -31,6 +31,7 @@ namespace HCI_Project1_FootballLeague
         public MainWindow()
         {
             InitializeComponent();
+            ProceedBTN.FontSize = 16;
         }
 
         public void WriteLanguage()
@@ -62,6 +63,35 @@ namespace HCI_Project1_FootballLeague
             ProceedBTN.Content = MWProceedBTN;
         }
 
+        public void DrawStyle()
+        {
+            ProceedBTN.ClearValue(Button.FontSizeProperty);
+            Style backgroundStyle = null;
+            Style buttonStyle = null;
+            if ("Large Buttons - Alice Background".Equals(LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundAlice");
+                buttonStyle = (Style)FindResource("FontLargeBtn");
+            } else if("Medium Buttons - Beige Background".Equals(LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundBeige");
+                buttonStyle = (Style)FindResource("FontMediumBtn");
+            } else
+            {
+                backgroundStyle = (Style)FindResource("BackgroundTan");
+                buttonStyle = (Style)FindResource("FontSmallBtn");
+            }
+            Grid.Style = backgroundStyle;
+            foreach (UIElement element in Grid.Children)
+            {
+                if (element is Button)
+                {
+                    Button button = (Button)element;
+                    button.Style = buttonStyle;
+                }
+            }
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Administrator admin = CheckCredentials();
@@ -69,6 +99,7 @@ namespace HCI_Project1_FootballLeague
             {
                 LoggedInAdmin = admin;
                 WriteLanguage();
+                DrawStyle();
                 if (admin.IsMainAdmin)
                 {
                     MainAdminStartWindow mainAdminStartWindow = new MainAdminStartWindow(this);
@@ -99,6 +130,20 @@ namespace HCI_Project1_FootballLeague
                 }
             }
             return null;
+        }
+
+        private static void WrongCredentialsMessage()
+        {
+            var NoInputMssg = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                NoInputMssg = ConfigurationManager.AppSettings["WrongCredentialsMssg"];
+            }
+            else
+            {
+                NoInputMssg = ConfigurationManager.AppSettings["WrongCredentialsMssgSE"];
+            }
+            MessageBox.Show(NoInputMssg);
         }
 
     }

@@ -25,12 +25,8 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                /*MessageBox.Show(reader.GetInt32(0).ToString());
-                MessageBox.Show(reader.GetString(1));
-                MessageBox.Show(reader.GetString(2));
-                MessageBox.Show(reader.GetBoolean(3).ToString());
-                MessageBox.Show(reader.GetString(4));*/
-                administrators.Add(new Administrator(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), reader.GetString(4)));
+                administrators.Add(new Administrator(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), reader.GetString(4), 
+                    reader.GetString(5)));
             }
             reader.Close();
             conn.Close();
@@ -45,14 +41,14 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             conn.Open();
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT GlavniAdminId, KorisnickoIme, Lozinka, IsGlavniAdmin FROM administrator WHERE KorisnickoIme LIKE CONCAT(@SearchString, '%') AND IsGlavniAdmin=0";
+            cmd.CommandText = "SELECT * FROM administrator WHERE KorisnickoIme LIKE CONCAT(@SearchString, '%') AND IsGlavniAdmin=0";
             cmd.Parameters.AddWithValue("@SearchString", searchString);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
 
                 admins.Add(new Administrator(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), 
-                    reader.GetString(4)));
+                    reader.GetString(4), reader.GetString(5)));
             }
             reader.Close();
             conn.Close();
@@ -73,7 +69,7 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             {
 
                 administrators.Add(new Administrator(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), 
-                    reader.GetString(4)));
+                    reader.GetString(4), reader.GetString(5)));
             }
             reader.Close();
             conn.Close();
@@ -182,9 +178,10 @@ namespace HCI_Project1_FootballLeague.DBFunctions
                 conn.Open();
 
                 MySqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "UPDATE administrator SET Jezik=@Jezik WHERE GlavniAdminId=@GlavniAdminId";
+                cmd.CommandText = "UPDATE administrator SET Jezik=@Jezik, Stil=@Stil WHERE GlavniAdminId=@GlavniAdminId";
 
                 cmd.Parameters.AddWithValue("@Jezik", admin.Language);
+                cmd.Parameters.AddWithValue("@Stil", admin.Look);
                 cmd.Parameters.AddWithValue("@GlavniAdminId", admin.AdminId);
 
                 int rowsAffected = cmd.ExecuteNonQuery();

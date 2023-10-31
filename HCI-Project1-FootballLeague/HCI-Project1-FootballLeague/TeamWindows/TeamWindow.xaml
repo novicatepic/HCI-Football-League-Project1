@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.TeamWindows"
         mc:Ignorable="d"
         Title="Team Window" Height="820" Width="1150" MinWidth="1150" MinHeight="820">
-    <Grid>
+    <Grid x:Name="Grid">
         <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,59,0,174">
 
             <!-- Font Color / Style of Columns Headings -->

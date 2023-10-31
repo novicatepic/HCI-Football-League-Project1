@@ -7,12 +7,13 @@
         mc:Ignorable="d"
         Title="Welcome" x:Name="PageTitle" Height="450" Width="850" MinHeight="450" MinWidth="850">
 
-    <Grid>
+    <Grid x:Name="Grid">
+        
         <Label x:Name="UserNameLabel" FontSize="16" Content="Input username - " HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="177,97,478,0" VerticalAlignment="Top" Width="160" Height="49"/>
         <Label x:Name="PasswordLabel" FontSize="16" Content="Input password -" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="176,0,478,0" VerticalAlignment="Center" Width="160" Height="49"/>
         <TextBox x:Name="userNameBox" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Margin="400,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" Height="49"/>
         <TextBox x:Name="passwordBox" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Margin="400,0,0,0" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="173" Height="49"/>
-        <Button x:Name="ProceedBTN" Click="Button_Click" Content="PROCEED" FontSize="24" HorizontalAlignment="Stretch" Margin="0,298,0,0" VerticalAlignment="Bottom" Height="74" Width="248"/>
+        <Button x:Name="ProceedBTN" Click="Button_Click" Content="PROCEED" HorizontalAlignment="Stretch" Margin="0,298,0,0" VerticalAlignment="Bottom" Height="74" Width="248"/>
         <Label x:Name="HeaderLabel" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="WELCOME" HorizontalAlignment="Center" VerticalAlignment="Top" Width="572" Height="66"/>
 
     </Grid>

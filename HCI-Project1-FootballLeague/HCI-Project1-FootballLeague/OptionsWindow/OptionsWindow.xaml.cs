@@ -32,8 +32,39 @@ namespace HCI_Project1_FootballLeague.OptionsWindow
             WriteLanguage();
             window = win;
             window2 = win2;
+            DrawStyle();
         }
 
+        public void DrawStyle()
+        {
+            SubmitBTN.ClearValue(Button.FontSizeProperty);
+            Style backgroundStyle = null;
+            Style buttonStyle = null;
+            if ("Large Buttons - Alice Background".Equals(MainWindow.LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundAlice");
+                buttonStyle = (Style)FindResource("FontLargeBtn");
+            }
+            else if ("Medium Buttons - Beige Background".Equals(MainWindow.LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundBeige");
+                buttonStyle = (Style)FindResource("FontMediumBtn");
+            }
+            else
+            {
+                backgroundStyle = (Style)FindResource("BackgroundTan");
+                buttonStyle = (Style)FindResource("FontSmallBtn");
+            }
+            Grid.Style = backgroundStyle;
+            foreach (UIElement element in Grid.Children)
+            {
+                if (element is Button)
+                {
+                    Button button = (Button)element;
+                    button.Style = buttonStyle;
+                }
+            }
+        }
         public void WriteLanguage()
         {
             var OptionsWHeaderTitle = "";
@@ -69,24 +100,36 @@ namespace HCI_Project1_FootballLeague.OptionsWindow
             LanguageCB.Items.Add("en");
             LanguageCB.Items.Add("sr");
             LanguageCB.SelectedItem = MainWindow.LoggedInAdmin.Language;
+
+            InterfaceCB.Items.Add("Large Buttons - Alice Background");
+            InterfaceCB.Items.Add("Medium Buttons - Beige Background");
+            InterfaceCB.Items.Add("Small Buttons - Tan Background");
+            InterfaceCB.SelectedItem = MainWindow.LoggedInAdmin.Look;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string item = (string)LanguageCB.SelectedItem;
-            if (!item.Equals(MainWindow.LoggedInAdmin.Language))
+            string lookItem = (string)InterfaceCB.SelectedItem;
+            if (!item.Equals(MainWindow.LoggedInAdmin.Language) || !lookItem.Equals(MainWindow.LoggedInAdmin.Look))
             {
                 MainWindow.LoggedInAdmin.Language = item;
+                MainWindow.LoggedInAdmin.Look = lookItem;
                 AdminDB.UpdateAdminPreferences(MainWindow.LoggedInAdmin);
+                //MessageBox.Show("HERE");
                 if(window != null)
                 {
                     window.WriteLanguage();
+                    window.DrawStyle();
+                    this.DrawStyle();
                 }
                 if (window2 != null)
                 {
                     window2.WriteLanguage();
+                    window2.DrawStyle();
+                    this.DrawStyle();
                 }
-                Close();
+                //Close();
             }
         }
     }

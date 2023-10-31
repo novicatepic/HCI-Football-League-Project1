@@ -32,8 +32,39 @@ namespace HCI_Project1_FootballLeague.StatsWindows
                 ChooseSeasonBox.Items.Add(s);
             }
             WriteLanguage();
+            DrawStyle();
         }
 
+        public void DrawStyle()
+        {
+            NextButton.ClearValue(Button.FontSizeProperty);
+            Style backgroundStyle = null;
+            Style buttonStyle = null;
+            if ("Large Buttons - Alice Background".Equals(MainWindow.LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundAlice");
+                buttonStyle = (Style)FindResource("FontLargeBtn");
+            }
+            else if ("Medium Buttons - Beige Background".Equals(MainWindow.LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundBeige");
+                buttonStyle = (Style)FindResource("FontMediumBtn");
+            }
+            else
+            {
+                backgroundStyle = (Style)FindResource("BackgroundTan");
+                buttonStyle = (Style)FindResource("FontSmallBtn");
+            }
+            Grid.Style = backgroundStyle;
+            foreach (UIElement element in Grid.Children)
+            {
+                if (element is Button)
+                {
+                    Button button = (Button)element;
+                    button.Style = buttonStyle;
+                }
+            }
+        }
         public void WriteLanguage()
         {
             var StatsWTitle = "";

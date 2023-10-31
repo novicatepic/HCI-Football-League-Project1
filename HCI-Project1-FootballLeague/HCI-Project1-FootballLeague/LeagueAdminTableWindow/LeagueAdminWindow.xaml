@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.LeagueAdminTableWindow"
         mc:Ignorable="d"
         Title="League Admin Window" Height="820" Width="1100" MinWidth="1100" MinHeight="820">
-    <Grid  Margin="0,0,0,-6">
+    <Grid x:Name="Grid" Margin="0,0,0,-6">
         <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,78,0,176">
 
             <!-- Font Color / Style of Columns Headings -->

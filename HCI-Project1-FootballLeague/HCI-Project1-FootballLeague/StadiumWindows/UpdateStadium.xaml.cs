@@ -33,8 +33,39 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
             CapacityTB.Text = s.Capacity.ToString();
             TownTB.Text = s.Town;
             WriteLanguage();
+            DrawStyle();
         }
 
+        public void DrawStyle()
+        {
+            SubmitBTN.ClearValue(Button.FontSizeProperty);
+            Style backgroundStyle = null;
+            Style buttonStyle = null;
+            if ("Large Buttons - Alice Background".Equals(MainWindow.LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundAlice");
+                buttonStyle = (Style)FindResource("FontLargeBtn");
+            }
+            else if ("Medium Buttons - Beige Background".Equals(MainWindow.LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundBeige");
+                buttonStyle = (Style)FindResource("FontMediumBtn");
+            }
+            else
+            {
+                backgroundStyle = (Style)FindResource("BackgroundTan");
+                buttonStyle = (Style)FindResource("FontSmallBtn");
+            }
+            Grid.Style = backgroundStyle;
+            foreach (UIElement element in Grid.Children)
+            {
+                if (element is Button)
+                {
+                    Button button = (Button)element;
+                    button.Style = buttonStyle;
+                }
+            }
+        }
         public void WriteLanguage()
         {
             var UpdateStadiumWTitle = "";
@@ -81,12 +112,26 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
                 Stadium st = new Stadium(s.StadiumId, name, Int32.Parse(capacity), town);
                 StadiumDB.UpdateStadium(st);
                 sw.DrawData();
-                Close();
+                //Close();
             }
             else
             {
-                MessageBox.Show("Name, capacity or town not entered!");
+                NoInputMessage();
             }
+        }
+
+        private void NoInputMessage()
+        {
+            var NoInputMssg = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                NoInputMssg = ConfigurationManager.AppSettings["NoInputMssg"];
+            }
+            else
+            {
+                NoInputMssg = ConfigurationManager.AppSettings["NoInputMssgSE"];
+            }
+            MessageBox.Show(NoInputMssg);
         }
     }
 }

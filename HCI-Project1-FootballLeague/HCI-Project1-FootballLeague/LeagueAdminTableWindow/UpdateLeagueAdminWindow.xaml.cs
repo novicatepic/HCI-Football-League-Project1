@@ -32,6 +32,38 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
             UserNameTB.Text = admin.UserName;
             PasswordTB.Text = admin.Password;
             WriteLanguage();
+            DrawStyle();
+        }
+
+        public void DrawStyle()
+        {
+            SubmitBTN.ClearValue(Button.FontSizeProperty);
+            Style backgroundStyle = null;
+            Style buttonStyle = null;
+            if ("Large Buttons - Alice Background".Equals(MainWindow.LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundAlice");
+                buttonStyle = (Style)FindResource("FontLargeBtn");
+            }
+            else if ("Medium Buttons - Beige Background".Equals(MainWindow.LoggedInAdmin.Look))
+            {
+                backgroundStyle = (Style)FindResource("BackgroundBeige");
+                buttonStyle = (Style)FindResource("FontMediumBtn");
+            }
+            else
+            {
+                backgroundStyle = (Style)FindResource("BackgroundTan");
+                buttonStyle = (Style)FindResource("FontSmallBtn");
+            }
+            Grid.Style = backgroundStyle;
+            foreach (UIElement element in Grid.Children)
+            {
+                if (element is Button)
+                {
+                    Button button = (Button)element;
+                    button.Style = buttonStyle;
+                }
+            }
         }
 
         public void WriteLanguage()
@@ -72,10 +104,10 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
             bool isMain = false;
             if(!"".Equals(userName) && !"".Equals(password))
             {
-                Administrator updatedAdmin = new Administrator(id, userName, password, isMain, admin.Language);
+                Administrator updatedAdmin = new Administrator(id, userName, password, isMain, admin.Language, admin.Look);
                 AdminDB.UpdateAdmin(updatedAdmin);
                 window.DrawData();
-                Close();
+                //Close();
             } else
             {
                 NoInputMessage();
@@ -85,7 +117,15 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
 
         private void NoInputMessage()
         {
-            MessageBox.Show("Parameters not entered!");
+            var NoInputMssg="";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                NoInputMssg = ConfigurationManager.AppSettings["NoInputMssg"];
+            } else
+            {
+                NoInputMssg = ConfigurationManager.AppSettings["NoInputMssgSE"];
+            }
+            MessageBox.Show(NoInputMssg);
         }
     }
 }
