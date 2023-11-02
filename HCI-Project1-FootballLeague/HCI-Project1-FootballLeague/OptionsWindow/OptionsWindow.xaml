@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.OptionsWindow"
         mc:Ignorable="d"
-        Title="Options Window" Height="710" Width="880" MinHeight="710" MinWidth="880">
+        Title="Options Window" Height="710" Width="930" MinHeight="710" MinWidth="930">
     <Grid x:Name="Grid">
         <Label x:Name="HeaderLabel" Content="CHANGE OPTIONS" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
-        <Label x:Name="LanguageLabel" Content="Language" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="68,129,500,366"/>
+        <Label x:Name="LanguageLabel" Content="Language" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="68,129,500,366"/>
         <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
         <Label x:Name="InterfaceLabel" Content="Interface" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="88,280,520,213"/>
-        <ComboBox x:Name="LanguageCB" Margin="498,177,112,414" Height="43"/>
-        <ComboBox x:Name="InterfaceCB" Margin="498,335,112,256" Height="43"/>
+        <ComboBox x:Name="LanguageCB" Margin="498,177,112,414" Width="260" Height="43"/>
+        <ComboBox x:Name="InterfaceCB" Margin="498,335,112,256" Width="260" Height="43"/>
     </Grid>
 </Window>
