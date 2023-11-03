@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.AdminsStartWindows"
         mc:Ignorable="d"
-        Title="Main Admin Start Window" Height="500" Width="800" MinHeight="500" MinWidth="800">
-    <StackPanel x:Name="Panel" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+        WindowStartupLocation="CenterScreen"
+        Title="Main Admin Start Window" Height="500" Width="800" MinHeight="500" MinWidth="800" ResizeMode="NoResize">
+    <StackPanel Width="800" x:Name="Panel" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button Margin="10 10 10 10" x:Name="ShowLeagueAdminsButton" Content="Show League Administrators" Height="60" Width="450" Click="Button_Click"/>
         <Separator></Separator>
         <Button Margin="10 10 10 10" x:Name="ShowOptionsButton" Content="Show Options" Height="60" Width="450" Click="ShowOptionsButton_Click"/>

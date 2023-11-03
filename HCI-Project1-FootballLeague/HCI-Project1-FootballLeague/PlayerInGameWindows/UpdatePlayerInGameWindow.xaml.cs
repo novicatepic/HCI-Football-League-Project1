@@ -114,8 +114,8 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             YellowCardCB.Content = UpdatePlayerInGameWYellowCardCB;
             RedCardCB.Content = UpdatePlayerInGameWRedCardCB;
             StartedGameCB.Content = UpdatePlayerInGameWStartedGameCB;
-            GoalsLabel.Content = UpdatePlayerInGameWNumGoalsLBL;
-            AssistsLabel.Content = UpdatePlayerInGameWNumAssistsLBL;
+            NumGoalsLabel.Content = UpdatePlayerInGameWNumGoalsLBL;
+            NumAssistsLabel.Content = UpdatePlayerInGameWNumAssistsLBL;
         }
         private void PopulateData()
         {

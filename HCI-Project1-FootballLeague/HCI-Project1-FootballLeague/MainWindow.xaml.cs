@@ -31,6 +31,7 @@ namespace HCI_Project1_FootballLeague
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             ProceedBTN.FontSize = 16;
         }
 
@@ -120,7 +121,7 @@ namespace HCI_Project1_FootballLeague
         private Administrator CheckCredentials()
         {
             string userName = userNameBox.Text;
-            string password = passwordBox.Text;
+            string password = passwordBox.Password;
             List<Administrator> admins = AdminDB.GetAdministrators();
             foreach (var admin in admins)
             {

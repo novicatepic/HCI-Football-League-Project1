@@ -33,7 +33,7 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             this.isHomePlayer = isHomePlayer;
             PopulateData();
             WriteLanguage();
-            DrawStyle();
+            DrawStyle();          
         }
 
         public void DrawStyle()
@@ -58,6 +58,14 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             }
             Grid.Style = backgroundStyle;
             foreach (UIElement element in Grid.Children)
+            {
+                if (element is Button)
+                {
+                    Button button = (Button)element;
+                    button.Style = buttonStyle;
+                }
+            }
+            foreach (UIElement element in InnerGRID.Children)
             {
                 if (element is Button)
                 {

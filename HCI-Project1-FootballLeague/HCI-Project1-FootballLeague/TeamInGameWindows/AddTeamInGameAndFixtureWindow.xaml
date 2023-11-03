@@ -5,21 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.TeamInGameWindows"
         mc:Ignorable="d"
-        Title="Add Team In Game And Fixture Window"  Height="800" Width="960" MinHeight="800" MinWidth="960">
+        WindowStartupLocation="CenterScreen"
+        Title="Add Team In Game And Fixture Window"  Height="830" Width="990" MinHeight="830" MinWidth="960" ResizeMode="NoResize">
     <Grid x:Name="Grid">
         <Label x:Name="HeaderLabel" Content="ADD NEW GAME" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
-        <Label x:Name="HomeGoalsLabel" Content="Home Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="128,322,560,322">
+        <Label x:Name="HomeGoalsLabel" Content="Home Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="221,322,507,322">
         </Label>
-        <Label x:Name="HomeTeamLabel" Content="Home Team" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="128,158,560,487"/>
-        <TextBox x:Name="HomeGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="532,348,156,347" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
-        <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
-        <Label x:Name="GameDateLabel" Content="Game Date" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="128,500,560,144"/>
-        <ComboBox x:Name="HomeClubComboBox" Margin="532,183,156,512" Width="232" Height="39"/>
-        <DatePicker x:Name="DatePickerBox" Margin="532,526,156,169" Width="232" Height="39"/>
-        <Label x:Name="AwayGoalsLabel" Content="Away Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="128,404,560,246"/>
-        <TextBox x:Name="AwayGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="532,427,156,268" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
-        <Label x:Name="AwayTeamLabel" Content="Away Team" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="128,245,560,400"/>
-        <ComboBox x:Name="AwayClubComboBox" Margin="532,270,156,425" Width="232" Height="39"/>
+        <Label x:Name="HomeTeamLabel" Content="Home Team" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="221,158,507,487"/>
+        <TextBox x:Name="HomeGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="504,373,224,372" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
+        <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,30" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label x:Name="GameDateLabel" Content="Game Date" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="221,500,507,143"/>
+        <ComboBox x:Name="HomeClubComboBox" Margin="504,208,224,537" Width="232" Height="39"/>
+        <DatePicker x:Name="DatePickerBox" Margin="504,551,224,194" Width="232" Height="39"/>
+        <Label x:Name="AwayGoalsLabel" Content="Away Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="221,404,507,245"/>
+        <TextBox x:Name="AwayGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="504,452,224,293" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
+        <Label x:Name="AwayTeamLabel" Content="Away Team" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="221,245,507,400"/>
+        <ComboBox x:Name="AwayClubComboBox" Margin="504,295,224,450" Width="232" Height="39"/>
 
     </Grid>
 </Window>

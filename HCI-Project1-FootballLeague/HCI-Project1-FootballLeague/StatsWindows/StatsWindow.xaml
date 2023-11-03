@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.StatsWindows"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Stats Window" Height="820" Width="1200" MinWidth="1200" MinHeight="820">
     <Grid x:Name="Grid" Margin="0,0,0,0">
         <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,164,0,0">

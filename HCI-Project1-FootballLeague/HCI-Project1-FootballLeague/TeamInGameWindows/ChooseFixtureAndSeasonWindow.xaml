@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.TeamInGameWindows"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Choose Fixture And Season Window" Height="820" Width="1200" MinWidth="1200" MinHeight="820">
     <Grid x:Name="Grid" Margin="0,0,0,0">
         <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,171,0,178">
@@ -35,16 +36,16 @@
         <ComboBox x:Name="ChooseFixtureBox"  VerticalAlignment="Top" Margin="270,89,260,0" Height="35"/>
         
 
-        <Grid VerticalAlignment="Bottom">
+        <Grid x:Name="InnerGRID" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" x:Name="AddButton" Click="AddButton_Click"  FontWeight="SemiBold" Content="ADD" HorizontalAlignment="Left" FontSize="20" Height="49" VerticalAlignment="Bottom" Width="241"/>
-            <Button Grid.Column="1" x:Name="UpdateButton" Click="UpdateButton_Click"   FontWeight="SemiBold" Content="UPDATE" Height="49" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="242"></Button>
-            <Button Grid.Column="2" FontSize="20" x:Name="DeleteButton"  FontWeight="SemiBold" Content="DELETE" Height="49" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="241" Click="DeleteButton_Click"/>
+            <Button Margin="30,0,96,30" Grid.Column="0" x:Name="AddButton" Click="AddButton_Click"  FontWeight="SemiBold" Content="ADD" HorizontalAlignment="Left" FontSize="20" Height="49" VerticalAlignment="Bottom" Width="241"/>
+            <Button Margin="0,0,0,30" Grid.Column="1" x:Name="UpdateButton" Click="UpdateButton_Click"   FontWeight="SemiBold" Content="UPDATE" Height="49" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="242"></Button>
+            <Button Margin="94,0,30,30" Grid.Column="2" FontSize="20" x:Name="DeleteButton"  FontWeight="SemiBold" Content="DELETE" Height="49" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="241" Click="DeleteButton_Click"/>
 
         </Grid>
 

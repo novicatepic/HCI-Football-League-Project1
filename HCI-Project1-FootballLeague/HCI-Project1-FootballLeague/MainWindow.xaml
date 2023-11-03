@@ -5,16 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague"
         mc:Ignorable="d"
-        Title="Welcome" x:Name="PageTitle" Height="600" Width="950" MinHeight="600" MinWidth="950">
+        WindowStartupLocation="CenterScreen"
+        Title="Welcome" x:Name="PageTitle" Height="690" Width="1000" MinHeight="690" MinWidth="1000">
 
     <Grid x:Name="Grid">
-        
-        <Label x:Name="UserNameLabel" FontSize="16" Content="Input username - " HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="194,124,496,261"  Width="160" Height="49"/>
-        <Label x:Name="PasswordLabel" FontSize="16" Content="Input password -" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="194,237,496,148"  Width="160" Height="49"/>
-        <TextBox x:Name="userNameBox" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="538,124,139,261" TextWrapping="Wrap"  Width="173" Height="49"/>
-        <TextBox x:Name="passwordBox" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="538,237,139,148" TextWrapping="Wrap" Width="173" Height="49"/>
-        <Button x:Name="ProceedBTN" Click="Button_Click" Content="PROCEED" HorizontalAlignment="Stretch" Margin="0,298,0,0" VerticalAlignment="Bottom" Height="74" Width="248"/>
-        <Label x:Name="HeaderLabel" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="WELCOME" HorizontalAlignment="Center" VerticalAlignment="Top" Width="572" Height="66"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="393*"/>
+            <ColumnDefinition Width="82*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="UserNameLabel" FontSize="16" Content="Input username - " HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="276,229,350,366"  Width="160" Height="49"/>
+        <Label x:Name="PasswordLabel" FontSize="16" Content="Input password -" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="276,342,350,253"  Width="160" Height="49"/>
+        <TextBox x:Name="userNameBox" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="475,229,138,366" TextWrapping="Wrap"  Width="173" Height="49"/>
+        <PasswordBox  x:Name="passwordBox" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="475,342,138,253" Width="173" Height="49"/>
+        <Button x:Name="ProceedBTN" Click="Button_Click" Content="PROCEED" Margin="351,0,187,20" VerticalAlignment="Bottom" Height="74" Width="248"/>
+        <Label x:Name="HeaderLabel" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="WELCOME" HorizontalAlignment="Left" VerticalAlignment="Top" Width="572" Height="66" Margin="189,0,0,0"/>
 
     </Grid>
 </Window>

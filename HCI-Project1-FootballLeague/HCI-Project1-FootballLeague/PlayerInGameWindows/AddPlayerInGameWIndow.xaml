@@ -5,20 +5,91 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.PlayerInGameWindows"
         mc:Ignorable="d"
-        Title="Add Player In Game WIndow" Height="750" Width="930" MinHeight="750" MinWidth="930">
+        WindowStartupLocation="CenterScreen"
+        Title="Add Player In Game WIndow" Height="800" Width="1000" MinHeight="800" MinWidth="1000" ResizeMode="NoResize">
     <Grid x:Name="Grid">
-        <Label x:Name="HeaderLabel" Content="ADD NEW PLAYER" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
-        <Label x:Name="NumGoalsLabel" Content="Num Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="118,153,550,492"/>
-        <TextBox x:Name="NumGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.47,-2.233" Margin="507,138,131,477"/>
-        <Label x:Name="NumAssistsLabel" Content="Num Assists" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="118,219,550,425"/>
-        <Label x:Name="SelectPlayerLabel" Content="Select Player" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="118,93,550,552"/>
-        <TextBox x:Name="NumAssistsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="522,219,146,426" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
-        <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
-        <ComboBox x:Name="PlayerComboBox" Margin="522,93,146,552" Width="232" Height="39"/>
-        <Label x:Name="MinsPlayedLabel" Content="Minutes played" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="118,434,550,211"/>
-        <TextBox x:Name="MinutesPlayedTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="522,434,146,211" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
-        <CheckBox x:Name="YellowCardCB" Content="Got Yellow" Margin="522,281,146,383" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <CheckBox x:Name="RedCardCB" Content="Got Red?" Margin="522,328,146,336" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <CheckBox x:Name="StartedGameCB" Content="Started Game?" Margin="522,380,146,284" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label  Height="39" x:Name="SelectPlayerLabel" Content="Select Player" FontSize="14" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalContentAlignment="Center"  Width="232"/>
+            <ComboBox Grid.Column="1" x:Name="PlayerComboBox" Width="232" Height="39" HorizontalAlignment="Left"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Height="39" x:Name="NumGoalsLabel" Content="Num Goals" FontSize="14" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" />
+            <TextBox  x:Name="NumGoalsTB" Grid.Column="1" HorizontalAlignment="Left" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" />
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Height="39" HorizontalAlignment="Right" x:Name="NumAssistsLabel" Content="Num Assists" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
+            <TextBox Grid.Column="1" HorizontalAlignment="Left" x:Name="NumAssistsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39"/>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label HorizontalAlignment="Right" Height="39" x:Name="MinsPlayedLabel" Content="Minutes played" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
+            <TextBox HorizontalAlignment="Left" Grid.Column="1" x:Name="MinutesPlayedTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39"/>
+        </Grid>
+
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <CheckBox Height="39" x:Name="YellowCardCB" Content="Got Yellow" HorizontalAlignment="Left" Grid.Column="1" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <CheckBox Height="39" x:Name="RedCardCB" Content="Got Red?" Grid.Column="1" HorizontalAlignment="Left" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <CheckBox Height="39" x:Name="StartedGameCB" Content="Started Game?" Grid.Column="1" HorizontalAlignment="Left" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
+
+        <Label Grid.Row="0" x:Name="HeaderLabel" Content="ADD NEW PLAYER" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        
+        
+        
+
+
+        <Grid x:Name="InnerGRID" Grid.Row="8">
+            <Button Grid.Row="8" x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0, 0, 0, 30" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+        </Grid>
+
+
     </Grid>
 </Window>

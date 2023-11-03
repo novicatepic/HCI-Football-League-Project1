@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.LeagueAdminTableWindow"
         mc:Ignorable="d"
-        Title="Update League Admin Window" Height="660" Width="880" MinHeight="660" MinWidth="880">
+        WindowStartupLocation="CenterScreen"
+        Title="Update League Admin Window" Height="740" Width="980" MinHeight="740" MinWidth="980" ResizeMode="NoResize">
     <Grid x:Name="Grid">
         <Label x:Name="HeaderLabel" Content="UPDATE LEAGUE ADMINISTRATOR" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
-        <Label x:Name="UserNameLabel" Content="User Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="68,129,500,366"/>
-        <TextBox x:Name="UserNameTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.47,-2.233" Margin="472,129,96,366"/>
-        <TextBox x:Name="PasswordTB"  FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" Margin="492,359,116,186"/>
-        <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
-        <Label x:Name="PasswordLabel" Content="Password" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="88,333,520,160"/>
+        <Label x:Name="UserNameLabel" Content="User Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="224,168,494,327"/>
+        <TextBox x:Name="UserNameTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.47,-2.233" Margin="493,243,225,402"/>
+        <TextBox x:Name="PasswordTB"  FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" Margin="493,417,225,228"/>
+        <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,30" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label x:Name="PasswordLabel" Content="Password" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="224,341,494,152"/>
     </Grid>
 </Window>

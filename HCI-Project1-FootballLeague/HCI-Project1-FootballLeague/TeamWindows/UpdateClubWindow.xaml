@@ -5,18 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.TeamWindows"
         mc:Ignorable="d"
-        Title="Update Club Window" Height="700" Width="910" MinHeight="700" MinWidth="910">
+        WindowStartupLocation="CenterScreen"
+        Title="Update Club Window" Height="740" Width="950" MinHeight="740" MinWidth="950" ResizeMode="NoResize">
     <Grid x:Name="Grid">
         <Label x:Name="HeaderLabel" Content="UPDATE FOOTBALL CLUB" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
-        <Label x:Name="NameLabel" Content="Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="108,129,540,435"/>
-        <TextBox x:Name="NameTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.47,-2.233" Margin="512,145,136,450"/>
-        <Label x:Name="TrophiesWonLabel" Content="Trophies Won" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="108,338,540,227"/>
-        <TextBox x:Name="TrophiesTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="512,353,136,242" TextWrapping="Wrap" Width="232" Height="39"/>
-        <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,0" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
-        <Label x:Name="FoundationDateLabel" Content="Foundation Date" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="108,228,540,336"/>
-        <Label x:Name="StadiumLabel" Content="Stadium" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="88,438,520,126"/>
-        <ComboBox x:Name="StadiumComboBox" Margin="492,438,116,130" Width="232" Height="36"/>
-        <DatePicker x:Name="DatePicker" Margin="512,244,136,351" Width="232" Height="39"/>
+        <Label x:Name="NameLabel" Content="Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="206,130,472,433"/>
+        <TextBox x:Name="NameTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.47,-2.233" Margin="474,171,204,474"/>
+        <Label x:Name="TrophiesWonLabel" Content="Trophies Won" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="206,342,472,223"/>
+        <TextBox x:Name="TrophiesTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="474,382,204,263" TextWrapping="Wrap" Width="232" Height="39"/>
+        <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,30" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label x:Name="FoundationDateLabel" Content="Foundation Date" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="206,229,472,335"/>
+        <Label x:Name="StadiumLabel" Content="Stadium" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="206,448,472,116"/>
+        <ComboBox x:Name="StadiumComboBox" Margin="474,490,204,158" Width="232" Height="36"/>
+        <DatePicker x:Name="DatePicker" Margin="474,270,204,375" Width="232" Height="39"/>
 
     </Grid>
 </Window>

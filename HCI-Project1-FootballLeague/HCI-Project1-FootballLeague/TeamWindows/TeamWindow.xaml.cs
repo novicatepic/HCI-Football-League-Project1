@@ -64,6 +64,14 @@ namespace HCI_Project1_FootballLeague.TeamWindows
                     button.Style = buttonStyle;
                 }
             }
+            foreach (UIElement element in InnerGRID.Children)
+            {
+                if (element is Button)
+                {
+                    Button button = (Button)element;
+                    button.Style = buttonStyle;
+                }
+            }
         }
 
         public void WriteLanguage()

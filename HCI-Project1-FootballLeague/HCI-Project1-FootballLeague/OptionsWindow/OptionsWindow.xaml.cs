@@ -27,12 +27,14 @@ namespace HCI_Project1_FootballLeague.OptionsWindow
         private LeagueAdminStartWindow window2;
         public OptionsWindow(MainAdminStartWindow win, LeagueAdminStartWindow win2)
         {
+            this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             InitializeComponent();
             PopulateData();
             WriteLanguage();
             window = win;
             window2 = win2;
             DrawStyle();
+            
         }
 
         public void DrawStyle()
@@ -65,6 +67,7 @@ namespace HCI_Project1_FootballLeague.OptionsWindow
                 }
             }
         }
+
         public void WriteLanguage()
         {
             var OptionsWHeaderTitle = "";
@@ -122,12 +125,14 @@ namespace HCI_Project1_FootballLeague.OptionsWindow
                     window.WriteLanguage();
                     window.DrawStyle();
                     this.DrawStyle();
+                    this.WriteLanguage();
                 }
                 if (window2 != null)
                 {
                     window2.WriteLanguage();
                     window2.DrawStyle();
                     this.DrawStyle();
+                    this.WriteLanguage();
                 }
                 //Close();
             }
