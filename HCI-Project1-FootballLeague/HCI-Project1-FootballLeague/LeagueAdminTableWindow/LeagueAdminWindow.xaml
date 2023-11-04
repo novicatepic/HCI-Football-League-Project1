@@ -13,7 +13,7 @@
             <!-- Font Color / Style of Columns Headings -->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="Turquoise"></Setter>
+                    <Setter Property="Background" Value="#F0F0F0"></Setter>
                     <Setter Property="FontWeight" Value="SemiBold"></Setter>
                     <Setter Property="BorderThickness" Value="0,0,1,2"></Setter>
                     <Setter Property="BorderBrush" Value="Black"></Setter>

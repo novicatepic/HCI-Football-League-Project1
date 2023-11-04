@@ -62,6 +62,7 @@ namespace HCI_Project1_FootballLeague.AdminsStartWindows
                 buttonStyle = (Style)FindResource("FontSmallBtn");
             }
             Panel.Style = backgroundStyle;
+            //MyWindow.Background = new SolidColorBrush(Colors.Gray);
             foreach (UIElement element in Panel.Children)
             {
                 if (element is Button)

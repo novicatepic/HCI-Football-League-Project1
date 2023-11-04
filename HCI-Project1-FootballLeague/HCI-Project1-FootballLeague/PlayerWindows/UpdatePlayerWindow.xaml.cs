@@ -138,7 +138,7 @@ namespace HCI_Project1_FootballLeague.PlayerWindows
             var date = DatePickerBox.SelectedDate.Value;
             var club = (FootballClub)ClubComboBox.SelectedItem;
             int intShirtNum = Int32.Parse(shirtNum);
-            if(intShirtNum > 0 && !"".Equals(firstName) && !"".Equals(lastName) && !"".Equals(shirtNum))
+            if(intShirtNum > 0 && intShirtNum <= 90 && !"".Equals(firstName) && !"".Equals(lastName) && !"".Equals(shirtNum))
             {
                 Player pl = new Player(id, Int32.Parse(shirtNum), p.NumGoals, p.NumAssists, p.NumYellowCards, p.NumRedCards, firstName,
                 lastName, date, club.ClubId);
