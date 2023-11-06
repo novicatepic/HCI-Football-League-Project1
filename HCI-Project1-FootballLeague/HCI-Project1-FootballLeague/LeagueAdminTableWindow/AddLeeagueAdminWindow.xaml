@@ -11,7 +11,7 @@
         <Label x:Name="HeaderLabel" Content="ADD NEW LEAGUE ADMINISTRATOR" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
         <Label x:Name="UserNameLabel" Content="User Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" RenderTransformOrigin="0.516,-1.163" Margin="220,218,498,377"/>
         <TextBox x:Name="UserNameTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.47,-2.233" Margin="493,243,225,402"/>
-        <TextBox x:Name="PasswordTB"  FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" Margin="493,408,225,237"/>
+        <PasswordBox x:Name="PasswordTB"  FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Height="39" Margin="493,408,225,237"/>
         <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,30" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
         <Label x:Name="PasswordLabel" Content="Password" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="220,383,498,212"/>
     </Grid>

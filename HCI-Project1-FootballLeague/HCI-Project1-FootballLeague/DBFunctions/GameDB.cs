@@ -53,15 +53,16 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return game;
         }
 
-        public static List<ClubInGame> GetClubInGameBasedOnClubId(int clubId)
+        public static List<ClubInGame> GetClubInGameBasedOnClubId(int clubId, int season)
         {
             List<ClubInGame> game = new List<ClubInGame>();
             MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
             conn.Open();
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM klub_na_utakmici WHERE KlubId=@KlubId";
+            cmd.CommandText = "SELECT * FROM klub_na_utakmici knu INNER JOIN utakmica u ON knu.UtakmicaId=u.UtakmicaId WHERE knu.KlubId=@KlubId AND Sezona=@Sezona";
             cmd.Parameters.AddWithValue("@KlubId", clubId);
+            cmd.Parameters.AddWithValue("@Sezona", season);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {

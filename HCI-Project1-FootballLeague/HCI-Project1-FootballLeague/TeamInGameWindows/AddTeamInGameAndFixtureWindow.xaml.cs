@@ -134,8 +134,8 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
             FootballClub homeTeam = (FootballClub)HomeClubComboBox.SelectedItem;
             FootballClub awayTeam = (FootballClub)AwayClubComboBox.SelectedItem;
 
-            List<ClubInGame> homeClubMatches = GameDB.GetClubInGameBasedOnClubId(homeTeam.ClubId);
-            List<ClubInGame> awayClubMatches = GameDB.GetClubInGameBasedOnClubId(awayTeam.ClubId);
+            List<ClubInGame> homeClubMatches = GameDB.GetClubInGameBasedOnClubId(homeTeam.ClubId, season);
+            List<ClubInGame> awayClubMatches = GameDB.GetClubInGameBasedOnClubId(awayTeam.ClubId, season);
             bool found = false;
             foreach(ClubInGame cig1 in homeClubMatches)
             {
@@ -156,8 +156,22 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
                 int intAwayGoals = Int32.Parse(awayGoals);
                 if (intHomeGoals >= 0 && intAwayGoals >= 0 && homeTeam != null && awayTeam != null && !"".Equals(homeGoals) && !"".Equals(awayGoals) && date != null)
                 {
-                    SeasonStats homeTeamStats = SeasonStatsDB.GetStatsBasedOnClub(homeTeam.ClubId);
-                    SeasonStats awayTeamStats = SeasonStatsDB.GetStatsBasedOnClub(awayTeam.ClubId);
+                    SeasonStats homeTeamStats = SeasonStatsDB.GetStatsBasedOnClub(homeTeam.ClubId, season);
+                    SeasonStats awayTeamStats = SeasonStatsDB.GetStatsBasedOnClub(awayTeam.ClubId, season);
+
+                    if(homeTeamStats == null)
+                    {
+                        SeasonStatsDB.AddStats(new SeasonStats(0, 0, 0, 0, 0, 0, homeTeam.ClubId, 0, season));
+                        homeTeamStats = SeasonStatsDB.GetStatsBasedOnClub(homeTeam.ClubId, season);
+                    }
+                    if(awayTeamStats == null)
+                    {
+                        SeasonStatsDB.AddStats(new SeasonStats(0, 0, 0, 0, 0, 0, awayTeam.ClubId, 0, season));
+                        awayTeamStats = SeasonStatsDB.GetStatsBasedOnClub(awayTeam.ClubId, season);
+                    }
+
+                    /*MessageBox.Show(homeTeam.ClubId.ToString());
+                    MessageBox.Show(awayTeam.ClubId.ToString());*/
                     if (intHomeGoals > intAwayGoals)
                     {
                         homeTeamStats.NumWins += 1;

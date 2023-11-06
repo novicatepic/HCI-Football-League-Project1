@@ -119,8 +119,8 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
             int intAwayGoals = Int32.Parse(awayGoals);
             if (intHomeGoals>=0 && intAwayGoals>=0 && !"".Equals(homeGoals) && !"".Equals(awayGoals) && date != null)
             {
-                SeasonStats homeTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gameInfo.HomeClubId);
-                SeasonStats awayTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gameInfo.AwayClubId);
+                SeasonStats homeTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gameInfo.HomeClubId, season);
+                SeasonStats awayTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gameInfo.AwayClubId, season);
                 if (currHomeGoals > currAwayGoals)
                 {
                     homeTeamStats.NumWins -= 1;
@@ -221,12 +221,10 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
                     MessageBox.Show("Too little goals and assists!");
                 } else
                 {
-                    //This code was on its own
                     SeasonStatsDB.UpdateStats(homeTeamStats);
                     SeasonStatsDB.UpdateStats(awayTeamStats);
-
                     GameDB.UpdateClubInGame(new ClubInGame(gameInfo.HomeClubId, gameInfo.GameId, Int32.Parse(homeGoals), true));
-                    GameDB.UpdateClubInGame(new ClubInGame(gameInfo.AwayClubId, gameInfo.GameId, Int32.Parse(awayGoals), true));
+                    GameDB.UpdateClubInGame(new ClubInGame(gameInfo.AwayClubId, gameInfo.GameId, Int32.Parse(awayGoals), false));
                     GameDB.UpdateGame(new Game(gameInfo.GameId, date, fixture, season));
                     window.DrawData();
                     //Close();

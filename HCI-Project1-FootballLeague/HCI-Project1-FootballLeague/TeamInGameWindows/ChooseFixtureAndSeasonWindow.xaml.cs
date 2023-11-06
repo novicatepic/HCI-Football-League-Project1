@@ -138,6 +138,7 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
             foreach (var season in SeasonStatsDB.GetSeasons())
             {
                 ChooseSeasonBox.Items.Add(season);
+                ChooseSeasonBox.Items.Add(2024);
             }
             for(int i=1; i<10; i++)
             {
@@ -246,9 +247,10 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
         {
             if (ChooseSeasonBox.SelectedItem != null && ChooseFixtureBox.SelectedItem != null && DataGridXAML.SelectedItem != null)
             {
+                int season = (int)ChooseSeasonBox.SelectedItem;
                 GameInfo gInfo = (GameInfo)DataGridXAML.SelectedItem;
-                SeasonStats homeTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gInfo.HomeClubId);
-                SeasonStats awayTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gInfo.AwayClubId);
+                SeasonStats homeTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gInfo.HomeClubId, season);
+                SeasonStats awayTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gInfo.AwayClubId, season);
                 if (gInfo.HomeTeamGoals > gInfo.AwayTeamGoals)
                 {
                     homeTeamStats.NumWins -= 1;

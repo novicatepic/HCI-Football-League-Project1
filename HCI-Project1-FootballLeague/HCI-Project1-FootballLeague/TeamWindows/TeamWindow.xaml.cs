@@ -153,6 +153,7 @@ namespace HCI_Project1_FootballLeague.TeamWindows
             if (DataGridXAML.SelectedItem != null)
             {
                 var selectedClub = (FootballClub)DataGridXAML.SelectedItem;
+                SeasonStatsDB.DeleteStats(selectedClub.ClubId);
                 FootballClubDB.DeleteClub(selectedClub.ClubId);
                 DrawData();
             }

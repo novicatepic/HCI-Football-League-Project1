@@ -94,7 +94,7 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var userName = UserNameTB.Text;
-            var password = PasswordTB.Text;
+            var password = PasswordTB.Password;
             if (!"".Equals(userName) && !"".Equals(password))
             {
                 Administrator admin = new Administrator(userName, password, false);

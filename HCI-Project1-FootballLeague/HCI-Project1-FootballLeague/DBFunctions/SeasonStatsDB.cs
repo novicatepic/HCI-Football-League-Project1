@@ -35,15 +35,16 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return stats;
         }
 
-        public static SeasonStats GetStatsBasedOnClub(int clubId)
+        public static SeasonStats GetStatsBasedOnClub(int clubId, int season)
         {
             SeasonStats stats = null;
             MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
             conn.Open();
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM statistika_u_sezoni WHERE KlubId=@KlubId";
+            cmd.CommandText = "SELECT * FROM statistika_u_sezoni WHERE KlubId=@KlubId AND Sezona=@Sezona";
             cmd.Parameters.AddWithValue("@KlubId", clubId);
+            cmd.Parameters.AddWithValue("@Sezona", season);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -115,7 +116,7 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return seasons;
         }
 
-        //Not tested yet
+        
         public static bool AddStats(SeasonStats stats)
         {
 
@@ -154,19 +155,17 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             return false;
         }
 
+
         //Not tested yet
-        public static bool DeleteStats(int clubId, int seasonNum)
+        public static bool DeleteStats(int clubId)
         {
             MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
             try
             {
                 conn.Open();
-
                 MySqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "DELETE FROM statistika_u_sezoni WHERE KlubId=@KlubId AND Sezona=@Sezona";
+                cmd.CommandText = "DELETE FROM statistika_u_sezoni WHERE KlubId=@KlubId";
                 cmd.Parameters.AddWithValue("@KlubId", clubId);
-                cmd.Parameters.AddWithValue("@Sezona", seasonNum);
-
                 int rowsAffected = cmd.ExecuteNonQuery();
                 return true;
                 //MessageBox.Show($"{rowsAffected} row(s) deleted.");
