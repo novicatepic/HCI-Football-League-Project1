@@ -100,7 +100,7 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
                 Administrator admin = new Administrator(userName, password, false);
                 AdminDB.AddAdmin(admin);
                 window.DrawData();
-                //Close();
+                Close();
             }
             else
             {

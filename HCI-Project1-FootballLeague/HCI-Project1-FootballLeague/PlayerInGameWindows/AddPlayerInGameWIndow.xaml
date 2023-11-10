@@ -18,9 +18,21 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label  Height="39" x:Name="TeamLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
+            <Label  Height="39" Grid.Column="1" x:Name="FixtureNumLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
+            <Label  Height="39" Grid.Column="2" x:Name="SeasonLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
+        </Grid>
+        
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -29,7 +41,7 @@
             <ComboBox Grid.Column="1" x:Name="PlayerComboBox" Width="232" Height="39" HorizontalAlignment="Left"/>
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -38,7 +50,7 @@
             <TextBox  x:Name="NumGoalsTB" Grid.Column="1" HorizontalAlignment="Left" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39" />
         </Grid>
 
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -47,7 +59,7 @@
             <TextBox Grid.Column="1" HorizontalAlignment="Left" x:Name="NumAssistsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39"/>
         </Grid>
 
-        <Grid Grid.Row="4">
+        <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -56,7 +68,7 @@
             <TextBox HorizontalAlignment="Left" Grid.Column="1" x:Name="MinutesPlayedTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39"/>
         </Grid>
 
-        <Grid Grid.Row="5">
+        <Grid Grid.Row="6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -64,7 +76,7 @@
             <CheckBox Height="39" x:Name="YellowCardCB" Content="Got Yellow" HorizontalAlignment="Left" Grid.Column="1" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
 
-        <Grid Grid.Row="6">
+        <Grid Grid.Row="7">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -72,7 +84,7 @@
             <CheckBox Height="39" x:Name="RedCardCB" Content="Got Red?" Grid.Column="1" HorizontalAlignment="Left" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
 
-        <Grid Grid.Row="7">
+        <Grid Grid.Row="8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -86,8 +98,8 @@
         
 
 
-        <Grid x:Name="InnerGRID" Grid.Row="8">
-            <Button Grid.Row="8" x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0, 0, 0, 30" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+        <Grid x:Name="InnerGRID" Grid.Row="9">
+            <Button Grid.Row="9" x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0, 0, 0, 30" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
         </Grid>
 
 

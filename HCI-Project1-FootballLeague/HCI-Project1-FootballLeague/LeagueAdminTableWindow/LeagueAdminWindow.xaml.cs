@@ -33,7 +33,7 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
         public void DrawStyle()
         {
             AddButton.ClearValue(Button.FontSizeProperty);
-            UpdateButton.ClearValue(Button.FontSizeProperty);
+            //UpdateButton.ClearValue(Button.FontSizeProperty);
             DeleteButton.ClearValue(Button.FontSizeProperty);
             Style backgroundStyle = null;
             Style buttonStyle = null;
@@ -108,13 +108,13 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
             }
             this.Title = LeagueAdminWTitle;
             AddButton.Content = LeagueAdminWAddBTN;
-            UpdateButton.Content = LeagueAdminWUpdateBTN;
+            //UpdateButton.Content = LeagueAdminWUpdateBTN;
             DeleteButton.Content = LeagueAdminWDeleteBTN;
             FilterLabel.Content = LeagueAdminWFilterLBL;
 
             AdminIdC.Header = AdminIdCOL;
             AdminUserNameC.Header = AdminUserNameCOL;
-            AdminPasswordC.Header = AdminPasswordCOL;
+            //AdminPasswordC.Header = AdminPasswordCOL;
         }
         private void PopulateData()
         {

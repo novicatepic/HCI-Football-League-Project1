@@ -119,7 +119,7 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
                 FootballClub club = new FootballClub(name, date, Int32.Parse(trophies), stadium.StadiumId);
                 FootballClubDB.AddClub(club);
                 tw.DrawData();
-                //Close();
+                Close();
             }
             else
             {

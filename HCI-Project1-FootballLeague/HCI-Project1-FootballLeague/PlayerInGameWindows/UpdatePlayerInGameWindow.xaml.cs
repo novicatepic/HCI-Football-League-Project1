@@ -26,7 +26,7 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
         private PlayerInGame player;
         private bool isHomePlayer;
         private GameInfo gameInfo;
-        public UpdatePlayerInGameWindow(PlayerInGameStartWindow win, PlayerInGame pig, bool isHomeTeam, GameInfo gameInfo)
+        public UpdatePlayerInGameWindow(PlayerInGameStartWindow win, PlayerInGame pig, bool isHomeTeam, GameInfo gameInfo, int season, int fixtureNum)
         {
             InitializeComponent();
             window = win;
@@ -36,8 +36,25 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             PopulateData();
             WriteLanguage();
             DrawStyle();
+
+            if (isHomePlayer)
+            {
+                TeamLBL.Content = AddPlayerTeamLBL + gameInfo.HomeTeamName;
+            }
+            else
+            {
+                TeamLBL.Content = AddPlayerTeamLBL + gameInfo.AwayTeamName;
+            }
+            PlayerLBL.Content = UpdatePlayerIGPlayerLBL + player.FirstName + " " + player.LastName;
+            SeasonLBL.Content = AddPlayerSeasonLBL + season;
+            FixtureNumLBL.Content = AddPlayerFixtureLBL + fixtureNum;
+
         }
 
+        string AddPlayerTeamLBL = "";
+        string AddPlayerFixtureLBL = "";
+        string AddPlayerSeasonLBL = "";
+        string UpdatePlayerIGPlayerLBL = "";
         public void DrawStyle()
         {
             SubmitBTN.ClearValue(Button.FontSizeProperty);
@@ -93,6 +110,11 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
                 UpdatePlayerInGameWRedCardCB = ConfigurationManager.AppSettings["UpdatePlayerInGameWRedCardCB"];
                 UpdatePlayerInGameWStartedGameCB = ConfigurationManager.AppSettings["UpdatePlayerInGameWStartedGameCB"];
                 UpdatePlayerInGameWSubmitBTN = ConfigurationManager.AppSettings["UpdatePlayerInGameWSubmitBTN"];
+
+                AddPlayerTeamLBL = ConfigurationManager.AppSettings["AddPlayerTeamLBL"];
+                AddPlayerFixtureLBL = ConfigurationManager.AppSettings["AddPlayerFixtureLBL"];
+                AddPlayerSeasonLBL = ConfigurationManager.AppSettings["AddPlayerSeasonLBL"];
+                UpdatePlayerIGPlayerLBL = ConfigurationManager.AppSettings["UpdatePlayerIGPlayerLBL"];
             }
             else
             {
@@ -106,6 +128,11 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
                 UpdatePlayerInGameWRedCardCB = ConfigurationManager.AppSettings["UpdatePlayerInGameWRedCardCBSE"];
                 UpdatePlayerInGameWStartedGameCB = ConfigurationManager.AppSettings["UpdatePlayerInGameWStartedGameCBSE"];
                 UpdatePlayerInGameWSubmitBTN = ConfigurationManager.AppSettings["UpdatePlayerInGameWSubmitBTNSE"];
+
+                AddPlayerTeamLBL = ConfigurationManager.AppSettings["AddPlayerTeamLBLSE"];
+                AddPlayerFixtureLBL = ConfigurationManager.AppSettings["AddPlayerFixtureLBLSE"];
+                AddPlayerSeasonLBL = ConfigurationManager.AppSettings["AddPlayerSeasonLBLSE"];
+                UpdatePlayerIGPlayerLBL = ConfigurationManager.AppSettings["UpdatePlayerIGPlayerLBLSE"];
             }
             this.Title = UpdatePlayerInGameWTitle;
             MinsPlayedLabel.Content = UpdatePlayerInGameWMinutesPlayedLBL;
@@ -226,7 +253,7 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
                         }
                     }
                     window.DataGridXAML.Items.Add(pig);
-                    //Close();
+                    Close();
                 }
                     
             }

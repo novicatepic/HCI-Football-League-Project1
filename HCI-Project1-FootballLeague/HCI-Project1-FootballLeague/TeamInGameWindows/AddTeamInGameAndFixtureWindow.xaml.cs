@@ -52,6 +52,8 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
             }
             WriteLanguage();
             DrawStyle();
+            FixtureNumLBL.Content = AddPlayerFixtureLBL + fixture;
+            SeasonLBL.Content = AddPlayerSeasonLBL + season;
         }
 
         public void DrawStyle()
@@ -85,6 +87,8 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
             }
         }
 
+        string AddPlayerFixtureLBL = "";
+        string AddPlayerSeasonLBL = "";
         public void WriteLanguage()
         {
             var AddTeamInGameWTitle = "";
@@ -107,6 +111,9 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
                 AddTeamInGameWAwayGoalsLBL = ConfigurationManager.AppSettings["AddTeamInGameWAwayGoalsLBL"];
                 AddTeamInGameWGameDateLBL = ConfigurationManager.AppSettings["AddTeamInGameWGameDateLBL"];
                 AddTeamInGameWSubmitBTN = ConfigurationManager.AppSettings["AddTeamInGameWSubmitBTN"];
+
+                AddPlayerFixtureLBL = ConfigurationManager.AppSettings["AddPlayerFixtureLBL"];
+                AddPlayerSeasonLBL = ConfigurationManager.AppSettings["AddPlayerSeasonLBL"];
             }
             else
             {
@@ -118,6 +125,9 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
                 AddTeamInGameWAwayGoalsLBL = ConfigurationManager.AppSettings["AddTeamInGameWAwayGoalsLBLSE"];
                 AddTeamInGameWGameDateLBL = ConfigurationManager.AppSettings["AddTeamInGameWGameDateLBLSE"];
                 AddTeamInGameWSubmitBTN = ConfigurationManager.AppSettings["AddTeamInGameWSubmitBTNSE"];
+
+                AddPlayerFixtureLBL = ConfigurationManager.AppSettings["AddPlayerFixtureLBLSE"];
+                AddPlayerSeasonLBL = ConfigurationManager.AppSettings["AddPlayerSeasonLBLSE"];
             }
             this.Title = AddTeamInGameWTitle;
             HeaderLabel.Content = AddTeamInGameWHeaderLBL;
@@ -205,7 +215,7 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
                     GameDB.AddClubInGame(new ClubInGame(homeTeam.ClubId, gId, Int32.Parse(homeGoals), true));
                     GameDB.AddClubInGame(new ClubInGame(awayTeam.ClubId, gId, Int32.Parse(awayGoals), false));
                     window.DrawData();
-                    //Close();
+                    Close();
 
                 }
                 else

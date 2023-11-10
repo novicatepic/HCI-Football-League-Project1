@@ -35,7 +35,7 @@ namespace HCI_Project1_FootballLeague.Classes
 
         public Player(int shirtNumber, int numGoals, int numAssists, int numYellowCards, int numRedCards, string firstName, string lastName, DateTime dateOfContract, int clubId)
         {
-            ShirtNumber = (int) shirtNumber;
+            ShirtNumber = shirtNumber;
             NumGoals = numGoals;
             NumAssists = numAssists;
             NumYellowCards = numYellowCards;

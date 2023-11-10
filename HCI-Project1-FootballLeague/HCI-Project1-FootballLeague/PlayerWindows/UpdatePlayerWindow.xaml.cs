@@ -144,7 +144,7 @@ namespace HCI_Project1_FootballLeague.PlayerWindows
                 lastName, date, club.ClubId);
                 PlayerDB.UpdatePlayer(pl);
                 pw.DrawData();
-                //Close();
+                Close();
             } else
             {
                 NoInputMessage();

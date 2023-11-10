@@ -29,8 +29,8 @@
                 <DataGridTextColumn x:Name="TeamStadiumNameC" Header="Stadium Name" Width="1*" Binding="{Binding StadiumName}"/>
             </DataGrid.Columns>
         </DataGrid>
-        
-        <TextBox TextChanged="SearchTB_TextChanged" x:Name="SearchTB" HorizontalAlignment="Stretch" FontSize="14" Margin="260,9,0,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="880" Height="36" RenderTransformOrigin="0.494,0.157"/>
+
+        <TextBox TextChanged="SearchTB_TextChanged" x:Name="SearchTB" FontSize="14" Margin="265,9,10,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="36" RenderTransformOrigin="0.494,0.157"/>
         <Label x:Name="FilterLabel" Content="Filter Based On Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
 
         <Grid x:Name="InnerGRID" VerticalAlignment="Bottom">

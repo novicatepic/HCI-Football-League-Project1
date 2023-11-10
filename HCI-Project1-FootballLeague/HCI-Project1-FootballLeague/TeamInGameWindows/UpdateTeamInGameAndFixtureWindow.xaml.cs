@@ -43,6 +43,12 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
             this.fixture = fixture;
             WriteLanguage();
             DrawStyle();
+
+
+            HomeTeamLBL.Content = UpdateTIGHomeTeamLBL + gi.HomeTeamName;
+            AwayTeamLBL.Content = UpdateTIGAwayTeamLBL + gi.AwayTeamName;
+            FixtureNumLBL.Content = AddPlayerFixtureLBL + fixture;
+            SeasonLBL.Content = AddPlayerSeasonLBL + season;
         }
 
         public void DrawStyle()
@@ -75,6 +81,12 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
                 }
             }
         }
+
+
+        string UpdateTIGHomeTeamLBL = "";
+        string UpdateTIGAwayTeamLBL = "";
+        string AddPlayerFixtureLBL = "";
+        string AddPlayerSeasonLBL = "";
         public void WriteLanguage()
         {
             var UpdateTeamInGameWTitle = "";
@@ -93,6 +105,11 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
                 UpdateTeamInGameWAwayGoalsLBL = ConfigurationManager.AppSettings["UpdateTeamInGameWAwayGoalsLBL"];
                 UpdateTeamInGameWGameDateLBL = ConfigurationManager.AppSettings["UpdateTeamInGameWGameDateLBL"];
                 UpdateTeamInGameWSubmitBTN = ConfigurationManager.AppSettings["UpdateTeamInGameWSubmitBTN"];
+
+                UpdateTIGHomeTeamLBL = ConfigurationManager.AppSettings["UpdateTIGHomeTeamLBL"];
+                UpdateTIGAwayTeamLBL = ConfigurationManager.AppSettings["UpdateTIGAwayTeamLBL"];
+                AddPlayerFixtureLBL = ConfigurationManager.AppSettings["AddPlayerFixtureLBL"];
+                AddPlayerSeasonLBL = ConfigurationManager.AppSettings["AddPlayerSeasonLBL"];
             }
             else
             {
@@ -102,6 +119,11 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
                 UpdateTeamInGameWAwayGoalsLBL = ConfigurationManager.AppSettings["UpdateTeamInGameWAwayGoalsLBLSE"];
                 UpdateTeamInGameWGameDateLBL = ConfigurationManager.AppSettings["UpdateTeamInGameWGameDateLBLSE"];
                 UpdateTeamInGameWSubmitBTN = ConfigurationManager.AppSettings["UpdateTeamInGameWSubmitBTNSE"];
+
+                UpdateTIGHomeTeamLBL = ConfigurationManager.AppSettings["UpdateTIGHomeTeamLBLSE"];
+                UpdateTIGAwayTeamLBL = ConfigurationManager.AppSettings["UpdateTIGAwayTeamLBLSE"];
+                AddPlayerFixtureLBL = ConfigurationManager.AppSettings["AddPlayerFixtureLBLSE"];
+                AddPlayerSeasonLBL = ConfigurationManager.AppSettings["AddPlayerSeasonLBLSE"];
             }
             this.Title = UpdateTeamInGameWTitle;
             HeaderLabel.Content = UpdateTeamInGameWHeaderLBL;
@@ -227,7 +249,7 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
                     GameDB.UpdateClubInGame(new ClubInGame(gameInfo.AwayClubId, gameInfo.GameId, Int32.Parse(awayGoals), false));
                     GameDB.UpdateGame(new Game(gameInfo.GameId, date, fixture, season));
                     window.DrawData();
-                    //Close();
+                    Close();
                 }            
 
             }

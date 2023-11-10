@@ -37,7 +37,7 @@ namespace HCI_Project1_FootballLeague.StatsWindows
 
         public void DrawStyle()
         {
-            NextButton.ClearValue(Button.FontSizeProperty);
+            //NextButton.ClearValue(Button.FontSizeProperty);
             Style backgroundStyle = null;
             Style buttonStyle = null;
             if ("Large Buttons - Alice Background".Equals(MainWindow.LoggedInAdmin.Look))
@@ -115,8 +115,8 @@ namespace HCI_Project1_FootballLeague.StatsWindows
             }
             this.Title = StatsWTitle;
             ChooseSeasonLabel.Content = StatsWChooseSeasonLBL;
-            FilterLabel.Content = StatsWFilterLBL;
-            NextButton.Content = StatsWShowBTN;
+            //FilterLabel.Content = StatsWFilterLBL;
+            //NextButton.Content = StatsWShowBTN;
 
             StatsTeamNameC.Header = StatsTeamNameCOL;
             StatsNumPlayedC.Header = StatsNumPlayedCOL;
@@ -139,7 +139,7 @@ namespace HCI_Project1_FootballLeague.StatsWindows
             
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        /*private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if ("".Equals(SearchTB.Text))
             {
@@ -154,10 +154,17 @@ namespace HCI_Project1_FootballLeague.StatsWindows
                     DataGridXAML.Items.Add(s);
                 }
             }
-        }
+        }*/
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
+            this.season = (int)ChooseSeasonBox.SelectedItem;
+            PopulateData(season);
+        }
+
+        private void ChooseSeasonBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGridXAML.Items.Clear();
             this.season = (int)ChooseSeasonBox.SelectedItem;
             PopulateData(season);
         }

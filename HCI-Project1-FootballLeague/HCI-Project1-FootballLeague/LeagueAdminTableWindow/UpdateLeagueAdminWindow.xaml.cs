@@ -107,7 +107,7 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
                 Administrator updatedAdmin = new Administrator(id, userName, password, isMain, admin.Language, admin.Look);
                 AdminDB.UpdateAdmin(updatedAdmin);
                 window.DrawData();
-                //Close();
+                Close();
             } else
             {
                 NoInputMessage();

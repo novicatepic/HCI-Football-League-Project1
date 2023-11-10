@@ -73,8 +73,7 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             }
             catch (MySqlException e)
             {
-                Trace.WriteLine(e);
-                MessageBox.Show(e.Message);
+                MessageBox.Show("ERROR/ГРЕШКА");
             }
             finally
             {
@@ -100,7 +99,7 @@ namespace HCI_Project1_FootballLeague.DBFunctions
                 //MessageBox.Show($"{rowsAffected} row(s) deleted.");
             } catch(Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("ERROR/ГРЕШКА");
             } finally
             {
                 conn.Close();
@@ -134,7 +133,7 @@ namespace HCI_Project1_FootballLeague.DBFunctions
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("ERROR/ГРЕШКА");
             }
             finally
             {

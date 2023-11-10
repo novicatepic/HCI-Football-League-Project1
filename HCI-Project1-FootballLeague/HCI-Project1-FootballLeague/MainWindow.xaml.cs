@@ -105,6 +105,7 @@ namespace HCI_Project1_FootballLeague
                 {
                     MainAdminStartWindow mainAdminStartWindow = new MainAdminStartWindow(this);
                     mainAdminStartWindow.ShowDialog();
+                    
                 }
                 else
                 {
@@ -112,6 +113,9 @@ namespace HCI_Project1_FootballLeague
                     leagueAdminStartWindow.Show();
                     
                 }
+                userNameBox.Text = "";
+                passwordBox.Password = "";
+                this.Close();
             } else
             {
                 MessageBox.Show("Incorrect credentials!");

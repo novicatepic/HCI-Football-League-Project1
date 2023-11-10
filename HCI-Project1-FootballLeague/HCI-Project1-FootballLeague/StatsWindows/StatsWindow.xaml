@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Title="Stats Window" Height="820" Width="1200" MinWidth="1200" MinHeight="820">
     <Grid x:Name="Grid" Margin="0,0,0,0">
-        <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,164,0,0">
+        <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,99,0,0">
 
             <!-- Font Color / Style of Columns Headings -->
             <DataGrid.Resources>
@@ -33,10 +33,7 @@
                 <DataGridTextColumn x:Name="StatsNumPointsC" Header="Num Points" Width="1*" Binding="{Binding NumPoints}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox TextChanged="TextBox_TextChanged" x:Name="SearchTB" FontSize="14" Margin="270,89,230,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="46" RenderTransformOrigin="0.494,0.157"/>
-        <Label x:Name="FilterLabel" Content="Filter Based On Name" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="216" Height="36"/>
-        <ComboBox x:Name="ChooseSeasonBox" HorizontalAlignment="Stretch"  VerticalAlignment="Top" Margin="270,24,230,0" Height="45"/>
-        <Button HorizontalAlignment="Right" x:Name="NextButton" Click="NextButton_Click" Content="SHOW" FontSize="20"  VerticalAlignment="Top"  Height="45" Width="191" Margin="0,24,10,0"/>
+        <ComboBox SelectionChanged="ChooseSeasonBox_SelectionChanged" x:Name="ChooseSeasonBox"  VerticalAlignment="Top" Margin="270,24,10,0" Height="45"/>
         <Label x:Name="ChooseSeasonLabel" Content="Choose Season" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
 
     </Grid>

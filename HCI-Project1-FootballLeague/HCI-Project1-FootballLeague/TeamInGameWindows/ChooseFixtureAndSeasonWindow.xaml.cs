@@ -33,7 +33,7 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
 
         public void DrawStyle()
         {
-            NextButton.ClearValue(Button.FontSizeProperty);
+            //NextButton.ClearValue(Button.FontSizeProperty);
             AddButton.ClearValue(Button.FontSizeProperty);
             UpdateButton.ClearValue(Button.FontSizeProperty);
             DeleteButton.ClearValue(Button.FontSizeProperty);
@@ -120,7 +120,7 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
             }
             this.Title = TeamInGameWTitle;
             ChooseSeasonLabel.Content = TeamInGameWChooseSeasonLBL;
-            NextButton.Content = TeamInGameWShowBTN;
+            //NextButton.Content = TeamInGameWShowBTN;
             AddButton.Content = TeamInGameWAddBTN;
             UpdateButton.Content = TeamInGameWUpdateBTN;
             DeleteButton.Content = TeamInGameWDeleteBTN;
@@ -138,9 +138,8 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
             foreach (var season in SeasonStatsDB.GetSeasons())
             {
                 ChooseSeasonBox.Items.Add(season);
-                ChooseSeasonBox.Items.Add(2024);
             }
-            for(int i=1; i<10; i++)
+            for (int i=1; i<10; i++)
             {
                 ChooseFixtureBox.Items.Add(i);
             }
@@ -154,7 +153,7 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            DataGridXAML.Items.Clear();
+           DataGridXAML.Items.Clear();
            if (ChooseSeasonBox.SelectedItem != null && ChooseFixtureBox != null)
             {
                 DrawGrid();
@@ -289,6 +288,28 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
             else
             {
                 ItemNotSelected();
+            }
+        }
+
+        private void ChooseSeasonBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(ChooseFixtureBox.SelectedItem != null)
+            {
+                DrawTable();
+            }
+        }
+
+        private void DrawTable()
+        {
+            DataGridXAML.Items.Clear();
+            DrawGrid();
+        }
+
+        private void ChooseFixtureBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(ChooseSeasonBox.SelectedItem != null)
+            {
+                DrawTable();
             }
         }
     }

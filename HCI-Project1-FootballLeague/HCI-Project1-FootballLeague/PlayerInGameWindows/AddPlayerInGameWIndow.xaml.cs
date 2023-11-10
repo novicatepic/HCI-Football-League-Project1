@@ -25,7 +25,7 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
         private PlayerInGameStartWindow window;
         private GameInfo gameInfo;
         private bool isHomePlayer;
-        public AddPlayerInGameWIndow(PlayerInGameStartWindow win, GameInfo gameInfo, bool isHomePlayer)
+        public AddPlayerInGameWIndow(PlayerInGameStartWindow win, GameInfo gameInfo, bool isHomePlayer, int season, int fixtureNum)
         {
             InitializeComponent();
             window = win;
@@ -34,6 +34,17 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             PopulateData();
             WriteLanguage();
             DrawStyle();          
+            if(isHomePlayer)
+            {
+                TeamLBL.Content = AddPlayerTeamLBL + gameInfo.HomeTeamName;
+            } else
+            {
+                TeamLBL.Content = AddPlayerTeamLBL + gameInfo.AwayTeamName;
+            }
+            SeasonLBL.Content = AddPlayerSeasonLBL + season;
+            FixtureNumLBL.Content = AddPlayerFixtureLBL + fixtureNum;
+
+
         }
 
         public void DrawStyle()
@@ -74,6 +85,10 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
                 }
             }
         }
+
+        string AddPlayerTeamLBL = "";
+        string AddPlayerFixtureLBL = "";
+        string AddPlayerSeasonLBL = "";
         public void WriteLanguage()
         {
             var AddPlayerInGameWTitle = "";
@@ -87,6 +102,9 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             var AddPlayerInGameWRedCardCB = "";
             var AddPlayerInGameWStartedGameCB = "";
             var AddPlayerInGameWSubmitBTN = "";
+
+
+
             if ("en".Equals(MainWindow.LoggedInAdmin.Language))
             {
                 AddPlayerInGameWTitle = ConfigurationManager.AppSettings["AddPlayerInGameWTitle"];
@@ -100,9 +118,17 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
                 AddPlayerInGameWRedCardCB = ConfigurationManager.AppSettings["AddPlayerInGameWRedCardCB"];
                 AddPlayerInGameWStartedGameCB = ConfigurationManager.AppSettings["AddPlayerInGameWStartedGameCB"];
                 AddPlayerInGameWSubmitBTN = ConfigurationManager.AppSettings["AddPlayerInGameWSubmitBTN"];
+
+                AddPlayerTeamLBL = ConfigurationManager.AppSettings["AddPlayerTeamLBL"];
+                AddPlayerFixtureLBL = ConfigurationManager.AppSettings["AddPlayerFixtureLBL"];
+                AddPlayerSeasonLBL = ConfigurationManager.AppSettings["AddPlayerSeasonLBL"];
             }
             else
             {
+                AddPlayerTeamLBL = ConfigurationManager.AppSettings["AddPlayerTeamLBLSE"];
+                AddPlayerFixtureLBL = ConfigurationManager.AppSettings["AddPlayerFixtureLBLSE"];
+                AddPlayerSeasonLBL = ConfigurationManager.AppSettings["AddPlayerSeasonLBLSE"];
+
                 AddPlayerInGameWTitle = ConfigurationManager.AppSettings["AddPlayerInGameWTitleSE"];
                 AddPlayerInGameWHeaderLBL = ConfigurationManager.AppSettings["AddPlayerInGameWHeaderLBLSE"];
                 AddPlayerInGameWSelectPlayerLBL = ConfigurationManager.AppSettings["AddPlayerInGameWSelectPlayerLBLSE"];
@@ -225,7 +251,7 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
                     pig.LastName = player.LastName;
                     PlayerDB.AddPlayerInGame(pig);
                     window.DataGridXAML.Items.Add(pig);
-                    //Close();
+                    Close();
                 }           
             }
             else

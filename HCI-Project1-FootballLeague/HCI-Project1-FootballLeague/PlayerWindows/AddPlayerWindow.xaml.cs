@@ -124,10 +124,10 @@ namespace HCI_Project1_FootballLeague.PlayerWindows
             int intShirtNum = Int32.Parse(shirtNumber);
             if (intShirtNum>0 && intShirtNum <=99 && !"".Equals(firstName) && !"".Equals(lastName) && date != null && !"".Equals(shirtNumber) && club != null)
             {
-                Player player = new Player(Int32.Parse(shirtNumber), 0, 0, 0, 0, 0, firstName, lastName, date, club.ClubId);
+                Player player = new Player(Int32.Parse(shirtNumber), 0, 0, 0, 0, firstName, lastName, date, club.ClubId);
                 PlayerDB.AddPlayer(player);
                 pw.DrawData();
-                //Close();
+                Close();
             }
             else
             {

@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Title="Player In Game Start Window" Height="820" Width="1250" MinWidth="1250" MinHeight="820">
     <Grid x:Name="Grid">
-        <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,283,0,148">
+        <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,333,0,105">
 
             <!-- Font Color / Style of Columns Headings -->
             <DataGrid.Resources>
@@ -46,15 +46,16 @@
             <Button Grid.Column="2" Margin="0,0,30,30" FontSize="20" x:Name="DeleteButton"  FontWeight="SemiBold" Content="DELETE" Height="49" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="241" Click="DeleteButton_Click"/>
         </Grid>
 
-        <Label x:Name="FixtureNumLabel" Content="Fixture Number" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
+        <Label x:Name="FixtureNumLabel" Content="Fixture Number" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
         <Label x:Name="FixtureLabel" Content="Fixture" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
-        <ComboBox SelectionChanged="ChooseSeasonBox_SelectionChanged" x:Name="ChooseSeasonBox"  VerticalAlignment="Top" Margin="270,31,33,0" Height="28" HorizontalAlignment="Stretch"/>
+        <ComboBox SelectionChanged="ChooseSeasonBox_SelectionChanged" x:Name="ChooseSeasonBox"  VerticalAlignment="Top" Margin="270,31,10,0" Height="28"/>
         <Label x:Name="ChooseSeasonLabel" Content="Choose Season" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="216" Height="35"/>
-        <ComboBox HorizontalAlignment="Stretch" SelectionChanged="ChooseFixtureBox_SelectionChanged" x:Name="ChooseFixtureNumBox"  VerticalAlignment="Top" Margin="270,89,33,0" Height="29"/>
+        <ComboBox SelectionChanged="ChooseFixtureBox_SelectionChanged" x:Name="ChooseFixtureNumBox"  VerticalAlignment="Top" Margin="270,96,10,0" Height="29"/>
 
-        
-        <ComboBox HorizontalAlignment="Stretch" x:Name="ChooseRealFixtureBox" SelectionChanged="ChooseRealFixtureBox_SelectionChanged"  VerticalAlignment="Top" Margin="270,160,33,0" Height="33"/>
+
+        <ComboBox x:Name="ChooseRealFixtureBox" SelectionChanged="ChooseRealFixtureBox_SelectionChanged"  VerticalAlignment="Top" Margin="270,160,10,0" Height="33"/>
         <Button x:Name="HomePlayersBTN" Click="HomePlayersBTN_Click" Content="HOME PLAYERS" FontSize="14"  VerticalAlignment="Top" Margin="270,215,708,0" Height="49" Width="242"/>
         <Button Content="AWAY PLAYERS" x:Name="AwayPlayersBTN" Click="AwayPlayersBTN_Click" Margin="718,215,260,0" VerticalAlignment="Top" Height="49" Width="242"/>
+        <Label x:Name="WhosePlayersLBL" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Content="Players" HorizontalAlignment="Center" Margin="0,269,0,0" VerticalAlignment="Top" Width="1230" Height="59"/>
     </Grid>
 </Window>

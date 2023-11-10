@@ -108,7 +108,7 @@ namespace HCI_Project1_FootballLeague.TeamWindows
             {
                 Stadium stadium = new Stadium(name, Int32.Parse(capacity), town);
                 StadiumDB.AddStadium(stadium);
-                //Close();
+                Close();
                 sw.DrawData();
             }
             else

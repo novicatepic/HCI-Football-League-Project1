@@ -8,15 +8,66 @@
         WindowStartupLocation="CenterScreen"
         Title="Update Team In Game And Fixture Window"  Height="850" Width="990" MinHeight="850" MinWidth="990" ResizeMode="NoResize">
     <Grid x:Name="Grid">
-        <Label x:Name="HeaderLabel" Content="UPDATE GAME" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
-        <Label x:Name="HomeGoalsLabel" Content="Home Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="230,196,498,495">
-        </Label>
-        <TextBox x:Name="HomeGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="498,233,230,532" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label  Height="39" Grid.Column="0" x:Name="HomeTeamLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
+            <Label  Height="39" Grid.Column="1" x:Name="AwayTeamLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
+            <Label  Height="39" Grid.Column="2" x:Name="FixtureNumLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
+            <Label  Height="39" Grid.Column="3" x:Name="SeasonLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label  HorizontalAlignment="Right" x:Name="HomeGoalsLabel" Content="Home Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" ></Label>
+            <TextBox HorizontalAlignment="Left" Grid.Column="1" x:Name="HomeGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39"/>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label HorizontalAlignment="Right" x:Name="AwayGoalsLabel" Content="Away Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
+            <TextBox HorizontalAlignment="Left" Grid.Column="1" x:Name="AwayGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="232" Height="39"/>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label HorizontalAlignment="Right" x:Name="GameDateLabel" Content="Game Date" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232"/>
+
+            <DatePicker HorizontalAlignment="Left" Grid.Column="1" x:Name="DatePickerBox" Width="232" Height="39"/>
+        </Grid>
+        <Button Grid.Row="5" x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,0,0,30" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label Grid.Row="0" x:Name="HeaderLabel" Content="UPDATE GAME" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <!--Label x:Name="HomeGoalsLabel" Content="Home Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="230,196,498,495">
+        </Label-->
+        <!--TextBox x:Name="HomeGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="498,233,230,532" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
         <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,30" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
         <Label x:Name="GameDateLabel" Content="Game Date" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="230,386,498,309"/>
         <DatePicker x:Name="DatePickerBox" Margin="498,421,230,344" Width="232" Height="39"/>
         <Label x:Name="AwayGoalsLabel" Content="Away Goals" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Width="232" Margin="230,288,498,408"/>
-        <TextBox x:Name="AwayGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="498,323,230,442" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/>
+        <TextBox x:Name="AwayGoalsTB" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="498,323,230,442" TextWrapping="Wrap" Width="232" Height="39" RenderTransformOrigin="0.43,-2.02"/-->
 
     </Grid>
 </Window>

@@ -1,20 +1,9 @@
 ﻿using HCI_Project1_FootballLeague.Classes;
 using HCI_Project1_FootballLeague.DBFunctions;
-using HCI_Project1_FootballLeague.TeamInGameWindows;
-using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace HCI_Project1_FootballLeague.PlayerInGameWindows
 {
@@ -73,6 +62,9 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
                 }
             }
         }
+
+        string WhosePlayersLBLAway = "";
+        string   WhosePlayersLBLHome = "";
         public void WriteLanguage()
         {
             var PlayerInGameWTitle = "";
@@ -95,6 +87,8 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             var PIGRedCOL = "";
             var PIGStartedGameCOL = "";
             var PIGMinsPlayedCOL = "";
+
+            
             if ("en".Equals(MainWindow.LoggedInAdmin.Language))
             {
                 PlayerInGameWTitle = ConfigurationManager.AppSettings["PlayerInGameWTitle"];
@@ -116,6 +110,9 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
                 PIGRedCOL = ConfigurationManager.AppSettings["PIGRedCOL"];
                 PIGStartedGameCOL = ConfigurationManager.AppSettings["PIGStartedGameCOL"];
                 PIGMinsPlayedCOL = ConfigurationManager.AppSettings["PIGMinsPlayedCOL"];
+
+                WhosePlayersLBLHome = ConfigurationManager.AppSettings["WhosePlayersLBLHome"];
+                WhosePlayersLBLAway = ConfigurationManager.AppSettings["WhosePlayersLBLAway"];
             }
             else
             {
@@ -138,6 +135,8 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
                 PIGRedCOL = ConfigurationManager.AppSettings["PIGRedCOLSE"];
                 PIGStartedGameCOL = ConfigurationManager.AppSettings["PIGStartedGameCOLSE"];
                 PIGMinsPlayedCOL = ConfigurationManager.AppSettings["PIGMinsPlayedCOLSE"];
+                WhosePlayersLBLHome = ConfigurationManager.AppSettings["WhosePlayersLBLHomeSE"];
+                WhosePlayersLBLAway = ConfigurationManager.AppSettings["WhosePlayersLBLAwaySE"];
             }
             this.Title = PlayerInGameWTitle;
             ChooseSeasonLabel.Content = PlayerInGameWChooseSeasonLBL;
@@ -195,9 +194,10 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             if (ChooseSeasonBox.SelectedItem != null && ChooseFixtureNumBox.SelectedItem != null && ChooseRealFixtureBox.SelectedItem != null)
             {
                 GameInfo gInfo = (GameInfo)ChooseRealFixtureBox.SelectedItem;
-                AddPlayerInGameWIndow win = new AddPlayerInGameWIndow(this, gInfo, isHome);
+                AddPlayerInGameWIndow win = new AddPlayerInGameWIndow(this, gInfo, isHome, (int)ChooseSeasonBox.SelectedItem, (int)ChooseFixtureNumBox.SelectedItem);
                 win.ShowDialog();
-            } else
+            }
+            else
             {
                 ItemNotSelected();
             }
@@ -209,7 +209,7 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
             {
                 PlayerInGame pig = (PlayerInGame)DataGridXAML.SelectedItem;
                 GameInfo gInfo = (GameInfo)ChooseRealFixtureBox.SelectedItem;
-                UpdatePlayerInGameWindow win = new UpdatePlayerInGameWindow(this, pig, isHome, gInfo);
+                UpdatePlayerInGameWindow win = new UpdatePlayerInGameWindow(this, pig, isHome, gInfo, (int)ChooseSeasonBox.SelectedItem, (int)ChooseFixtureNumBox.SelectedItem);
                 win.ShowDialog();
             }
             else
@@ -235,7 +235,7 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
 
         private void ChooseSeasonBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(ChooseFixtureNumBox.SelectedItem != null)
+            if (ChooseFixtureNumBox.SelectedItem != null)
             {
                 SelectGamesFromSeasonAndFixture();
             }
@@ -279,7 +279,7 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
 
         private void ChooseFixtureBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(ChooseSeasonBox.SelectedItem != null)
+            if (ChooseSeasonBox.SelectedItem != null)
             {
                 SelectGamesFromSeasonAndFixture();
             }
@@ -294,6 +294,7 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
         private void HomePlayersBTN_Click(object sender, RoutedEventArgs e)
         {
             Clear();
+            WhosePlayersLBL.Content = WhosePlayersLBLHome;
             isHome = true;
             if (ChooseSeasonBox.SelectedItem != null && ChooseFixtureNumBox.SelectedItem != null && ChooseRealFixtureBox.SelectedItem != null)
             {
@@ -301,11 +302,11 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
                 List<PlayerInGame> playersInGame = PlayerDB.GetPlayerFromGame(gameInfo.GameId);
                 foreach (PlayerInGame player in playersInGame)
                 {
-                    if(player.IsFromHomeTeam)
+                    if (player.IsFromHomeTeam)
                     {
                         DataGridXAML.Items.Add(player);
                     }
-                    
+
                 }
             }
             else
@@ -317,6 +318,7 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
         private void AwayPlayersBTN_Click(object sender, RoutedEventArgs e)
         {
             Clear();
+            WhosePlayersLBL.Content = WhosePlayersLBLAway;
             isHome = false;
             if (ChooseSeasonBox.SelectedItem != null && ChooseFixtureNumBox.SelectedItem != null && ChooseRealFixtureBox.SelectedItem != null)
             {

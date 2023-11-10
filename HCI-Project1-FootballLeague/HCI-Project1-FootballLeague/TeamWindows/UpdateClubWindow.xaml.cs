@@ -132,7 +132,7 @@ namespace HCI_Project1_FootballLeague.TeamWindows
                 FootballClub fc = new FootballClub(id, name, date, Int32.Parse(trophies), stadium.StadiumId);
                 FootballClubDB.UpdateClub(fc);
                 tw.DrawData();
-                //Close();
+                Close();
             }
             else
             {
