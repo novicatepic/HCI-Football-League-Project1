@@ -124,6 +124,9 @@
     <Compile Include="LeagueAdminTableWindow\UpdateLeagueAdminWindow.xaml.cs">
       <DependentUpon>UpdateLeagueAdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewPasswordWindow\ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OptionsWindow\OptionsWindow.xaml.cs">
       <DependentUpon>OptionsWindow.xaml</DependentUpon>
     </Compile>
@@ -221,6 +224,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewPasswordWindow\ChangePasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OptionsWindow\OptionsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

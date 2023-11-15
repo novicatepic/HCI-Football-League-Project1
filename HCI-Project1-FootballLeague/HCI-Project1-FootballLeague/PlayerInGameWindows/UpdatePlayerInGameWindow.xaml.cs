@@ -226,41 +226,62 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
                 }
                 
             }
-            int intGoals = Int32.Parse(goals);
-            int intAssists = Int32.Parse(assists);
-            int intMinutesPlayer = Int32.Parse(minutesPlayed);
-            
 
-
-            if (intGoals>=0 && intAssists >=0 && intMinutesPlayer >=0 && intMinutesPlayer <=90 && !"".Equals(goals) && !"".Equals(assists) && !"".Equals(minutesPlayed))
+            try
             {
-                if (intGoals + currGoals > teamScored || intAssists + currAssists > teamScored)
+                int intGoals = Int32.Parse(goals);
+                int intAssists = Int32.Parse(assists);
+                int intMinutesPlayer = Int32.Parse(minutesPlayed);
+
+                if (intGoals >= 0 && intAssists >= 0 && intMinutesPlayer >= 0 && intMinutesPlayer <= 90 && !"".Equals(goals) && !"".Equals(assists) && !"".Equals(minutesPlayed))
                 {
-                    MessageBox.Show("Too many goals and assists!");
-                } else
-                {
-                    PlayerInGame pig = new PlayerInGame(player.PlayerId, Int32.Parse(goals), Int32.Parse(assists), gotYellow, gotRed, player.ClubId, player.GameId, startedGame, Int32.Parse(minutesPlayed));
-                    pig.FirstName = player.FirstName;
-                    pig.LastName = player.LastName;
-                    PlayerDB.UpdatePlayerInGame(pig);
-                    foreach (var player in window.DataGridXAML.Items)
+                    if (intGoals + currGoals > teamScored || intAssists + currAssists > teamScored)
                     {
-                        PlayerInGame p = (PlayerInGame)player;
-                        if (p.PlayerId == pig.PlayerId)
-                        {
-                            window.DataGridXAML.Items.Remove(player);
-                            break;
-                        }
+                        TooManyGoals();
                     }
-                    window.DataGridXAML.Items.Add(pig);
-                    Close();
+                    else
+                    {
+                        PlayerInGame pig = new PlayerInGame(player.PlayerId, Int32.Parse(goals), Int32.Parse(assists), gotYellow, gotRed, player.ClubId, player.GameId, startedGame, Int32.Parse(minutesPlayed));
+                        pig.FirstName = player.FirstName;
+                        pig.LastName = player.LastName;
+                        PlayerDB.UpdatePlayerInGame(pig);
+                        foreach (var player in window.DataGridXAML.Items)
+                        {
+                            PlayerInGame p = (PlayerInGame)player;
+                            if (p.PlayerId == pig.PlayerId)
+                            {
+                                window.DataGridXAML.Items.Remove(player);
+                                break;
+                            }
+                        }
+                        window.DataGridXAML.Items.Add(pig);
+                        Close();
+                    }
+
                 }
-                    
-            }
-            else
+                else
+                {
+                    NoInputMessage();
+                }
+            } catch(Exception ex)
             {
                 NoInputMessage();
             }
+            
+        }
+
+        private void TooManyGoals()
+        {
+            var Mssg = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                Mssg = ConfigurationManager.AppSettings["TooManyGoalsMessage"];
+            }
+            else
+            {
+                Mssg = ConfigurationManager.AppSettings["TooManyGoalsMessageSE"];
+            }
+            MessageBox.Show(Mssg);
         }
 
         private void NoInputMessage()

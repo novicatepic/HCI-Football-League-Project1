@@ -91,3 +91,5 @@ C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\H
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\OptionsWindow\OptionsWindow.g.cs
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\OptionsWindow\OptionsWindow.baml
 C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\App.baml
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\NewPasswordWindow\ChangePasswordWindow.g.cs
+C:\Users\User\Desktop\HCI-Football-League-Project1\HCI-Project1-FootballLeague\HCI-Project1-FootballLeague\obj\Debug\NewPasswordWindow\ChangePasswordWindow.baml

@@ -1,5 +1,6 @@
 ﻿using HCI_Project1_FootballLeague.AdminsStartWindows;
 using HCI_Project1_FootballLeague.DBFunctions;
+using HCI_Project1_FootballLeague.NewPasswordWindow;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -75,6 +76,8 @@ namespace HCI_Project1_FootballLeague.OptionsWindow
             var OptionsWLanguageLBL = "";
             var OptionsWInterfaceLBL = "";
             var OptionsWSubmitBTN = "";
+            var OptionsWindowNewPasswordLBL = "";
+            var OptionsWindowNewPasswordBTN = "";
 
             if ("en".Equals(MainWindow.LoggedInAdmin.Language))
             {
@@ -83,6 +86,9 @@ namespace HCI_Project1_FootballLeague.OptionsWindow
                 OptionsWLanguageLBL = ConfigurationManager.AppSettings["OptionsWLanguageLBL"];
                 OptionsWInterfaceLBL = ConfigurationManager.AppSettings["OptionsWInterfaceLBL"];
                 OptionsWSubmitBTN = ConfigurationManager.AppSettings["OptionsWSubmitBTN"];
+
+                OptionsWindowNewPasswordLBL = ConfigurationManager.AppSettings["OptionsWindowNewPasswordLBL"];
+                OptionsWindowNewPasswordBTN = ConfigurationManager.AppSettings["OptionsWindowNewPasswordBTN"];
             }
             else
             {
@@ -91,12 +97,18 @@ namespace HCI_Project1_FootballLeague.OptionsWindow
                 OptionsWLanguageLBL = ConfigurationManager.AppSettings["OptionsWLanguageLBLSE"];
                 OptionsWInterfaceLBL = ConfigurationManager.AppSettings["OptionsWInterfaceLBLSE"];
                 OptionsWSubmitBTN = ConfigurationManager.AppSettings["OptionsWSubmitBTNSE"];
+
+                OptionsWindowNewPasswordLBL = ConfigurationManager.AppSettings["OptionsWindowNewPasswordLBLSE"];
+                OptionsWindowNewPasswordBTN = ConfigurationManager.AppSettings["OptionsWindowNewPasswordBTNSE"];
+                
             }
             this.Title = OptionsWHeaderTitle;
             HeaderLabel.Content = OptionsWHeaderLBL;
             SubmitBTN.Content = OptionsWSubmitBTN;
             LanguageLabel.Content = OptionsWLanguageLBL;
             InterfaceLabel.Content = OptionsWInterfaceLBL;
+            NewPasswordLBL.Content = OptionsWindowNewPasswordLBL;
+            ChPWBttn.Content = OptionsWindowNewPasswordBTN;
         }
         private void PopulateData()
         {
@@ -136,6 +148,12 @@ namespace HCI_Project1_FootballLeague.OptionsWindow
                 }
                 //Close();
             }
+        }
+
+        private void ChPWBttn_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePasswordWindow cpw = new ChangePasswordWindow();
+            cpw.ShowDialog();
         }
     }
 }

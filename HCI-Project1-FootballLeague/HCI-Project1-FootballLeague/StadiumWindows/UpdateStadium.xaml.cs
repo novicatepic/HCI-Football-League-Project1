@@ -106,18 +106,26 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
             var name = NameTB.Text;
             var capacity = CapacityTB.Text;
             var town = TownTB.Text;
-            int intCapacity = Int32.Parse(capacity);
-            if (intCapacity>=0 && !"".Equals(name) && !"".Equals(capacity) && !"".Equals(town))
+            
+            try
             {
-                Stadium st = new Stadium(s.StadiumId, name, Int32.Parse(capacity), town);
-                StadiumDB.UpdateStadium(st);
-                sw.DrawData();
-                Close();
-            }
-            else
+                int intCapacity = Int32.Parse(capacity);
+                if (intCapacity >= 0 && !"".Equals(name) && !"".Equals(capacity) && !"".Equals(town))
+                {
+                    Stadium st = new Stadium(s.StadiumId, name, Int32.Parse(capacity), town);
+                    StadiumDB.UpdateStadium(st);
+                    sw.DrawData();
+                    Close();
+                }
+                else
+                {
+                    NoInputMessage();
+                }
+            } catch(Exception ex)
             {
                 NoInputMessage();
             }
+           
         }
 
         private void NoInputMessage()

@@ -23,7 +23,6 @@
 
             <!-- Column Header Text & Bindings -->
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="AdminIdC" Header="Admin Id" Width="1*" Binding="{Binding AdminId}"/>
                 <DataGridTextColumn x:Name="AdminUserNameC" Header="User Name" Width="1*" Binding="{Binding UserName}"/>
             </DataGrid.Columns>
         </DataGrid>

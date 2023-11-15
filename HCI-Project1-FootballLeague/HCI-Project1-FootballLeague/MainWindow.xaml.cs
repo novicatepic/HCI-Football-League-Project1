@@ -105,7 +105,7 @@ namespace HCI_Project1_FootballLeague
                 {
                     MainAdminStartWindow mainAdminStartWindow = new MainAdminStartWindow(this);
                     mainAdminStartWindow.ShowDialog();
-                    
+                    this.Close();
                 }
                 else
                 {

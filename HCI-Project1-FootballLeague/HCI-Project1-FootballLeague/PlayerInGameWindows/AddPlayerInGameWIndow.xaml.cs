@@ -235,29 +235,53 @@ namespace HCI_Project1_FootballLeague.PlayerInGameWindows
                 currGoals += pig.NumGoalsInGame;
                 currAssists += pig.NumAssistsInGame;
             }
-            int intGoals = Int32.Parse(goals);
-            int intAssists = Int32.Parse(assists);
-            int intMinutesPlayer = Int32.Parse(minutesPlayed);
-            
-            if (intGoals>=0 && intAssists>=0 && intMinutesPlayer>=0 && intMinutesPlayer <=90 && !"".Equals(goals) && !"".Equals(assists) && !"".Equals(minutesPlayed) && player != null)
+
+            try
             {
-                if(intGoals + currGoals > teamScored || intAssists + currAssists > teamScored)
+                int intGoals = Int32.Parse(goals);
+                int intAssists = Int32.Parse(assists);
+                int intMinutesPlayer = Int32.Parse(minutesPlayed);
+
+                if (intGoals >= 0 && intAssists >= 0 && intMinutesPlayer >= 0 && intMinutesPlayer <= 90 && !"".Equals(goals) && !"".Equals(assists) && !"".Equals(minutesPlayed) && player != null)
                 {
-                    MessageBox.Show("Too many goals and assists!");
-                } else
+                    if (intGoals + currGoals > teamScored || intAssists + currAssists > teamScored)
+                    {
+                        TooManyGoals();
+                    }
+                    else
+                    {
+                        PlayerInGame pig = new PlayerInGame(player.PlayerId, Int32.Parse(goals), Int32.Parse(assists), gotYellow, gotRed, player.ClubId, gameInfo.GameId, startedGame, Int32.Parse(minutesPlayed));
+                        pig.FirstName = player.FirstName;
+                        pig.LastName = player.LastName;
+                        PlayerDB.AddPlayerInGame(pig);
+                        window.DataGridXAML.Items.Add(pig);
+                        Close();
+                    }
+                }
+                else
                 {
-                    PlayerInGame pig = new PlayerInGame(player.PlayerId, Int32.Parse(goals), Int32.Parse(assists), gotYellow, gotRed, player.ClubId, gameInfo.GameId, startedGame, Int32.Parse(minutesPlayed));
-                    pig.FirstName = player.FirstName;
-                    pig.LastName = player.LastName;
-                    PlayerDB.AddPlayerInGame(pig);
-                    window.DataGridXAML.Items.Add(pig);
-                    Close();
-                }           
-            }
-            else
+                    NoInputMessage();
+                }
+            } catch(Exception ex)
             {
                 NoInputMessage();
             }
+
+            
+        }
+
+        private void TooManyGoals()
+        {
+            var Mssg = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                Mssg = ConfigurationManager.AppSettings["TooManyGoalsMessage"];
+            }
+            else
+            {
+                Mssg = ConfigurationManager.AppSettings["TooManyGoalsMessageSE"];
+            }
+            MessageBox.Show(Mssg);
         }
 
         private void NoInputMessage()

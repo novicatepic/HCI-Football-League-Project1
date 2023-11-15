@@ -45,8 +45,10 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
             DrawStyle();
 
 
-            HomeTeamLBL.Content = UpdateTIGHomeTeamLBL + gi.HomeTeamName;
-            AwayTeamLBL.Content = UpdateTIGAwayTeamLBL + gi.AwayTeamName;
+            /*HomeTeamLBL.Content = UpdateTIGHomeTeamLBL + gi.HomeTeamName;
+            AwayTeamLBL.Content = UpdateTIGAwayTeamLBL + gi.AwayTeamName;*/
+
+            GameLBL.Content = gi.HomeTeamName + "-" + gi.AwayTeamName;
             FixtureNumLBL.Content = AddPlayerFixtureLBL + fixture;
             SeasonLBL.Content = AddPlayerSeasonLBL + season;
         }
@@ -134,129 +136,148 @@ namespace HCI_Project1_FootballLeague.TeamInGameWindows
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var homeGoals = HomeGoalsTB.Text;
-            var awayGoals = AwayGoalsTB.Text;
-            var date = DatePickerBox.SelectedDate.Value;
-            int intHomeGoals = Int32.Parse(homeGoals);
-            int intAwayGoals = Int32.Parse(awayGoals);
-            if (intHomeGoals>=0 && intAwayGoals>=0 && !"".Equals(homeGoals) && !"".Equals(awayGoals) && date != null)
+            try
             {
-                SeasonStats homeTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gameInfo.HomeClubId, season);
-                SeasonStats awayTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gameInfo.AwayClubId, season);
-                if (currHomeGoals > currAwayGoals)
+                var homeGoals = HomeGoalsTB.Text;
+                var awayGoals = AwayGoalsTB.Text;
+                var date = DatePickerBox.SelectedDate.Value;
+                int intHomeGoals = Int32.Parse(homeGoals);
+                int intAwayGoals = Int32.Parse(awayGoals);
+                if (intHomeGoals >= 0 && intAwayGoals >= 0 && !"".Equals(homeGoals) && !"".Equals(awayGoals) && date != null)
                 {
-                    homeTeamStats.NumWins -= 1;
-                    awayTeamStats.NumLoses -= 1;
-                    homeTeamStats.NumPoints -= 3;
-                }
-                else if (currHomeGoals < currAwayGoals)
-                {
-                    awayTeamStats.NumWins -= 1;
-                    homeTeamStats.NumLoses -= 1;
-                    awayTeamStats.NumPoints -= 3;
+                    SeasonStats homeTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gameInfo.HomeClubId, season);
+                    SeasonStats awayTeamStats = SeasonStatsDB.GetStatsBasedOnClub(gameInfo.AwayClubId, season);
+                    if (currHomeGoals > currAwayGoals)
+                    {
+                        homeTeamStats.NumWins -= 1;
+                        awayTeamStats.NumLoses -= 1;
+                        homeTeamStats.NumPoints -= 3;
+                    }
+                    else if (currHomeGoals < currAwayGoals)
+                    {
+                        awayTeamStats.NumWins -= 1;
+                        homeTeamStats.NumLoses -= 1;
+                        awayTeamStats.NumPoints -= 3;
+                    }
+                    else
+                    {
+                        homeTeamStats.NumDraws -= 1;
+                        awayTeamStats.NumDraws -= 1;
+                        homeTeamStats.NumPoints -= 1;
+                        awayTeamStats.NumPoints -= 1;
+                    }
+                    homeTeamStats.NumScored -= currHomeGoals;
+                    homeTeamStats.NumConceded -= currAwayGoals;
+                    awayTeamStats.NumScored -= currAwayGoals;
+                    awayTeamStats.NumConceded -= currHomeGoals;
+                    homeTeamStats.NumGamesPlayed -= 1;
+                    awayTeamStats.NumGamesPlayed -= 1;
+
+
+
+                    if (intHomeGoals > intAwayGoals)
+                    {
+                        homeTeamStats.NumWins += 1;
+                        awayTeamStats.NumLoses += 1;
+                        homeTeamStats.NumPoints += 3;
+                    }
+                    else if (intHomeGoals < intAwayGoals)
+                    {
+                        awayTeamStats.NumWins += 1;
+                        homeTeamStats.NumLoses += 1;
+                        awayTeamStats.NumPoints += 3;
+                    }
+                    else
+                    {
+                        homeTeamStats.NumDraws += 1;
+                        awayTeamStats.NumDraws += 1;
+                        homeTeamStats.NumPoints += 1;
+                        awayTeamStats.NumPoints += 1;
+                    }
+                    homeTeamStats.NumScored += intHomeGoals;
+                    homeTeamStats.NumConceded += intAwayGoals;
+                    awayTeamStats.NumScored += intAwayGoals;
+                    awayTeamStats.NumConceded += intHomeGoals;
+                    homeTeamStats.NumGamesPlayed += 1;
+                    awayTeamStats.NumGamesPlayed += 1;
+
+                    ClubInGame cigHome = null;
+                    ClubInGame cigAway = null;
+                    List<PlayerInGame> playersFromTeamAndGameHome = new List<PlayerInGame>();
+                    List<PlayerInGame> playersFromTeamAndGameAway = new List<PlayerInGame>();
+                    int teamHomeScored = 0;
+                    int teamAwayScored = 0;
+
+                    cigHome = FootballClubDB.GetClubInGame(gameInfo.HomeClubId, gameInfo.GameId);
+                    teamHomeScored = gameInfo.HomeTeamGoals;
+
+                    cigAway = FootballClubDB.GetClubInGame(gameInfo.AwayClubId, gameInfo.GameId);
+                    teamAwayScored = gameInfo.AwayTeamGoals;
+
+                    foreach (PlayerInGame pig in PlayerDB.GetPlayersFromClubAndGame(gameInfo.HomeClubId, gameInfo.GameId))
+                    {
+                        playersFromTeamAndGameHome.Add(pig);
+                    }
+                    foreach (PlayerInGame pig in PlayerDB.GetPlayersFromClubAndGame(gameInfo.AwayClubId, gameInfo.GameId))
+                    {
+                        playersFromTeamAndGameAway.Add(pig);
+                    }
+
+                    int currGoalsHome = 0;
+                    int currAssistsHome = 0;
+                    foreach (PlayerInGame pig in playersFromTeamAndGameHome)
+                    {
+                        currGoalsHome += pig.NumGoalsInGame;
+                        currAssistsHome += pig.NumAssistsInGame;
+                    }
+
+                    int currGoalsAway = 0;
+                    int currAssistsAway = 0;
+                    foreach (PlayerInGame pig in playersFromTeamAndGameAway)
+                    {
+                        currGoalsAway += pig.NumGoalsInGame;
+                        currAssistsAway += pig.NumAssistsInGame;
+                    }
+
+                    if (intHomeGoals < currGoalsHome || intAwayGoals < currGoalsAway)
+                    {
+                        MessageBox.Show("Too little goals and assists!");
+                    }
+                    else
+                    {
+                        SeasonStatsDB.UpdateStats(homeTeamStats);
+                        SeasonStatsDB.UpdateStats(awayTeamStats);
+                        GameDB.UpdateClubInGame(new ClubInGame(gameInfo.HomeClubId, gameInfo.GameId, Int32.Parse(homeGoals), true));
+                        GameDB.UpdateClubInGame(new ClubInGame(gameInfo.AwayClubId, gameInfo.GameId, Int32.Parse(awayGoals), false));
+                        GameDB.UpdateGame(new Game(gameInfo.GameId, date, fixture, season));
+                        window.DrawData();
+                        Close();
+                    }
+
                 }
                 else
                 {
-                    homeTeamStats.NumDraws -= 1;
-                    awayTeamStats.NumDraws -= 1;
-                    homeTeamStats.NumPoints -= 1;
-                    awayTeamStats.NumPoints -= 1;
+                    NoInputMessage();
                 }
-                homeTeamStats.NumScored -= currHomeGoals;
-                homeTeamStats.NumConceded -= currAwayGoals;
-                awayTeamStats.NumScored -= currAwayGoals;
-                awayTeamStats.NumConceded -= currHomeGoals;
-                homeTeamStats.NumGamesPlayed -= 1;
-                awayTeamStats.NumGamesPlayed -= 1;
-
-
-
-                if (intHomeGoals > intAwayGoals)
-                {
-                    homeTeamStats.NumWins += 1;
-                    awayTeamStats.NumLoses += 1;
-                    homeTeamStats.NumPoints += 3;
-                }
-                else if (intHomeGoals < intAwayGoals)
-                {
-                    awayTeamStats.NumWins += 1;
-                    homeTeamStats.NumLoses += 1;
-                    awayTeamStats.NumPoints += 3;
-                }
-                else
-                {
-                    homeTeamStats.NumDraws += 1;
-                    awayTeamStats.NumDraws += 1;
-                    homeTeamStats.NumPoints += 1;
-                    awayTeamStats.NumPoints += 1;
-                }
-                homeTeamStats.NumScored += intHomeGoals;
-                homeTeamStats.NumConceded += intAwayGoals;
-                awayTeamStats.NumScored += intAwayGoals;
-                awayTeamStats.NumConceded += intHomeGoals;
-                homeTeamStats.NumGamesPlayed += 1;
-                awayTeamStats.NumGamesPlayed += 1;
-
-
-
-
-                ClubInGame cigHome = null;
-                ClubInGame cigAway = null;
-                List<PlayerInGame> playersFromTeamAndGameHome = new List<PlayerInGame>();
-                List<PlayerInGame> playersFromTeamAndGameAway = new List<PlayerInGame>();
-                int teamHomeScored = 0;
-                int teamAwayScored = 0;
-
-                cigHome = FootballClubDB.GetClubInGame(gameInfo.HomeClubId, gameInfo.GameId);
-                teamHomeScored = gameInfo.HomeTeamGoals;
-
-                cigAway = FootballClubDB.GetClubInGame(gameInfo.AwayClubId, gameInfo.GameId);
-                teamAwayScored = gameInfo.AwayTeamGoals;
-
-                foreach (PlayerInGame pig in PlayerDB.GetPlayersFromClubAndGame(gameInfo.HomeClubId, gameInfo.GameId))
-                {
-                    playersFromTeamAndGameHome.Add(pig);
-                }
-                foreach (PlayerInGame pig in PlayerDB.GetPlayersFromClubAndGame(gameInfo.AwayClubId, gameInfo.GameId))
-                {
-                    playersFromTeamAndGameAway.Add(pig);
-                }
-
-                int currGoalsHome = 0;
-                int currAssistsHome = 0;
-                foreach (PlayerInGame pig in playersFromTeamAndGameHome)
-                {
-                    currGoalsHome += pig.NumGoalsInGame;
-                    currAssistsHome += pig.NumAssistsInGame;
-                }
-
-                int currGoalsAway = 0;
-                int currAssistsAway = 0;
-                foreach (PlayerInGame pig in playersFromTeamAndGameAway)
-                {
-                    currGoalsAway += pig.NumGoalsInGame;
-                    currAssistsAway += pig.NumAssistsInGame;
-                }
-
-                if (intHomeGoals < currGoalsHome || intAwayGoals < currGoalsAway)
-                {
-                    MessageBox.Show("Too little goals and assists!");
-                } else
-                {
-                    SeasonStatsDB.UpdateStats(homeTeamStats);
-                    SeasonStatsDB.UpdateStats(awayTeamStats);
-                    GameDB.UpdateClubInGame(new ClubInGame(gameInfo.HomeClubId, gameInfo.GameId, Int32.Parse(homeGoals), true));
-                    GameDB.UpdateClubInGame(new ClubInGame(gameInfo.AwayClubId, gameInfo.GameId, Int32.Parse(awayGoals), false));
-                    GameDB.UpdateGame(new Game(gameInfo.GameId, date, fixture, season));
-                    window.DrawData();
-                    Close();
-                }            
-
-            }
-            else
+            } catch(Exception ex)
             {
                 NoInputMessage();
             }
+           
+        }
+
+        private void TooLittleGoalsMessage()
+        {
+            var Mssg = "";
+            if ("en".Equals(MainWindow.LoggedInAdmin.Language))
+            {
+                Mssg = ConfigurationManager.AppSettings["TooLittleGoalsMessage"];
+            }
+            else
+            {
+                Mssg = ConfigurationManager.AppSettings["TooLittleGoalsMessageSE"];
+            }
+            MessageBox.Show(Mssg);
         }
 
         private void NoInputMessage()

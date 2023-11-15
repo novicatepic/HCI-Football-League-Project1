@@ -131,26 +131,32 @@ namespace HCI_Project1_FootballLeague.PlayerWindows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var id = p.PlayerId;
-            var firstName = FirstNameTB.Text;
-            var lastName = LastNameTB.Text;
-            var shirtNum = ShirtNumberTB.Text;
-            var date = DatePickerBox.SelectedDate.Value;
-            var club = (FootballClub)ClubComboBox.SelectedItem;
-            int intShirtNum = Int32.Parse(shirtNum);
-            if(intShirtNum > 0 && intShirtNum <= 90 && !"".Equals(firstName) && !"".Equals(lastName) && !"".Equals(shirtNum))
+            try
             {
-                Player pl = new Player(id, Int32.Parse(shirtNum), p.NumGoals, p.NumAssists, p.NumYellowCards, p.NumRedCards, firstName,
-                lastName, date, club.ClubId);
-                PlayerDB.UpdatePlayer(pl);
-                pw.DrawData();
-                Close();
-            } else
+                var id = p.PlayerId;
+                var firstName = FirstNameTB.Text;
+                var lastName = LastNameTB.Text;
+                var shirtNum = ShirtNumberTB.Text;
+                var date = DatePickerBox.SelectedDate.Value;
+                var club = (FootballClub)ClubComboBox.SelectedItem;
+                int intShirtNum = Int32.Parse(shirtNum);
+                if (intShirtNum > 0 && intShirtNum <= 90 && !"".Equals(firstName) && !"".Equals(lastName) && !"".Equals(shirtNum))
+                {
+                    Player pl = new Player(id, Int32.Parse(shirtNum), p.NumGoals, p.NumAssists, p.NumYellowCards, p.NumRedCards, firstName,
+                    lastName, date, club.ClubId);
+                    PlayerDB.UpdatePlayer(pl);
+                    pw.DrawData();
+                    Close();
+                }
+                else
+                {
+                    NoInputMessage();
+                }
+            } catch(Exception ex)
             {
                 NoInputMessage();
             }
-            
-
+           
         }
 
         private void NoInputMessage()

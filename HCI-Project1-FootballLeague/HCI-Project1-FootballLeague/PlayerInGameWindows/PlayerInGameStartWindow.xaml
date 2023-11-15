@@ -56,6 +56,6 @@
         <ComboBox x:Name="ChooseRealFixtureBox" SelectionChanged="ChooseRealFixtureBox_SelectionChanged"  VerticalAlignment="Top" Margin="270,160,10,0" Height="33"/>
         <Button x:Name="HomePlayersBTN" Click="HomePlayersBTN_Click" Content="HOME PLAYERS" FontSize="14"  VerticalAlignment="Top" Margin="270,215,708,0" Height="49" Width="242"/>
         <Button Content="AWAY PLAYERS" x:Name="AwayPlayersBTN" Click="AwayPlayersBTN_Click" Margin="718,215,260,0" VerticalAlignment="Top" Height="49" Width="242"/>
-        <Label x:Name="WhosePlayersLBL" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Content="Players" HorizontalAlignment="Center" Margin="0,269,0,0" VerticalAlignment="Top" Width="1230" Height="59"/>
+        <Label x:Name="WhosePlayersLBL" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" HorizontalAlignment="Center" Margin="0,269,0,0" VerticalAlignment="Top" Width="1230" Height="59"/>
     </Grid>
 </Window>

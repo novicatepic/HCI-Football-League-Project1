@@ -23,12 +23,10 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label  Height="39" Grid.Column="0" x:Name="HomeTeamLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
-            <Label  Height="39" Grid.Column="1" x:Name="AwayTeamLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
-            <Label  Height="39" Grid.Column="2" x:Name="FixtureNumLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
-            <Label  Height="39" Grid.Column="3" x:Name="SeasonLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
+            <Label  Height="39" Grid.Column="0" x:Name="GameLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="310" Margin="0,50,0,50"/>
+            <Label  Height="39" Grid.Column="1" x:Name="FixtureNumLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
+            <Label  Height="39" Grid.Column="2" x:Name="SeasonLBL" Content="" FontSize="18" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center"  Width="232"/>
         </Grid>
 
         <Grid Grid.Row="2">

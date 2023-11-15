@@ -6,13 +6,48 @@
         xmlns:local="clr-namespace:HCI_Project1_FootballLeague.OptionsWindow"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Options Window" Height="770" Width="1000" MinHeight="770" MinWidth="1000" ResizeMode="NoResize">
+        Title="Options Window" Height="850" Width="1100" MinHeight="850" MinWidth="1100" ResizeMode="NoResize">
     <Grid x:Name="Grid">
-        <Label x:Name="HeaderLabel" Content="CHANGE OPTIONS" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="67" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,10,467"/>
-        <Label x:Name="LanguageLabel" Content="Language" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="225,166,523,329"/>
-        <Button x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,484,0,30" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
-        <Label x:Name="InterfaceLabel" Content="Interface" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" Margin="225,324,523,169"/>
-        <ComboBox x:Name="LanguageCB" Margin="490,259,230,422" Width="260" Height="43"/>
-        <ComboBox x:Name="InterfaceCB" Margin="490,418,230,263" Width="260" Height="43"/>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="LanguageLabel" Content="Language" FontSize="14" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalContentAlignment="Center" Width="232"/>
+            <ComboBox Grid.Column="1" x:Name="LanguageCB" HorizontalAlignment="Left" Width="260" Height="43"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="InterfaceLabel" Content="Interface" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" HorizontalAlignment="Right"/>
+            <ComboBox x:Name="InterfaceCB" HorizontalAlignment="Left" Grid.Column="1" Width="260" Height="43"/>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" x:Name="ChPWBttn" Click="ChPWBttn_Click" Content="CHANGE PASSWORD"  FontSize="14" Width="260" Height="43" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center" RenderTransformOrigin="0.541,0.903"/>
+            <Label Grid.Column="0" x:Name="NewPasswordLBL" Content="New Password" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="232" HorizontalAlignment="Right"/>
+        </Grid>
+
+        <Label VerticalAlignment="Top" Margin="160,0,160,0" Grid.Row="0"  x:Name="HeaderLabel" Content="CHANGE OPTIONS" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780" Height="97"/>
+
+        <Button Grid.Row="4" x:Name="SubmitBTN" Click="Button_Click" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,0,0,30" FontSize="20" Width="232" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+
+
     </Grid>
 </Window>

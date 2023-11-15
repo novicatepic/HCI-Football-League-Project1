@@ -1,0 +1,39 @@
+CREATE DATABASE  IF NOT EXISTS `fudbalskaliga-hci` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `fudbalskaliga-hci`;
+-- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
+--
+-- Host: localhost    Database: fudbalskaliga-hci
+-- ------------------------------------------------------
+-- Server version	8.0.32
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Dumping data for table `fudbalski_klub`
+--
+
+LOCK TABLES `fudbalski_klub` WRITE;
+/*!40000 ALTER TABLE `fudbalski_klub` DISABLE KEYS */;
+INSERT INTO `fudbalski_klub` VALUES (1,'Manchester United','1945-10-10',24,2),(2,'Man City','2010-09-21',13,1),(3,'Arsenal','1986-09-23',13,6),(4,'Aston Villa','1909-05-05',7,16),(5,'Bournemouth','1909-05-05',0,17),(6,'Brighton','1909-05-05',0,19),(7,'Chelsea','1909-05-05',6,7),(8,'Crystal Palace','1909-05-05',0,13),(9,'Everton','1909-05-05',9,11),(10,'Leicester','1909-05-05',1,15),(11,'Liverpool','1909-05-05',19,9),(12,'Newcastle','1909-05-05',4,12),(13,'Southampton','2009-05-06',1,14),(14,'Tottenham','1909-05-05',0,8),(15,'West Ham','1909-05-05',0,10),(16,'Wolves','2009-05-04',11,18),(17,'Brentford','1986-11-21',1,20),(25,'test','2023-11-06',12,13);
+/*!40000 ALTER TABLE `fudbalski_klub` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-11-10 19:54:34

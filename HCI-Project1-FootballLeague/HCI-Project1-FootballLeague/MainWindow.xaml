@@ -14,8 +14,8 @@
             <ColumnDefinition Width="82*"/>
         </Grid.ColumnDefinitions>
 
-        <Label x:Name="UserNameLabel" FontSize="16" Content="Input username" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="276,229,350,366"  Width="160" Height="49"/>
-        <Label x:Name="PasswordLabel" FontSize="16" Content="Input password" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="276,342,350,253"  Width="160" Height="49"/>
+        <Label x:Name="UserNameLabel" FontSize="16" Content="Username" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="276,229,350,366"  Width="160" Height="49"/>
+        <Label x:Name="PasswordLabel" FontSize="16" Content="Password" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="276,342,350,253"  Width="160" Height="49"/>
         <TextBox x:Name="userNameBox" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="475,229,138,366" TextWrapping="Wrap"  Width="173" Height="49"/>
         <PasswordBox  x:Name="passwordBox" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="475,342,138,253" Width="173" Height="49"/>
         <Button x:Name="ProceedBTN" Click="Button_Click" Content="PROCEED" Margin="351,0,187,20" VerticalAlignment="Bottom" Height="74" Width="248"/>

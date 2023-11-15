@@ -111,8 +111,6 @@ namespace HCI_Project1_FootballLeague.LeagueAdminTableWindow
             //UpdateButton.Content = LeagueAdminWUpdateBTN;
             DeleteButton.Content = LeagueAdminWDeleteBTN;
             FilterLabel.Content = LeagueAdminWFilterLBL;
-
-            AdminIdC.Header = AdminIdCOL;
             AdminUserNameC.Header = AdminUserNameCOL;
             //AdminPasswordC.Header = AdminPasswordCOL;
         }

@@ -116,23 +116,30 @@ namespace HCI_Project1_FootballLeague.PlayerWindows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var firstName = FirstNameTB.Text;
-            var lastName = LastNameTB.Text;
-            var date = DatePickerBox.SelectedDate.Value;
-            var shirtNumber = ShirtNumberTB.Text;
-            var club = (FootballClub)ClubComboBox.SelectedItem;
-            int intShirtNum = Int32.Parse(shirtNumber);
-            if (intShirtNum>0 && intShirtNum <=99 && !"".Equals(firstName) && !"".Equals(lastName) && date != null && !"".Equals(shirtNumber) && club != null)
+            try
             {
-                Player player = new Player(Int32.Parse(shirtNumber), 0, 0, 0, 0, firstName, lastName, date, club.ClubId);
-                PlayerDB.AddPlayer(player);
-                pw.DrawData();
-                Close();
-            }
-            else
+                var firstName = FirstNameTB.Text;
+                var lastName = LastNameTB.Text;
+                var date = DatePickerBox.SelectedDate.Value;
+                var shirtNumber = ShirtNumberTB.Text;
+                var club = (FootballClub)ClubComboBox.SelectedItem;
+                int intShirtNum = Int32.Parse(shirtNumber);
+                if (intShirtNum > 0 && intShirtNum <= 99 && !"".Equals(firstName) && !"".Equals(lastName) && date != null && !"".Equals(shirtNumber) && club != null)
+                {
+                    Player player = new Player(Int32.Parse(shirtNumber), 0, 0, 0, 0, firstName, lastName, date, club.ClubId);
+                    PlayerDB.AddPlayer(player);
+                    pw.DrawData();
+                    Close();
+                }
+                else
+                {
+                    NoInputMessage();
+                }
+            } catch(Exception ex)
             {
                 NoInputMessage();
             }
+            
         }
 
         private void NoInputMessage()

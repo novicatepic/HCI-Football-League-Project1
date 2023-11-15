@@ -109,22 +109,29 @@ namespace HCI_Project1_FootballLeague.StadiumWindows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var name = NameTB.Text;
-            var date = DatePickerBox.SelectedDate.Value;
-            var trophies = TrophiesWonTB.Text;
-            var stadium = (Stadium)StadiumComboBox.SelectedItem;
-            int intTrophies = Int32.Parse(trophies);
-            if (intTrophies>=0 && !"".Equals(name) && !"".Equals(trophies) && date != null)
+            try
             {
-                FootballClub club = new FootballClub(name, date, Int32.Parse(trophies), stadium.StadiumId);
-                FootballClubDB.AddClub(club);
-                tw.DrawData();
-                Close();
-            }
-            else
+                var name = NameTB.Text;
+                var date = DatePickerBox.SelectedDate.Value;
+                var trophies = TrophiesWonTB.Text;
+                var stadium = (Stadium)StadiumComboBox.SelectedItem;
+                int intTrophies = Int32.Parse(trophies);
+                if (intTrophies >= 0 && !"".Equals(name) && !"".Equals(trophies) && date != null && stadium != null)
+                {
+                    FootballClub club = new FootballClub(name, date, Int32.Parse(trophies), stadium.StadiumId);
+                    FootballClubDB.AddClub(club);
+                    tw.DrawData();
+                    Close();
+                }
+                else
+                {
+                    NoInputMessage();
+                }
+            } catch(Exception ex)
             {
                 NoInputMessage();
             }
+            
         }
 
         private void NoInputMessage()

@@ -150,11 +150,7 @@ namespace HCI_Project1_FootballLeague.DBFunctions
                 cmd.Parameters.AddWithValue("@Lozinka", admin.Password);
                 cmd.Parameters.AddWithValue("@IsGlavniAdmin", admin.IsMainAdmin);
                 cmd.Parameters.AddWithValue("@GlavniAdminId", admin.AdminId);
-
                 int rowsAffected = cmd.ExecuteNonQuery();
-
-                //MessageBox.Show($"{rowsAffected} row(s) updated.");
-
                 return true;
             }
             catch (Exception ex)
@@ -182,6 +178,35 @@ namespace HCI_Project1_FootballLeague.DBFunctions
                 cmd.Parameters.AddWithValue("@Jezik", admin.Language);
                 cmd.Parameters.AddWithValue("@Stil", admin.Look);
                 cmd.Parameters.AddWithValue("@GlavniAdminId", admin.AdminId);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR/ГРЕШКА");
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return false;
+        }
+
+        public static bool UpdateAdminCredentials(string username, string lozinka, int adminId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            try
+            {
+
+                conn.Open();
+
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "UPDATE administrator SET KorisnickoIme=@KorisnickoIme, Lozinka=@Lozinka WHERE GlavniAdminId=@GlavniAdminId";
+
+                cmd.Parameters.AddWithValue("@KorisnickoIme", username);
+                cmd.Parameters.AddWithValue("@Lozinka", lozinka);
+                cmd.Parameters.AddWithValue("@GlavniAdminId", adminId);
 
                 int rowsAffected = cmd.ExecuteNonQuery();
                 return true;
