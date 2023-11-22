@@ -1,0 +1,39 @@
+CREATE DATABASE  IF NOT EXISTS `fudbalskaliga-hci` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `fudbalskaliga-hci`;
+-- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
+--
+-- Host: localhost    Database: fudbalskaliga-hci
+-- ------------------------------------------------------
+-- Server version	8.0.32
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Dumping data for table `igrac`
+--
+
+LOCK TABLES `igrac` WRITE;
+/*!40000 ALTER TABLE `igrac` DISABLE KEYS */;
+INSERT INTO `igrac` VALUES (1,10,1,0,1,-1,'Marcus','Rashford','2011-05-05',1),(2,23,0,0,1,0,'Luke','Shaw','2015-10-10',1),(3,9,0,-1,0,0,'Erling','Haaland','2022-02-02',2),(4,17,0,0,0,0,'Kevin','De Bruyne','2018-05-23',2),(5,9,0,0,1,0,'Antony','Martial','2018-10-10',1),(6,20,0,0,0,0,'Bernardo ','Silva','2020-10-15',2),(7,11,0,0,0,0,'Mohamed','Salah','2019-10-10',13),(8,19,0,0,0,0,'Cody','Gakpo','2023-01-01',13),(9,9,0,0,0,0,'Harry','Kane','2015-10-23',16),(10,11,0,0,0,0,'Heung-Min','Son','2019-01-23',16),(11,12,0,0,0,0,'Bukayo','Saka','2022-07-23',5),(12,13,0,0,0,0,'Gabriel','Martinelli','2021-08-22',5),(13,14,0,0,0,0,'Gabriel','Jesus','2022-06-23',3),(17,0,0,0,0,0,'city','player','2023-10-28',2),(18,0,0,0,0,0,'Novi','Blaa','2023-11-16',11),(19,14,1,0,0,0,'igracarsenal','prezime','2023-11-06',3),(23,13,0,0,0,0,'abc','bca','2023-11-07',3);
+/*!40000 ALTER TABLE `igrac` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-11-10 19:54:33

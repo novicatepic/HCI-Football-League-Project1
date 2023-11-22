@@ -1,0 +1,188 @@
+﻿using HCI_Project1_FootballLeague.Classes;
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+
+namespace HCI_Project1_FootballLeague.DBFunctions
+{
+    public class FootballClubDB
+    {
+        public static List<FootballClub> GetClubs()
+        {
+            List<FootballClub> clubs = new List<FootballClub>();
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT KlubId, Naziv, DatumOsnivanja, BrojOsvojenihTrofeja, StadionId FROM fudbalski_klub";
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+
+                clubs.Add(new FootballClub(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetInt32(3), reader.GetInt32(4)));
+            }
+            reader.Close();
+            conn.Close();
+
+            return clubs;
+        }
+
+        public static List<FootballClub> SearchClubs(string searchString)
+        {
+            List<FootballClub> clubs = new List<FootballClub>();
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT KlubId, Naziv, DatumOsnivanja, BrojOsvojenihTrofeja, StadionId FROM fudbalski_klub WHERE Naziv LIKE CONCAT(@SearchString, '%')";
+            cmd.Parameters.AddWithValue("@SearchString", searchString);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+
+                clubs.Add(new FootballClub(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetInt32(3), reader.GetInt32(4)));
+            }
+            reader.Close();
+            conn.Close();
+
+            return clubs;
+        }
+
+        public static string GetStadiumName(string clubId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT s.Naziv FROM stadion s INNER JOIN fudbalski_klub f ON s.StadionId=f.StadionId WHERE KlubId=@KlubId";
+            cmd.Parameters.AddWithValue("@KlubId", clubId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            string stadiumName = "";
+            while (reader.Read())
+            {
+                stadiumName = reader.GetString(0);
+            }
+            reader.Close();
+            conn.Close();
+            return stadiumName;
+        }
+
+        public static bool AddClub(FootballClub club)
+        {
+
+            MySqlConnection conn2 = new MySqlConnection(MainWindow.ConnectionString);
+            try
+            {
+                conn2.Open();
+
+
+                MySqlCommand cmd2 = conn2.CreateCommand();
+                cmd2 = conn2.CreateCommand();
+                cmd2.CommandText = "INSERT INTO fudbalski_klub(Naziv, DatumOsnivanja, BrojOsvojenihTrofeja, StadionId" +
+                    ") VALUES (@Naziv, @DatumOsnivanja, @BrojOsvojenihTrofeja, @StadionId)";
+                cmd2.Parameters.AddWithValue("@Naziv", club.Name);
+                cmd2.Parameters.AddWithValue("@DatumOsnivanja", club.Date);
+                cmd2.Parameters.AddWithValue("@BrojOsvojenihTrofeja", club.NumTrophies);
+                cmd2.Parameters.AddWithValue("@StadionId", club.StadiumId);
+                int brojRedova = cmd2.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("ERROR/ГРЕШКА");
+            }
+            finally
+            {
+                conn2.Close();
+
+            }
+            return false;
+        }
+
+        public static bool DeleteClub(int id)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            try
+            {
+                conn.Open();
+
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "DELETE FROM fudbalski_klub WHERE KlubId=@KlubId";
+                cmd.Parameters.AddWithValue("@KlubId", id);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return true;
+                //MessageBox.Show($"{rowsAffected} row(s) deleted.");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("ERROR/ГРЕШКА");
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return false;
+
+        }
+
+        public static ClubInGame GetClubInGame(int clubId, int gameId)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            conn.Open();
+            ClubInGame cig = null;
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM klub_na_utakmici WHERE KlubId=@KlubId AND UtakmicaId=@UtakmicaId";
+            cmd.Parameters.AddWithValue("@KlubId", clubId);
+            cmd.Parameters.AddWithValue("@UtakmicaId", gameId);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                cig = new ClubInGame(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetBoolean(3));
+            }
+            reader.Close();
+            conn.Close();
+            return cig;
+        }
+
+        public static bool UpdateClub(FootballClub club)
+        {
+            MySqlConnection conn = new MySqlConnection(MainWindow.ConnectionString);
+            try
+            {
+
+                conn.Open();
+
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "UPDATE fudbalski_klub SET Naziv=@Naziv, DatumOsnivanja=@DatumOsnivanja, BrojOsvojenihTrofeja=@BrojOsvojenihTrofeja, StadionId=@StadionId WHERE KlubId=@KlubId";
+
+                // Set the parameters for the update query
+                cmd.Parameters.AddWithValue("@Naziv", club.Name);
+                cmd.Parameters.AddWithValue("@DatumOsnivanja", club.Date);
+                cmd.Parameters.AddWithValue("@BrojOsvojenihTrofeja", club.NumTrophies);
+                cmd.Parameters.AddWithValue("@StadionId", club.StadiumId);
+                cmd.Parameters.AddWithValue("@KlubId", club.ClubId);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                //MessageBox.Show($"{rowsAffected} row(s) updated.");
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR/ГРЕШКА");
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return false;
+        }
+    }
+}

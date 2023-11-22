@@ -1,0 +1,40 @@
+﻿<Window x:Class="HCI_Project1_FootballLeague.StatsWindows.StatsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_Project1_FootballLeague.StatsWindows"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Stats Window" Height="820" Width="1200" MinWidth="1200" MinHeight="820">
+    <Grid x:Name="Grid" Margin="0,0,0,0">
+        <DataGrid SelectionMode="Single" x:Name="DataGridXAML" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,99,0,0">
+
+            <!-- Font Color / Style of Columns Headings -->
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#F0F0F0"></Setter>
+                    <Setter Property="FontWeight" Value="SemiBold"></Setter>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"></Setter>
+                    <Setter Property="BorderBrush" Value="Black"></Setter>
+
+                </Style>
+            </DataGrid.Resources>
+
+            <!-- Column Header Text & Bindings -->
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="StatsTeamNameC" Header="Team Name" Width="1*" Binding="{Binding ClubName}"/>
+                <DataGridTextColumn x:Name="StatsNumPlayedC" Header="Num Played" Width="1*" Binding="{Binding NumGamesPlayed}"/>
+                <DataGridTextColumn x:Name="StatsNumWinsC" Header="Num Wins" Width="1*" Binding="{Binding NumWins}"/>
+                <DataGridTextColumn x:Name="StatsNumDrawsC" Header="Num Draws" Width="1*" Binding="{Binding NumDraws}"/>
+                <DataGridTextColumn x:Name="StatsNumLosesC" Header="Num Loses" Width="1*" Binding="{Binding NumLoses}"/>
+                <DataGridTextColumn x:Name="StatsNumScoredC" Header="Num Scored" Width="1*" Binding="{Binding NumScored}"/>
+                <DataGridTextColumn x:Name="StatsNumConcededC" Header="Num Conceded" Width="1*" Binding="{Binding NumConceded}"/>
+                <DataGridTextColumn x:Name="StatsNumPointsC" Header="Num Points" Width="1*" Binding="{Binding NumPoints}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox SelectionChanged="ChooseSeasonBox_SelectionChanged" x:Name="ChooseSeasonBox"  VerticalAlignment="Top" Margin="270,24,10,0" Height="45"/>
+        <Label x:Name="ChooseSeasonLabel" Content="Choose Season" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="216" Height="45"/>
+
+    </Grid>
+</Window>

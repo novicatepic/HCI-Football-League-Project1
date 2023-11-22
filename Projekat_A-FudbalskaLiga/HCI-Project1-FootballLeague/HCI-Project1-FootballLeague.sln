@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCI-Project1-FootballLeague", "HCI-Project1-FootballLeague\HCI-Project1-FootballLeague.csproj", "{73C3457E-3B02-49DA-B3C9-1A149DD50E88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73C3457E-3B02-49DA-B3C9-1A149DD50E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C3457E-3B02-49DA-B3C9-1A149DD50E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C3457E-3B02-49DA-B3C9-1A149DD50E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C3457E-3B02-49DA-B3C9-1A149DD50E88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71914A71-68B3-4C6A-B116-E1F457A2DE5A}
+	EndGlobalSection
+EndGlobal

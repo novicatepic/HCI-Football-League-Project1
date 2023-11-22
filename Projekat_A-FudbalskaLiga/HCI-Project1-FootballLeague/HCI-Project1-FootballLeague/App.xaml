@@ -1,0 +1,46 @@
+﻿<Application x:Class="HCI_Project1_FootballLeague.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HCI_Project1_FootballLeague"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Background Resources -->
+        <Style x:Key="BackgroundAlice" TargetType="Grid">
+            <Setter Property="Background" Value="AliceBlue"/>
+        </Style>
+        <Style x:Key="BackgroundBeige" TargetType="Grid">
+            <Setter Property="Background" Value="Beige"/>
+        </Style>
+        <Style x:Key="BackgroundTan" TargetType="Grid">
+            <Setter Property="Background" Value="Tan"/>
+        </Style>
+
+        <Style x:Key="BackgroundAliceSP" TargetType="StackPanel">
+            <Setter Property="Background" Value="AliceBlue"/>
+        </Style>
+        <Style x:Key="BackgroundBeigeSP" TargetType="StackPanel">
+            <Setter Property="Background" Value="Beige"/>
+        </Style>
+        <Style x:Key="BackgroundTanSP" TargetType="StackPanel">
+            <Setter Property="Background" Value="Tan"/>
+        </Style>
+
+        <!-- Font Resources -->
+
+        <Style x:Key="FontLargeBtn" TargetType="Button">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Background" Value="CornflowerBlue"/>
+        </Style>
+
+        <Style x:Key="FontMediumBtn" TargetType="Button">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Background" Value="SandyBrown"/>
+        </Style>
+
+        <Style x:Key="FontSmallBtn" TargetType="Button">
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Background" Value="Khaki"/>
+        </Style>
+           
+    </Application.Resources>
+</Application>
